@@ -1,0 +1,484 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: rgb(10, 10, 58); */
+    background: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
+    color: white;
+    overflow-x: hidden;
+    /* Verhindert nur das seitliche Scrollen */
+    overflow-y: auto;
+    /* Erlaubt explizit das Scrollen nach unten */
+    min-height: 100vh;
+    /* Sorgt dafür, dass der Body mindestens so hoch wie der Bildschirm ist */
+
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: white;
+}
+
+*,
+*::before,
+*,
+::after {
+    box-sizing: border-box;
+}
+
+/*begrenzung des offer-container */
+.offer-container {
+    max-width: min(800px, 100%);
+    /* begrenzt die Länge */
+    margin: 0 auto;
+    /* horizontal zentriert */
+    padding: 2rem;
+    /* Innenabstand */
+
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+
+
+
+/*Textzeilen für Angebotsanfarge*/
+.offer-container input,
+.offer-container textarea,
+.offer-container select {
+    margin-top: 6px;
+    width: 100%;
+    padding: 0.75rem 1rem;
+
+    font-size: 1rem;
+    font-family: inherit;
+    color: white;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.35);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+select option {
+    color: #020617;
+    /* dunkler Text */
+    background: #ffffff;
+    /* heller Hintergrund */
+}
+
+select {
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+
+.logo-item {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    pointer-events: all;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+}
+
+a.logo-offer {
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------------------- */
+/* Container-Layout */
+.section {
+    padding: 130px 10%;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    font-weight: 700;
+}
+
+/* Das Grid-System (Sehr wichtig für Profis!) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+
+}
+
+.card p {
+    color: rgb(201, 201, 201);
+}
+
+
+
+/* Futuristisches Card-Design */
+.card {
+    background: transparent;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1.8px solid rgba(253, 253, 253, 0.678);
+    transition: 0.3s;
+    box-shadow: 0 0 7px rgba(255, 255, 255, 0.637);
+    margin-bottom: 120px;
+
+}
+
+.card:hover {
+    border-color: #0ea5e9;
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px #0ea5e9;
+}
+
+.cta-card {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+/* Navigation-Bar */
+.navbar {
+    margin-top: 30px;
+    width: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    /*Seitlicher Abstand innerhalb der Navbar*/
+    /* background: rgba(15, 23, 42, 0.9); */
+
+}
+
+
+.nav-left {
+    padding-left: 0;
+    margin-left: 20px;
+    justify-content: flex-start;
+}
+
+
+.logo {
+    pointer-events: all;
+    align-items: center;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    scrollbar-width: auto;
+}
+
+/* Menü-Button links */
+.menu-btn {
+    padding: 10px 0;
+    align-items: flex-start;
+    margin-left: -10px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 2px;
+    background: #0ea5e9;
+    position: relative;
+    display: block;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: #0ea5e9;
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    bottom: -8px;
+}
+
+/* ZUSTAND 1: Standardmäßig versteckt */
+.overlay-menu {
+    position: fixed;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    max-width: 325px;
+    height: calc(100vh-95px);
+    background: transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* Macht das Erscheinen "weich" */
+    transition: all 0.4s ease-in-out;
+}
+
+/* ZUSTAND 2: Sichtbar (wird per JS aktiviert) */
+.overlay-menu.active {
+    margin-top: -3rem;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+
+.menu-links {
+    list-style: none;
+    text-align: start;
+}
+
+.menu-links li {
+    margin: 25px 0;
+}
+
+.menu-links a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.menu-links a:hover {
+    color: #0ea5e9;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.cta-button {
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+
+/* Anpassung für das Menü-Icon, damit es alleine steht */
+.menu-btn {
+    /* Wir entfernen den Text "Menü" und lassen nur das Icon */
+    padding: 10px;
+}
+
+/* --- Home page additions (hero/projects) --- */
+
+.hero {
+    padding: 200px 5% 200px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-content {
+    align-items: center;
+    /* flex-direction: column; */
+    margin-top: -3rem;
+}
+
+/* .heroSlogan p {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+} */
+
+.heroSlogan a {
+    font-size: 1.7rem;
+    text-decoration: none;
+    font-weight: 600;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    text-align: center;
+}
+
+.hero p {
+    margin: 200px 20px 24px;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    text-align: center;
+    font-weight: 700;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* .section.alt-bg {
+    background: rgba(223, 8, 8, 0.03);
+} */
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    font-weight: 700;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: rgba(30, 41, 59, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding-left: 40px;
+    border-left: 2px solid rgba(139, 92, 246, 0.3);
+    /* Die lila Linie */
+}
+
+.roadmap-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.step-number {
+    position: absolute;
+    left: -56px;
+    /* Zentriert die Nummer auf der Linie */
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #7c3aed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+    /* Der Glow-Effekt */
+}
+
+.step-content {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.step-content:hover {
+    border-color: #2dd4bf;
+    /* Leuchtet Türkis beim Drüberfahren */
+}
+
+.project-img {
+    padding: 40px 20px;
+    text-align: center;
+    opacity: 0.7;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-info {
+    padding: 20px;
+}
+
+footer {
+    padding: 40px 10%;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.aboutImage {
+    backdrop-filter: blur(0);
+    border-radius: 5%;
+    box-shadow: 0 2px 10px 0.5px #0ea5e9;
+}
+
+
+
+
+
+/* Small screens: reduce horizontal padding */
+@media (max-width: 600px) {
+    .section {
+        padding: 70px 6%;
+    }
+
+    .hero {
+        padding: 90px 6% 60px;
+    }
+}

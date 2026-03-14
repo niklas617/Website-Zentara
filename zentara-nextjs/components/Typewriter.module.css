@@ -1,0 +1,62 @@
+.wrapper {
+    font-family: 'Courier New', Courier, monospace;
+    /* Schreibmaschinen-Stil */
+    font-size: clamp(0.1rem, 3.5rem, 3.5rem);
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 100px;
+    margin-top: 35px;
+}
+
+.staticText {
+    white-space: pre;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.dynamicBox {
+    padding: 0 10px;
+    display: inline-block;
+    position: relative;
+    border-radius: 4px;
+    font-size: clamp(0.1rem, 4.7rem, 4.5rem);
+    position: relative;
+    top: 8px;
+
+}
+
+/* Text ist starr */
+/* .dynamicBox {  
+    padding: 45px 10px;
+    padding-left: 65px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: left;
+    white-space: nowrap;
+    width: 500px;
+} */
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+    vertical-align: middle;
+    line-height: -50px;
+    font-size: 0.5em;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
