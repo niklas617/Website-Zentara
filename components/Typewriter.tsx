@@ -37,7 +37,6 @@ export default function Typewriter() {
           Zentara
         </Link>{" "}
         ist
-        <br />
       </span>
       <span className={styles.dynamicBox}>
         {words[index].substring(0, subIndex)}

@@ -64,29 +64,28 @@
 /* --- HANDY OPTIMIERUNG --- */
 @media (max-width: 768px) {
     .wrapper {
-        padding-left: 20px;
-        /* Das riesige 100px-Padding auf ein normales Maß reduzieren */
-        padding-right: 20px;
-        font-size: 1.8rem;
-        /* Schriftgröße für den normalen Text verkleinern */
-        flex-direction: column;
-        /* Setzt "Zentara ist" und das dynamische Wort ordentlich untereinander */
-        align-items: center;
-        /* Zentriert den gesamten Block */
-        text-align: center;
-        margin-top: 15px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        font-size: 1.5rem !important;
+        /* Etwas kleiner gemacht für lange Wörter */
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-top: 20px !important;
+        gap: 5px !important;
+        /* Abstand zwischen "Zentara ist" und dem getippten Wort */
     }
 
     .staticText {
-        white-space: normal;
-        /* Verhindert, dass unsichtbare Leerzeichen das Layout dehnen */
+        white-space: normal !important;
+        line-height: 1.2 !important;
     }
 
     .dynamicBox {
-        font-size: 2.2rem;
-        /* Das dynamische Wort auch passend verkleinern */
-        padding: 0;
-        top: 0;
-        /* Den kleinen 8px-Versatz zurücksetzen, damit es zentriert gut aussieht */
+        font-size: 2rem !important;
+        padding: 0 !important;
+        top: 0 !important;
+        display: block !important;
+        /* Zwingt das Wort sicher in eine eigene Zeile */
     }
 }
