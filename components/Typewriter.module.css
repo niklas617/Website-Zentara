@@ -60,3 +60,33 @@
         opacity: 0;
     }
 }
+
+/* --- HANDY OPTIMIERUNG --- */
+@media (max-width: 768px) {
+    .wrapper {
+        padding-left: 20px;
+        /* Das riesige 100px-Padding auf ein normales Maß reduzieren */
+        padding-right: 20px;
+        font-size: 1.8rem;
+        /* Schriftgröße für den normalen Text verkleinern */
+        flex-direction: column;
+        /* Setzt "Zentara ist" und das dynamische Wort ordentlich untereinander */
+        align-items: center;
+        /* Zentriert den gesamten Block */
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .staticText {
+        white-space: normal;
+        /* Verhindert, dass unsichtbare Leerzeichen das Layout dehnen */
+    }
+
+    .dynamicBox {
+        font-size: 2.2rem;
+        /* Das dynamische Wort auch passend verkleinern */
+        padding: 0;
+        top: 0;
+        /* Den kleinen 8px-Versatz zurücksetzen, damit es zentriert gut aussieht */
+    }
+}
