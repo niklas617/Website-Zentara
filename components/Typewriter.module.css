@@ -66,7 +66,7 @@
     .wrapper {
         padding-left: 15px !important;
         padding-right: 15px !important;
-        font-size: 3rem !important;
+        font-size: 2.5rem !important;
         /* Etwas kleiner gemacht für lange Wörter */
         flex-direction: column !important;
         align-items: center !important;
@@ -78,11 +78,11 @@
 
     .staticText {
         white-space: normal !important;
-        line-height: 1.2 !important;
+        line-height: 2 !important;
     }
 
     .dynamicBox {
-        font-size: 2rem !important;
+        font-size: 3rem !important;
         padding: 0 !important;
         top: 0 !important;
         display: block !important;
