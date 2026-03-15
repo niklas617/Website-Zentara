@@ -475,9 +475,24 @@ footer {
 /* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
 @media (max-width: 768px) {
 
+    /* 1. Noch hellerer, freundlicherer Hintergrund für Handys */
     body {
-        /* Wir machen die RGB-Werte hier ein bisschen höher (heller) als in deinem Original */
-        background: radial-gradient(circle at 50% 50%, rgb(35, 35, 120) 0%, rgb(20, 20, 50) 100%);
+        background: radial-gradient(circle at 50% 50%, rgb(55, 55, 150) 0%, rgb(35, 35, 80) 100%) !important;
+    }
+
+    /* 2. Logos, Buttons und Highlights deutlich heller und leuchtender machen */
+    .logo, 
+    .logo-item, 
+    .highlight, 
+    .cta-card, 
+    .cta-button, 
+    .heroSlogan a {
+        /* Hellere Blautöne: #38bdf8 (helles Himmelblau) und #5eead4 (helles Mintgrün) */
+        background: linear-gradient(90deg, #38bdf8, #5eead4) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        /* Wir verstärken auch das Leuchten (Glow) um den Text herum */
+        filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.8)) !important; 
     }
 
     /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
