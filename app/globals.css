@@ -472,13 +472,50 @@ footer {
 
 
 
-/* Small screens: reduce horizontal padding */
-@media (max-width: 600px) {
+/* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
+@media (max-width: 768px) {
+
+    /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
     .section {
-        padding: 70px 6%;
+        padding: 60px 5%;
+        margin-bottom: 80px;
     }
 
+    /* 2. Hero-Bereich kompakter machen */
     .hero {
-        padding: 90px 6% 60px;
+        padding: 120px 5% 60px;
+    }
+
+    /* 3. Der Text im Hero hatte 200px Margin - das sprengt jedes Handy-Display! */
+    .hero p {
+        margin: 40px 10px 24px;
+    }
+
+    /* 4. Angebots-Formular: Innenabstand verkleinern, um Platz zu sparen */
+    .offer-container {
+        padding: 1rem;
+    }
+
+    /* 5. Cards: Den 120px Abstand am unteren Rand auf ein normales Maß schrumpfen */
+    .card {
+        margin-bottom: 40px;
+        padding: 20px;
+    }
+
+    /* 6. Roadmap: Verhindert, dass die lila Zahlen-Kreise links aus dem Bildschirm geschoben werden */
+    .roadmap-container {
+        margin: 40px 15px 40px 60px;
+        /* Extra 60px Platz links für den Kreis! */
+        padding-left: 20px;
+    }
+
+    .step-number {
+        left: -36px;
+        /* Kreis an die verschobene Linie anpassen */
+    }
+
+    /* 7. Große Überschriften / Logos auf dem Handy minimal verkleinern */
+    .logo-item {
+        font-size: 2.2rem;
     }
 }
