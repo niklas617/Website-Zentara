@@ -1,3 +1,8 @@
+:root {
+    color-scheme: dark;
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -475,11 +480,6 @@ footer {
 /* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
 @media (max-width: 768px) {
 
-    body {
-        /* Wir machen die RGB-Werte hier ein bisschen höher (heller) als in deinem Original */
-        background: radial-gradient(circle at 50% 50%, rgb(35, 35, 120) 0%, rgb(20, 20, 50) 100%);
-    }
-
     /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
     .section {
         padding: 60px 5%;
@@ -488,7 +488,7 @@ footer {
 
     /* 2. Hero-Bereich kompakter machen */
     .hero {
-        padding: 120px 5% 60px;
+        padding: 190px 5% 60px;
     }
 
     /* 3. Der Text im Hero hatte 200px Margin - das sprengt jedes Handy-Display! */
