@@ -66,7 +66,7 @@
     .wrapper {
         padding-left: 15px !important;
         padding-right: 15px !important;
-        font-size: 2rem !important;
+        font-size: 3rem !important;
         /* Etwas kleiner gemacht für lange Wörter */
         flex-direction: column !important;
         align-items: center !important;

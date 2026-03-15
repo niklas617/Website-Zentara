@@ -488,7 +488,7 @@ footer {
 
     /* 2. Hero-Bereich kompakter machen */
     .hero {
-        padding: 190px 5% 60px;
+        padding: 250px 5% 60px;
     }
 
     /* 3. Der Text im Hero hatte 200px Margin - das sprengt jedes Handy-Display! */
