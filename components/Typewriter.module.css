@@ -78,11 +78,11 @@
 
     .staticText {
         white-space: normal !important;
-        line-height: 2 !important;
+        line-height: 2.2 !important;
     }
 
     .dynamicBox {
-        font-size: 2rem !important;
+        font-size: 2.1rem !important;
         padding: 0 !important;
         top: 0 !important;
         display: block !important;
