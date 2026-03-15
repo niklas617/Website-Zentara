@@ -475,6 +475,11 @@ footer {
 /* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
 @media (max-width: 768px) {
 
+    body {
+        /* Wir machen die RGB-Werte hier ein bisschen höher (heller) als in deinem Original */
+        background: radial-gradient(circle at 50% 50%, rgb(35, 35, 120) 0%, rgb(20, 20, 50) 100%);
+    }
+
     /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
     .section {
         padding: 60px 5%;
