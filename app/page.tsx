@@ -54,7 +54,7 @@ export default function HomePage() {
         </a></div>
       </section>
 
-      {/* <section id="projects" className="section alt-bg">
+      {<section id="projects" className="section alt-bg">
         <h2>Ausgewählte Projekte</h2>
         <div className="project-grid">
           <article className="project-card">
@@ -65,7 +65,7 @@ export default function HomePage() {
             </div>
           </article>
         </div>
-      </section> */}
+      </section> }
 
       <section className="roadmap-section">
         <h2 className="section-title">Dein Weg zum Erfolg</h2>
@@ -137,8 +137,7 @@ export default function HomePage() {
           />
         </div>
         <p style={{ maxWidth: 800, margin: "0 auto" }}>
-          Ich bin Niklas Smit. Fokus: pragmatische, wartbare Software. Direkte Kommunikation,
-          schnelle Ergebnisse.
+          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen. Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
         </p>
       </section>
 
