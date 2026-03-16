@@ -486,6 +486,11 @@ footer {
         margin-bottom: 80px;
     }
 
+    .heroSlogan a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
     /* 2. Hero-Bereich kompakter machen */
     .hero {
         padding: 200px 5% 60px;

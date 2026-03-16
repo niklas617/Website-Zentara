@@ -87,5 +87,6 @@
         top: 0 !important;
         display: block !important;
         /* Zwingt das Wort sicher in eine eigene Zeile */
+        padding-bottom: 50px;
     }
 }
