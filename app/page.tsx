@@ -73,19 +73,54 @@ export default function HomePage() {
           <div className="roadmap-item">
             <div className="step-number">01</div>
             <div className="step-content">
-              <h3>Erstgespräch</h3>
-              <p>Wir klären die Anforderungen und stecken den Rahmen ab.</p>
+              <h3>Formular</h3>
+              <p>Fülle das Kontakformular unverbindlich aus.</p>
             </div>
           </div>
           <div className="roadmap-item">
             <div className="step-number">02</div>
             <div className="step-content">
-              <h3>Konzeption</h3>
-              <p>Ein klarer Fahrplan sorgt für volle Kostentransparenz.</p>
+              <h3>Erstgespräch</h3>
+              <p>Wir klären die Anforderungen und stecken den Rahmen ab.</p>
             </div>
           </div>
-          {/* Weitere Items... */}
+          <div className="roadmap-item">
+            <div className="step-number">03</div>
+            <div className="step-content">
+              <h3>Konzeption</h3>
+              <p>Wir entwickeln ein detailliertes Konzept für dein Projekt.</p>
+            </div>
+          </div>
+          <div className="roadmap-item">
+            <div className="step-number">04</div>
+            <div className="step-content">
+              <h3>Design & Prototyping</h3>
+              <p>Wir erstellen ein visuelles Design (UI), das genau zu dir passt.</p>
+            </div>
+          </div>
+          <div className="roadmap-item">
+            <div className="step-number">05</div>
+            <div className="step-content">
+              <h3>Entwicklung</h3>
+              <p>Die Website wird zum Leben erweckt – responsiv, schnell und suchmaschinenoptimiert.</p>
+            </div>
+          </div>
+          <div className="roadmap-item">
+            <div className="step-number">06</div>
+            <div className="step-content">
+              <h3>Review & Launch</h3>
+              <p>Gemeinsamer Check, letzte Schliffe und das Go-Live deiner neuen Website.</p>
+            </div>
+          </div>
+          <div className="roadmap-item">
+            <div className="step-number">07</div>
+            <div className="step-content">
+              <h3>Wartung & Support</h3>
+              <p>Ich kümmere mich um Updates und Sicherheit, damit du dich auf dein Business konzentrieren kannst.</p>
+            </div>
+          </div>
         </div>
+
       </section>
 
       <section id="about" className="section">
