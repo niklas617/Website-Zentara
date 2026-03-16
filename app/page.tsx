@@ -3,21 +3,35 @@ import Link from "next/link";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
 import Typewriter from "../components/Typewriter";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 
 export default function HomePage() {
+  // --- SLIDESHOW LOGIK ---
+  const projectImages = [
+    "/assets/images/LogIn.png",
+    "/assets/images/Balkendiagramm.png",
+    "/assets/images/Kuchendiagramm.png",
+    "/assets/images/Buchungen.png",
+    "/assets/images/Buchungenliste.png",
+    "/assets/images/Kategorien.png",
+
+
+  ];
+
+  const [currentImg, setCurrentImg] = useState(0);
+
+  const nextImg = () => {
+    setCurrentImg((prev) => (prev + 1) % projectImages.length);
+  };
+
+  const prevImg = () => {
+    setCurrentImg((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1));
+  };
+  // -----------------------
+
   return (
     <section>
       <NavBar />
-
-
-      {/* <header> <div className="nav-item nav-center">
-        <Link href="/pageOffer" className="logo">
-          Zentara
-        </Link>
-      </div>
-      </header> */}
 
       <section className="hero">
         <div className="hero-content">
@@ -37,35 +51,75 @@ export default function HomePage() {
         <div className="grid">
           <div className="card">
             <h3>Webentwicklung</h3>
-            <p>Moderne Webentwicklung mit Fokus auf Performance nach Kundenwunch.</p>
+            <p>Moderne Webentwicklung mit Fokus auf Performance nach Kundenwunsch.</p>
           </div>
           <div className="card">
             <h3>Web-Nacharbeitung</h3>
             <p>Analyse, Optimierung und technische Weiterentwicklung bestehender Web-Anwendungen.</p>
           </div>
           <div className="card">
-            <h3>Webpflege
-            </h3>
+            <h3>Webpflege</h3>
             <p>Kontinuierliche Pflege, Wartung und Optimierung bestehender Web-Lösungen.</p>
           </div>
         </div>
-        <div>  <a href="/offer" className="cta-card">
-          Jetzt Angebot anfordern
-        </a></div>
+        <div>
+          <a href="/offer" className="cta-card">
+            Jetzt Angebot anfordern
+          </a>
+        </div>
       </section>
 
-      {<section id="projects" className="section alt-bg">
-        <h2>Projekt: Money-Dashboard</h2>
-        <div className="project-grid">
-          <article className="project-card">
-            <div className="project-img"><Image src="/assets/image/LogIn.png" alt="Login" width={100} height={50} /></div>
-            <div className="project-info">
-              <h4>Log In </h4>
-              <p></p>
+      {/* NEUER PROJEKT BEREICH MIT SLIDER */}
+      <section id="portfolio" className="section">
+        <h2>Aktuelles Projekt: Money-Dashboard</h2>
+
+        <div className="portfolio-container">
+          <div className="portfolio-card">
+
+            {/* Bild-Slider */}
+            <div className="slider-wrapper">
+              <button className="slider-btn prev-btn" onClick={prevImg}>&#10094;</button>
+
+              <div className="slider-image-container">
+                <Image
+                  src={projectImages[currentImg]}
+                  alt={`Projekt Screenshot ${currentImg + 1}`}
+                  width={800}
+                  height={450}
+                  className="slider-image"
+                />
+              </div>
+
+              <button className="slider-btn next-btn" onClick={nextImg}>&#10095;</button>
+
+              {/* Kleine Indikator-Punkte unten */}
+              <div className="slider-dots">
+                {projectImages.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`dot ${index === currentImg ? "active" : ""}`}
+                    onClick={() => setCurrentImg(index)}
+                  ></span>
+                ))}
+              </div>
             </div>
-          </article>
+
+            {/* Projekt-Info & Link */}
+            <div className="portfolio-info">
+              <h3>Finanz-Übersicht leicht gemacht</h3>
+              <p>
+                Ein modernes Dashboard zur Verwaltung von Finanzen. Entwickelt mit Fokus auf
+                Performance, sauberes UI/UX-Design und intuitive Bedienung.
+                Features inkludieren visuelle Auswertungen und sicheres Login-Management.
+              </p>
+              <a href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                Live Projekt ansehen
+              </a>
+            </div>
+
+          </div>
         </div>
-      </section>}
+      </section>
 
       <section className="roadmap-section">
         <h2 className="section-title">Dein Weg zum Erfolg</h2>
@@ -120,13 +174,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
       </section>
 
       <section id="about" className="section">
         <h2>Über mich</h2>
         <div style={{ marginBottom: "20px" }}>
-          {/* Optimierte Image-Komponente statt normalem img */}
           <Image
             className="aboutImage"
             src="/assets/images/ich.png"
@@ -136,8 +188,10 @@ export default function HomePage() {
             style={{ borderRadius: "10px", objectFit: "cover" }}
           />
         </div>
-        <p style={{ maxWidth: 800, margin: "0 auto" }}>
-          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <br>Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen.</br> Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
+        <p style={{ maxWidth: 700, margin: "0 auto" }}>
+          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <br /> <br />
+          Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen. <br /> <br />
+          Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
         </p>
       </section>
 

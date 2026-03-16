@@ -403,6 +403,154 @@ a.logo-offer {
 }
 
 
+/* --- NEU: PROJEKT SLIDER BEREICH --- */
+.portfolio-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.portfolio-card {
+    background: rgba(30, 41, 59, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Leichter dunkler Hintergrund für den Bildbereich */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain; /* Contain stellt sicher, dass nichts abgeschnitten wird */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Pfeil-Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.6);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    backdrop-filter: blur(4px);
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* Dots unten im Slider */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #0ea5e9;
+    box-shadow: 0 0 8px #0ea5e9;
+}
+
+/* Projekt Informationen unter dem Bild */
+.portfolio-info {
+    padding: 30px;
+    text-align: left;
+}
+
+.portfolio-info h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.portfolio-info p {
+    color: rgb(201, 201, 201);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Der Button zum Projekt */
+.project-link-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    color: #020617; 
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.project-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+}
+
+/* Mobile Anpassung */
+@media (max-width: 768px) {
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    .portfolio-info {
+        padding: 20px;
+    }
+}
+
+
 .roadmap-container {
     display: flex;
     flex-direction: column;
@@ -410,7 +558,7 @@ a.logo-offer {
     max-width: 800px;
     margin: 40px auto;
     padding-left: 40px;
-    border-left: 2px solid rgba(139, 92, 246, 0.3);
+    /* border-left: 2px solid rgba(139, 92, 246, 0.3); */
     /* Die lila Linie */
 }
 
@@ -418,6 +566,28 @@ a.logo-offer {
     position: relative;
     margin-bottom: 50px;
 }
+
+/* Die vertikale Linie als Pseudoelement an JEDEM Item außer dem letzten */
+.roadmap-item::before {
+    border-left: 2px solid rgba(139, 92, 246, 0.3);
+    margin: 20px auto;
+    margin-left: 7.5px;
+    content: "";
+    position: absolute;
+    top: 0;
+    /* Beginnt am oberen Rand des Items */
+    left: -30px;
+    /* Positioniere die Linie links vom Content, passend zum Kreis */
+    width: 2px;
+    height: calc(100% + 2rem);
+    z-index: 1;
+    /* Hinter dem Kreis */
+}
+
+.roadmap-item:last-child::before {
+    display: none;
+}
+
 
 .step-number {
     position: absolute;
@@ -434,7 +604,7 @@ a.logo-offer {
     font-weight: bold;
     font-size: 0.8rem;
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
-    /* Der Glow-Effekt */
+    z-index: 2;
 }
 
 .step-content {
@@ -446,7 +616,7 @@ a.logo-offer {
 }
 
 .step-content:hover {
-    border-color: #2dd4bf;
+    border-color: #e7ebea;
     /* Leuchtet Türkis beim Drüberfahren */
 }
 
