@@ -103,6 +103,10 @@ button {
     cursor: pointer;
     border-radius: 20px;
     background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    color: #020617;
+    font-weight: bold;
+    border-color: transparent;
+    text-decoration: none;
 
 }
 
@@ -168,7 +172,7 @@ a.logo-offer {
     border: 1.8px solid rgba(253, 253, 253, 0.678);
     transition: 0.3s;
     box-shadow: 0 0 7px rgba(255, 255, 255, 0.637);
-    margin-bottom: 120px;
+    margin-bottom: 105px;
 
 }
 
@@ -179,13 +183,14 @@ a.logo-offer {
 }
 
 .cta-card {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
     filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+    text-decoration: none;
 }
 
 /* ------------------------------------------------------------------------------------- */
