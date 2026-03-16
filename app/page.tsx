@@ -58,7 +58,7 @@ export default function HomePage() {
         <h2>Ausgewählte Projekte</h2>
         <div className="project-grid">
           <article className="project-card">
-            <div className="project-img">Bild Platzhalter</div>
+            <div className="project-img"><Image src="/assets/image/LogIn.png" alt="Login" width={400} height={300} /></div>
             <div className="project-info">
               <h4>E-Commerce Dashboard</h4>
               <p>Automatisierte Bestandsverwaltung für Online-Shops.</p>
@@ -137,7 +137,7 @@ export default function HomePage() {
           />
         </div>
         <p style={{ maxWidth: 800, margin: "0 auto" }}>
-          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen. Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
+          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <b>Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen.</b> Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
         </p>
       </section>
 

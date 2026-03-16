@@ -414,10 +414,9 @@ a.logo-offer {
     /* Die lila Linie */
 }
 
-.roadmap-item:last-child::before {
+.roadmap-item {
     position: relative;
     margin-bottom: 50px;
-    display: none;
 }
 
 .step-number {
