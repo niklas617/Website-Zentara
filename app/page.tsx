@@ -55,17 +55,17 @@ export default function HomePage() {
       </section>
 
       {<section id="projects" className="section alt-bg">
-        <h2>Ausgewählte Projekte</h2>
+        <h2>Projekt: Money-Dashboard</h2>
         <div className="project-grid">
           <article className="project-card">
-            <div className="project-img"><Image src="/assets/image/LogIn.png" alt="Login" width={400} height={300} /></div>
+            <div className="project-img"><Image src="/assets/image/LogIn.png" alt="Login" width={100} height={50} /></div>
             <div className="project-info">
-              <h4>E-Commerce Dashboard</h4>
-              <p>Automatisierte Bestandsverwaltung für Online-Shops.</p>
+              <h4>Log In </h4>
+              <p></p>
             </div>
           </article>
         </div>
-      </section> }
+      </section>}
 
       <section className="roadmap-section">
         <h2 className="section-title">Dein Weg zum Erfolg</h2>
@@ -137,7 +137,7 @@ export default function HomePage() {
           />
         </div>
         <p style={{ maxWidth: 800, margin: "0 auto" }}>
-          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <b>Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen.</b> Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
+          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <br>Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen.</br> Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
         </p>
       </section>
 
