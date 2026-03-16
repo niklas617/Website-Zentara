@@ -64,7 +64,7 @@ export default function HomePage() {
         </div>
         <div>
           <a href="/offer" className="cta-card">
-            Jetzt Angebot anfordern
+            <b>Jetzt Angebot anfordern</b>
           </a>
         </div>
       </section>

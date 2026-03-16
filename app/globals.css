@@ -326,6 +326,7 @@ a.logo-offer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+    text-decoration: none;
 }
 
 
@@ -421,7 +422,8 @@ a.logo-offer {
 .slider-wrapper {
     position: relative;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Leichter dunkler Hintergrund für den Bildbereich */
+    background: rgba(0, 0, 0, 0.5);
+    /* Leichter dunkler Hintergrund für den Bildbereich */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -438,7 +440,8 @@ a.logo-offer {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
-    object-fit: contain; /* Contain stellt sicher, dass nichts abgeschnitten wird */
+    object-fit: contain;
+    /* Contain stellt sicher, dass nichts abgeschnitten wird */
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -526,7 +529,7 @@ a.logo-offer {
     display: inline-block;
     padding: 10px 25px;
     background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617; 
+    color: #020617;
     text-decoration: none;
     font-weight: bold;
     border-radius: 20px;
@@ -545,6 +548,7 @@ a.logo-offer {
         height: 35px;
         font-size: 1rem;
     }
+
     .portfolio-info {
         padding: 20px;
     }
@@ -571,12 +575,11 @@ a.logo-offer {
 .roadmap-item::before {
     border-left: 2px solid rgba(139, 92, 246, 0.3);
     margin: 20px auto;
-    margin-left: 7.5px;
     content: "";
     position: absolute;
     top: 0;
     /* Beginnt am oberen Rand des Items */
-    left: -30px;
+    left: -41px;
     /* Positioniere die Linie links vom Content, passend zum Kreis */
     width: 2px;
     height: calc(100% + 2rem);

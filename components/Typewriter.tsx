@@ -36,7 +36,7 @@ export default function Typewriter() {
         <Link href="/offer" className="logo">
           Zentara
         </Link>{" "}
-        ist
+        ist 
       </span>
       <span className={styles.dynamicBox}>
         {words[index].substring(0, subIndex)}
