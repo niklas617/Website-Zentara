@@ -651,6 +651,84 @@ footer {
     box-shadow: 0 2px 10px 0.5px #0ea5e9;
 }
 
+/* --- PREISSCHILDER & RABATTE FÜR CARDS --- */
+
+/* Wir machen die Card zur Flexbox, damit der Preis immer ganz unten am Rand klebt */
+.card {
+    position: relative;
+    /* WICHTIG: Damit das Badge nicht wegfliegt! */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Der Text soll den restlichen Platz einnehmen, um den Preis nach unten zu drücken */
+.card p {
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+/* Container für die Preise */
+.price-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* Abstand zwischen altem und neuem Preis */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Feine Trennlinie */
+    margin-top: auto;
+    /* Drückt den Container nach ganz unten */
+}
+
+/* Der alte, durchgestrichene Preis */
+.old-price {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.3);
+    /* Leicht transparentes Grau */
+    text-decoration: line-through;
+    /* Durchgestrichen */
+    font-weight: 500;
+}
+
+/* Der neue, leuchtende Preis */
+.new-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    /* Wir nutzen deine cyan/türkis Hauptfarben! */
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+    /* Leichtes Leuchten */
+}
+
+/* Das schwebende "Angebot"-Badge oben rechts */
+.discount-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #7c3aed;
+    /* Das Lila aus deiner Roadmap für coolen Kontrast */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.5);
+    /* Lila Glow */
+    transform: rotate(10deg);
+    /* Leicht schräg für den "Sticker"-Look */
+    z-index: 10;
+}
+
+/* Optional: Das Badge wackelt leicht, wenn man über die Karte fährt */
+.card:hover .discount-badge {
+    transform: rotate(0deg) scale(1.1);
+    transition: 0.3s ease-in-out;
+}
 
 
 
