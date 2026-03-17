@@ -151,7 +151,7 @@ export default function HomePage() {
             <div className="step-number">01</div>
             <div className="step-content">
               <h3>Formular</h3>
-              <p>Fülle das Kontakformular unverbindlich aus.</p>
+              <p>Fülle das <a href="/offer" className="roadmap-button" >Kontakformular</a> unverbindlich aus.</p>
             </div>
           </div>
           <div className="roadmap-item">
@@ -197,6 +197,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        <div className="center-wrapper">
+          <a href="/offer" className="cta-roadmap">
+            Jetzt Angebot anfordern 
+          </a> 
+        </div>
+
       </section>
 
       <section id="about" className="section">
