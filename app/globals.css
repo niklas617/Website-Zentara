@@ -732,10 +732,96 @@ a.logo-offer {
     padding: 20px;
 }
 
-footer {
-    padding: 40px 10%;
+/* --- FOOTER --- */
+.footer {
+    background: rgba(10, 10, 31, 0.8);
+    /* Etwas dunkler als der restliche Hintergrund */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 10% 20px;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+    /* Überschreibt das text-align: center von body/section */
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer-column p {
+    color: rgb(180, 180, 180);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.footer-column h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-contact-link {
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover,
+.footer-contact-link:hover {
+    color: #0ea5e9;
+    padding-left: 5px;
+    /* Cooler kleiner Slide-Effekt beim Hovern */
+}
+
+.highlight-link {
+    color: #2dd4bf !important;
+    /* Hebt den "Angebot"-Link leicht hervor */
+    font-weight: bold;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
     text-align: center;
-    opacity: 0.8;
+    color: rgb(120, 120, 120);
+    font-size: 0.85rem;
+}
+
+/* Mobile Anpassung */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 5% 20px;
+    }
+
+    .footer-content {
+        gap: 30px;
+    }
 }
 
 .aboutImage {
@@ -877,5 +963,10 @@ footer {
     /* 7. Große Überschriften / Logos auf dem Handy minimal verkleinern */
     .logo-item {
         font-size: 2.2rem;
+    }
+
+    .roadmap-item::before {
+        left: -22px;
+        /* Linie an die verschobene Position anpassen */
     }
 }

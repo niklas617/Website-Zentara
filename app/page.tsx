@@ -40,9 +40,9 @@ export default function HomePage() {
 
         <div className="heroSlogan">
           <p>Ich entwickle individuelle Websites, die Unternehmen professionell nach außen vertreten.</p>
-          <a href="/offer" className="cta-button">
+          <Link href="/offer" className="cta-button">
             Jetzt Angebot anfordern
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -62,7 +62,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/*Karte 2 Standart ohne Badge, aber reduziert */}
+          {/*Karte 2 Standard ohne Badge, aber reduziert */}
           <div className="card">
             <h3>Web-Nacharbeitung</h3>
             <p>Analyse, Optimierung und technische Weiterentwicklung bestehender Web-Anwendungen.</p>
@@ -86,9 +86,9 @@ export default function HomePage() {
 
         </div>
         <div>
-          <a href="/offer" className="cta-card">
+          <Link href="/offer" className="cta-card">
             <b>Jetzt Angebot anfordern</b>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -135,9 +135,9 @@ export default function HomePage() {
                 Performance, sauberes UI/UX-Design und intuitive Bedienung.
                 Features inkludieren visuelle Auswertungen und sicheres Login-Management.
               </p>
-              <a href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank" rel="noopener noreferrer" className="project-link-btn">
+              <Link href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank" rel="noopener noreferrer" className="project-link-btn">
                 Live Projekt ansehen
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -151,7 +151,7 @@ export default function HomePage() {
             <div className="step-number">01</div>
             <div className="step-content">
               <h3>Formular</h3>
-              <p>Fülle das <a href="/offer" className="roadmap-button" >Kontakformular</a> unverbindlich aus.</p>
+              <p>Fülle das <a href="/offer" className="roadmap-button" >Kontaktformular</a> unverbindlich aus.</p>
             </div>
           </div>
           <div className="roadmap-item">
@@ -199,9 +199,9 @@ export default function HomePage() {
         </div>
 
         <div className="center-wrapper">
-          <a href="/offer" className="cta-roadmap">
+          <Link href="/offer" className="cta-roadmap">
             Jetzt Angebot anfordern 
-          </a> 
+          </Link> 
         </div>
 
       </section>
@@ -225,8 +225,45 @@ export default function HomePage() {
         </p>
       </section>
 
-      <footer>
-        <p>&copy; 2026 Niklas Smit - Zentara. Alle Rechte vorbehalten.</p>
+      <footer className="footer">
+        <div className="footer-content">
+          
+          {/* Spalte 1: Brand & Info */}
+          <div className="footer-column">
+            <span className="footer-logo">Zentara</span>
+            <p>Individuelle & performante Webentwicklung für dein Business. Klar, modern und lösungsorientiert.</p>
+          </div>
+
+          {/* Spalte 2: Quick Links */}
+          <div className="footer-column">
+            <h4>Navigation</h4>
+            <ul className="footer-links">
+              <li><Link href="#services">Dienstleistungen</Link></li>
+              <li><Link href="#portfolio">Projekte</Link></li>
+              <li><Link href="#about">Über mich</Link></li>
+              <li><Link href="/offer" className="highlight-link">Angebot anfordern</Link></li>
+            </ul>
+          </div>
+
+          {/* Spalte 3: Kontakt & Rechtliches */}
+          <div className="footer-column">
+            <h4>Kontakt</h4>
+            <p><a href="mailto:hallo@deinedomain.de" className="footer-contact-link">hallo@deinedomain.de</a></p>
+            {/* Hier kannst du später auch Links zu GitHub oder LinkedIn einfügen */}
+            
+            <h4 style={{marginTop: "20px"}}>Rechtliches</h4>
+            <ul className="footer-links">
+              <li><Link href="/impressum">Impressum</Link></li>
+              <li><Link href="/datenschutz">Datenschutzerklärung</Link></li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Die unterste Leiste */}
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Niklas Smit - Zentara. Alle Rechte vorbehalten.</p>
+        </div>
       </footer>
     </section>
   );
