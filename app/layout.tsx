@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ScrollToTop from '../components/ScrollToTop';
+import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 
 export const metadata: Metadata = {
   title: "Niklas Smit | Webentwicklung",

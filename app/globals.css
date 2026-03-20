@@ -639,6 +639,56 @@ a.logo-offer {
     box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
 }
 
+/* --- FORMATIERUNG FÜR RECHTSTEXTE (Impressum / Datenschutz) --- */
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Überschreibt das Center von .section */
+    background: rgba(30, 41, 59, 0.35); /* Leichte Box, passend zu deinen Cards */
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legal-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.legal-container h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: left; /* Wichtig, falls dein globales h2 zentriert ist */
+    filter: none; /* Entfernt den Glow aus deinem Standard-h2 für bessere Lesbarkeit */
+}
+
+.legal-container h3 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #e2e8f0;
+}
+
+.legal-container p {
+    color: rgb(201, 201, 201);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Mobile Anpassung */
+@media (max-width: 768px) {
+    .legal-container {
+        padding: 20px;
+    }
+    .legal-container h1 {
+        font-size: 2rem;
+    }
+}
+
 /* Mobile Anpassung */
 @media (max-width: 768px) {
     .slider-btn {

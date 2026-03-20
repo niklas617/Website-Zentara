@@ -2,8 +2,9 @@
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
-import Typewriter from "../components/Typewriter";
+import Typewriter from "../components/Typewriter/Typewriter";
 import { useState } from "react";
+import Impressum from "./impressum/page";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -200,8 +201,8 @@ export default function HomePage() {
 
         <div className="center-wrapper">
           <Link href="/offer" className="cta-roadmap">
-            Jetzt Angebot anfordern 
-          </Link> 
+            Jetzt Angebot anfordern
+          </Link>
         </div>
 
       </section>
@@ -227,7 +228,7 @@ export default function HomePage() {
 
       <footer className="footer">
         <div className="footer-content">
-          
+
           {/* Spalte 1: Brand & Info */}
           <div className="footer-column">
             <span className="footer-logo">Zentara</span>
@@ -248,10 +249,10 @@ export default function HomePage() {
           {/* Spalte 3: Kontakt & Rechtliches */}
           <div className="footer-column">
             <h4>Kontakt</h4>
-            <p><a href="mailto:hallo@deinedomain.de" className="footer-contact-link">hallo@deinedomain.de</a></p>
+            <p><a href="zentara.network@gmail.com" className="footer-contact-link">hallo@deinedomain.de</a></p>
             {/* Hier kannst du später auch Links zu GitHub oder LinkedIn einfügen */}
-            
-            <h4 style={{marginTop: "20px"}}>Rechtliches</h4>
+
+            <h4 style={{ marginTop: "20px" }}>Rechtliches</h4>
             <ul className="footer-links">
               <li><Link href="/impressum">Impressum</Link></li>
               <li><Link href="/datenschutz">Datenschutzerklärung</Link></li>
