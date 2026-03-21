@@ -249,7 +249,7 @@ export default function HomePage() {
           {/* Spalte 3: Kontakt & Rechtliches */}
           <div className="footer-column">
             <h4>Kontakt</h4>
-            <p><a href="mailto:zentara.network@gmail.com" className="footer-contact-link">zentara.network@gmail.com</a></p>
+            <p><a href="mailto:info@zentara-solutions.de" className="footer-contact-link">info@zentara-solutions.de</a></p>
             {/* Hier kannst du später auch Links zu GitHub oder LinkedIn einfügen */}
 
             <h4 style={{ marginTop: "20px" }}>Rechtliches</h4>
