@@ -145,6 +145,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="motoset" className="section">
+        <h2>Aktuelles Projekt: Fahrwerkeinstellungs-App</h2>
+
+        <div className="motoset-container">
+          <div className="motosetcard">
+
+            {/* Bild-Slider */}
+            <div className="slider-wrapper">
+              <button className="slider-btn prev-btn" onClick={prevImg}>&#10094;</button>
+
+              <div className="slider-image-container">
+                <Image
+                  src={projectImages[currentImg]}
+                  alt={`Projekt Screenshot ${currentImg + 1}`}
+                  width={800}
+                  height={450}
+                  className="slider-image"
+                />
+              </div>
+
+              <button className="slider-btn next-btn" onClick={nextImg}>&#10095;</button>
+
+              {/* Kleine Indikator-Punkte unten */}
+              <div className="slider-dots">
+                {projectImages.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`dot ${index === currentImg ? "active" : ""}`}
+                    onClick={() => setCurrentImg(index)}
+                  ></span>
+                ))}
+              </div>
+            </div>
+
+            {/* Projekt-Info & Link */}
+            <div className="portfolio-info">
+              <h3>Fahrwerkeinstellungen-Übersicht leicht gemacht</h3>
+              <p>
+                Eine modernes App zur Verwaltung von Fahrwerkeinstellungen. Entwickelt mit Fokus auf
+                Performance, sauberes UI/UX-Design und intuitive Bedienung.
+                Features inkludieren visuelle Auswertungen und sicheres Login-Management.
+              </p>
+              <Link href="assets/downloads/app-release.apk" target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                Live Projekt ansehen
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section className="roadmap-section">
         <h2 className="section-title">Dein Weg zum Erfolg</h2>
         <div className="roadmap-container">
