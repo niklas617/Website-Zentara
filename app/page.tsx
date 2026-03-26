@@ -187,9 +187,7 @@ export default function HomePage() {
                 Performance, sauberes UI/UX-Design und intuitive Bedienung.
                 Features inkludieren visuelle Auswertungen und sicheres Login-Management.
               </p>
-              <Link href="assets/downloads/app-release.apk" target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                Live Projekt ansehen
-              </Link>
+              <a href="assets/downloads/app-release.apk" download={"MotoSet"}>Datei herunterladen</a>
             </div>
 
           </div>
