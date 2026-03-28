@@ -509,13 +509,17 @@ a.logo-offer {
     padding: 0 20px;
 }
 
+
+
 .portfolio-card {
     background: rgba(30, 41, 59, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, .18);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+
 
 .slider-wrapper {
     position: relative;
@@ -643,6 +647,7 @@ a.logo-offer {
     font-weight: bold;
     border-radius: 20px;
     transition: 0.3s;
+    font-size: 17px;
 }
 
 .project-link-btn:hover {

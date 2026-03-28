@@ -16,8 +16,15 @@ export default function HomePage() {
     "/assets/images/Buchungen.png",
     "/assets/images/Buchungenliste.png",
     "/assets/images/Kategorien.png",
-
-
+  ];
+  const projectImagesDownload = [
+    "/assets/images/loginmotoset .png",
+    "/assets/images/start.png",
+    "/assets/images/setup.png",
+    "/assets/images/strecke.png",
+    "/assets/images/federbein.png",
+    "/assets/images/session.png",
+    
   ];
 
   const [currentImg, setCurrentImg] = useState(0);
@@ -163,7 +170,7 @@ export default function HomePage() {
 
               <div className="slider-image-container">
                 <Image
-                  src={projectImages[currentImg]}
+                  src={projectImagesDownload[currentImg]}
                   alt={`Projekt Screenshot ${currentImg + 1}`}
                   width={800}
                   height={450}
@@ -175,7 +182,7 @@ export default function HomePage() {
 
               {/* Kleine Indikator-Punkte unten */}
               <div className="slider-dots">
-                {projectImages.map((_, index) => (
+                {projectImagesDownload.map((_, index) => (
                   <span
                     key={index}
                     className={`dot ${index === currentImg ? "active" : ""}`}
@@ -195,9 +202,8 @@ export default function HomePage() {
                 <br />
                 Durch die Anbindung an eine Cloud-Datenbank bleiben alle Daten sicher gespeichert und geräteübergreifend verfügbar. Die Anmeldung erfolgt flexibel per E-Mail oder Google-Konto.
               </p>
-              <a href="/downloads/app-release.apk" download="MotoSet.apk" className="project-link-btn-download">
-                App herunterladen
-              </a>
+              <AppDownload />
+
             </div>
 
           </div>
