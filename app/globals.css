@@ -140,7 +140,7 @@ a.logo-offer {
 .section {
     padding: 130px 10%;
     text-align: center;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 }
 
 .section h2 {
@@ -634,6 +634,17 @@ a.logo-offer {
     transition: 0.3s;
 }
 
+.project-link-btn-download {
+    display: inline-block;
+    padding: 10px 25px;
+    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
+    color: #020617;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
 .project-link-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
@@ -643,8 +654,10 @@ a.logo-offer {
 .legal-container {
     max-width: 800px;
     margin: 0 auto;
-    text-align: left; /* Überschreibt das Center von .section */
-    background: rgba(30, 41, 59, 0.35); /* Leichte Box, passend zu deinen Cards */
+    text-align: left;
+    /* Überschreibt das Center von .section */
+    background: rgba(30, 41, 59, 0.35);
+    /* Leichte Box, passend zu deinen Cards */
     padding: 40px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -663,8 +676,10 @@ a.logo-offer {
     margin-top: 30px;
     margin-bottom: 15px;
     color: white;
-    text-align: left; /* Wichtig, falls dein globales h2 zentriert ist */
-    filter: none; /* Entfernt den Glow aus deinem Standard-h2 für bessere Lesbarkeit */
+    text-align: left;
+    /* Wichtig, falls dein globales h2 zentriert ist */
+    filter: none;
+    /* Entfernt den Glow aus deinem Standard-h2 für bessere Lesbarkeit */
 }
 
 .legal-container h3 {
@@ -684,6 +699,7 @@ a.logo-offer {
     .legal-container {
         padding: 20px;
     }
+
     .legal-container h1 {
         font-size: 2rem;
     }
@@ -968,7 +984,7 @@ a.logo-offer {
     /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
     .section {
         padding: 60px 5%;
-        margin-bottom: 80px;
+        margin-bottom: 70px;
     }
 
     .heroSlogan a {

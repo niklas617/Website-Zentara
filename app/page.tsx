@@ -5,6 +5,7 @@ import Image from "next/image";
 import Typewriter from "../components/Typewriter/Typewriter";
 import { useState } from "react";
 import Impressum from "./impressum/page";
+import AppDownload from "../components/AppDownload";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -132,9 +133,13 @@ export default function HomePage() {
             <div className="portfolio-info">
               <h3>Finanz-Übersicht leicht gemacht</h3>
               <p>
-                Ein modernes Dashboard zur Verwaltung von Finanzen. Entwickelt mit Fokus auf
-                Performance, sauberes UI/UX-Design und intuitive Bedienung.
-                Features inkludieren visuelle Auswertungen und sicheres Login-Management.
+                Dieses Projekt ist eine benutzerfreundliche und sichere Webanwendung zur Verwaltung von persönlichen oder geschäftlichen Finanzen. <br />
+                <br />
+                Das Ziel des Dashboards ist es, alltägliche Zahlungsströme in einer klaren, leicht verständlichen Übersicht darzustellen, damit Nutzer jederzeit die volle Kontrolle über ihr Geld behalten.
+                <br />
+                Schluss mit kompliziertem Papierkram oder unübersichtlichen Excel-Tabellen.
+                <br /> <br />
+                Das Finanz-Dashboard bietet eine moderne, intuitive und stressfreie Lösung, um Finanzen smart zu planen und fundierte finanzielle Entscheidungen zu treffen.
               </p>
               <Link href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank" rel="noopener noreferrer" className="project-link-btn">
                 Live Projekt ansehen
@@ -145,11 +150,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MotoSet Projekt Bereich mit eigenem Slider */}
       <section id="motoset" className="section">
         <h2>Aktuelles Projekt: Fahrwerkeinstellungs-App</h2>
 
-        <div className="motoset-container">
-          <div className="motosetcard">
+        <div className="portfolio-container">
+          <div className="portfolio-card">
 
             {/* Bild-Slider */}
             <div className="slider-wrapper">
@@ -183,12 +189,14 @@ export default function HomePage() {
             <div className="portfolio-info">
               <h3>Fahrwerkeinstellungen-Übersicht leicht gemacht</h3>
               <p>
-                Eine modernes App zur Verwaltung von Fahrwerkeinstellungen. Entwickelt mit Fokus auf
-                Performance, sauberes UI/UX-Design und intuitive Bedienung.
-                Features inkludieren visuelle Auswertungen und sicheres Login-Management.
+                MotoSet ist eine moderne, mobile Anwendung zur strukturierten Erfassung und Optimierung von Motorrad-Fahrwerks-Setups, speziell für Trackdays und ambitionierte Fahrer. <br />
+                <br />
+                Ziel der Anwendung ist es, komplexe Fahrwerksdaten einfach zugänglich zu machen und Fahrern dabei zu helfen, ihr Setup effizient zu analysieren und gezielt zu optimieren.<br />
+                <br />
+                Durch die Anbindung an eine Cloud-Datenbank bleiben alle Daten sicher gespeichert und geräteübergreifend verfügbar. Die Anmeldung erfolgt flexibel per E-Mail oder Google-Konto.
               </p>
-              <a href="/downloads/app-release.apk" download="MotoSet.apk" className="project-link-btn">
-                App herunterladen (APK)
+              <a href="/downloads/app-release.apk" download="MotoSet.apk" className="project-link-btn-download">
+                App herunterladen
               </a>
             </div>
 
