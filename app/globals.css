@@ -3,20 +3,42 @@
 }
 
 
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+
+} */
 body {
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* background-color: rgb(10, 10, 58); */
-    background: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
     color: white;
     overflow-x: hidden;
-    /* Verhindert nur das seitliche Scrollen */
     overflow-y: auto;
-    /* Erlaubt explizit das Scrollen nach unten */
     min-height: 100vh;
-    /* Sorgt dafür, dass der Body mindestens so hoch wie der Bildschirm ist */
+    /* Dein Bild laden */
+    background: linear-gradient(rgba(10, 10, 31, 1),
+            rgba(19, 19, 94, 0.95),
+            rgba(10, 10, 31, 0.9)),
+        url('/assets/images/Herunterladen.jpg');
+    /* Sorgt dafür, dass das Bild immer den ganzen Bildschirm füllt */
+    background-size: cover;
 
+    /* Zentriert das Bild */
+    background-position: center;
+
+    /* Verhindert, dass das Bild beim Scrollen mitrutscht (sieht sehr edel aus!) */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    /* Falls das Bild nicht lädt, zeige zur Sicherheit deine dunkle Farbe */
+    background-color: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
 }
 
 textarea::placeholder,
@@ -166,12 +188,12 @@ a.logo-offer {
 
 /* Futuristisches Card-Design */
 .card {
-    background: transparent;
+    background: rgba(12, 12, 12, 0.1);
     padding: 30px;
     border-radius: 12px;
     border: 1.8px solid rgba(253, 253, 253, 0.678);
     transition: 0.3s;
-    box-shadow: 0 0 7px rgba(255, 255, 255, 0.637);
+    box-shadow: 0 0 7px rgba(119, 119, 119, 0.637);
     margin-bottom: 105px;
 
 }
@@ -731,8 +753,7 @@ a.logo-offer {
     max-width: 800px;
     margin: 40px auto;
     padding-left: 40px;
-    /* border-left: 2px solid rgba(139, 92, 246, 0.3); */
-    /* Die lila Linie */
+    /* border-left: 2px solid rgba(139, 92, 246, 0.4);  */
 }
 
 .roadmap-item {
@@ -742,7 +763,7 @@ a.logo-offer {
 
 /* Die vertikale Linie als Pseudoelement an JEDEM Item außer dem letzten */
 .roadmap-item::before {
-    border-left: 2px solid rgba(139, 92, 246, 0.3);
+    border-left: 2px solid rgba(139, 92, 246, 0.75);
     margin: 20px auto;
     content: "";
     position: absolute;
@@ -780,10 +801,10 @@ a.logo-offer {
 }
 
 .step-content {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid #7c3aeda2;
     transition: 0.3s;
 }
 
