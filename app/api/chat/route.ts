@@ -3,8 +3,8 @@ import OpenAI from 'openai'; // Wir nutzen das OpenAI Paket für Groq!
 
 // 1. Wir initialisieren den Client mit dem Groq-Schlüssel und der Groq-URL
 const openai = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY,
-  baseURL: "https://api.groq.com/openai/v1", // Der magische Trick!
+  apiKey: process.env.GROQ_API_KEY || "dummy-key-fuer-den-build",
+  baseURL: "https://api.groq.com/openai/v1",
 });
 
 export async function POST(req: Request) {
