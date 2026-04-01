@@ -1047,7 +1047,7 @@ a.logo-offer {
     bottom: 85px;
     right: 0;
     width: 380px;
-    height: 550px;
+    height: 500px;
     background: rgba(15, 23, 42, 0.95);
     /* Dunkler, leicht transparenter Hintergrund */
     backdrop-filter: blur(10px);
