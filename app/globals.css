@@ -1002,7 +1002,242 @@ a.logo-offer {
 }
 
 
+/* =========================================
+   KOMPLETTES CHATBOT WIDGET CSS
+   ========================================= */
 
+/* 1. Der unsichtbare Container unten rechts */
+.chatbot-container {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: sans-serif;
+}
+
+/* 2. Der runde Schalter (Toggle Button) */
+.chatbot-toggle-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #2dd4bf);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+    transition: transform 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.chatbot-toggle-icon:hover {
+    transform: scale(1.08);
+}
+
+/* 3. Das schwebende Hauptfenster */
+.chatbot-wrapper.floating {
+    position: absolute;
+    bottom: 85px;
+    right: 0;
+    width: 380px;
+    height: 550px;
+    background: rgba(15, 23, 42, 0.95);
+    /* Dunkler, leicht transparenter Hintergrund */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 4. Der Header */
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-title {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.chatbot-subtitle {
+    margin: 4px 0px 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.chatbot-close-btn {
+    background: none !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 60;
+    box-shadow: none !important;
+    margin-right: -20px;
+}
+
+.chatbot-close-btn:hover {
+    color: #fff !important;
+}
+
+/* 5. Der Chat-Bereich (Body) */
+.chatbot-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Scrollbar aufhübschen */
+.chatbot-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* 6. Die Chat-Nachrichten */
+.chat-row {
+    display: flex;
+    width: 100%;
+}
+
+.row-user {
+    justify-content: flex-end;
+}
+
+.row-bot {
+    justify-content: flex-start;
+}
+
+.chat-message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.msg-user {
+    background: linear-gradient(135deg, #0ea5e9, #2dd4bf);
+    color: #fff;
+    border-bottom-right-radius: 2px;
+}
+
+.msg-bot {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border-bottom-left-radius: 2px;
+}
+
+/* Markdown Anpassungen für den Bot */
+.markdown-content p {
+    margin: 0 0 8px 0;
+}
+
+.markdown-content p:last-child {
+    margin: 0;
+}
+
+.markdown-content ul {
+    margin: 8px 0 8px 20px;
+    padding: 0;
+}
+
+/* 7. Der Eingabebereich (Footer) */
+.chatbot-footer {
+    display: flex;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
+    align-items: center;
+}
+
+.chatbot-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.chatbot-input::placeholder {
+    color: #64748b;
+}
+
+.chatbot-input:focus {
+    border-color: #0ea5e9;
+}
+
+/* Überschreibt deine globalen Button-Styles für den Senden-Button */
+.chatbot-send-btn,
+.chatbot-upload-btn {
+    background: #0ea5e9 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 15px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+    height: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+}
+
+.chatbot-upload-btn {
+    background: transparent !important;
+    font-size: 1.2rem !important;
+    padding: 5px !important;
+}
+
+.chatbot-send-btn:hover {
+    background: #0284c7 !important;
+}
+
+/* Mobile Anpassung */
+@media (max-width: 768px) {
+    .chatbot-container {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .chatbot-wrapper.floating {
+        width: calc(100vw - 40px);
+        height: 60vh;
+    }
+}
 
 /* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
 @media (max-width: 768px) {

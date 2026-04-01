@@ -6,6 +6,7 @@ import Typewriter from "../components/Typewriter/Typewriter";
 import { useState } from "react";
 import Impressum from "./impressum/page";
 import AppDownload from "../components/AppDownload";
+import RealEstateChatbot from "../components/RealEstateChatbot";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -24,7 +25,7 @@ export default function HomePage() {
     "/assets/images/strecke.png",
     "/assets/images/federbein.png",
     "/assets/images/session.png",
-    
+
   ];
 
   const [currentImg, setCurrentImg] = useState(0);
@@ -47,6 +48,7 @@ export default function HomePage() {
           <span><Typewriter /></span>
         </div>
 
+
         <div className="heroSlogan">
           <p>Ich entwickle individuelle Websites, die Unternehmen professionell nach außen vertreten.</p>
           <Link href="/offer" className="cta-button">
@@ -54,6 +56,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+          <RealEstateChatbot />
+
 
       <section id="services" className="section">
         <h2>Meine Dienstleistungen</h2>
@@ -293,6 +298,8 @@ export default function HomePage() {
 
       <footer className="footer">
         <div className="footer-content">
+
+
 
           {/* Spalte 1: Brand & Info */}
           <div className="footer-column">

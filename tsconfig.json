@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "app/impressum/page.js"
-  ],
+, "components/RealEstateChatbot.jsx"  ],
   "exclude": [
     "node_modules"
   ]
