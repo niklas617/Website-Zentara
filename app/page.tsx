@@ -61,12 +61,12 @@ export default function HomePage() {
 
       <RealEstateChatbot />
 
-
+{/* 
       <section id="services" className="section">
         <h2>Meine Dienstleistungen</h2>
         <div className="grid">
 
-          {/*Karte 1 mit Rabatt Badge*/}
+          Karte 1 mit Rabatt Badge
           <div className="card">
             <div className="discount-badge">Angebot</div>
             <h3>Webentwicklung</h3>
@@ -78,7 +78,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/*Karte 2 Standard ohne Badge, aber reduziert */}
+          Karte 2 Standard ohne Badge, aber reduziert
           <div className="card">
             <h3>Web-Nacharbeitung</h3>
             <p>Analyse, Optimierung und technische Weiterentwicklung bestehender Web-Anwendungen.</p>
@@ -89,7 +89,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/*Karte 3 Stundenlohn / Fixpreis */}
+          Karte 3 Stundenlohn / Fixpreis
           <div className="card">
             <h3>Webpflege</h3>
             <p>Kontinuierliche Pflege, Wartung und Optimierung bestehender Web-Lösungen.</p>
@@ -106,7 +106,7 @@ export default function HomePage() {
             <b>Jetzt Angebot anfordern</b>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* NEUER PROJEKT BEREICH MIT SLIDER */}
       <section id="portfolio" className="section">

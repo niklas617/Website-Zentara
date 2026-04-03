@@ -58,12 +58,16 @@ input::placeholder {
 
 /*begrenzung des offer-container */
 .offer-container {
-    max-width: min(800px, 100%);
+    max-width: min(1000px, 100%);
     /* begrenzt die Länge */
     margin: 0 auto;
     /* horizontal zentriert */
     padding: 2rem;
     /* Innenabstand */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    ;
+
 
 }
 
@@ -90,15 +94,18 @@ label {
     width: 100%;
     padding: 0.75rem 1rem;
 
+
     font-size: 1rem;
     font-family: inherit;
     color: white;
+
 
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+
 }
 
 input:focus,
@@ -124,19 +131,23 @@ select {
 button {
     display: block;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 13px 25px;
     cursor: pointer;
     border-radius: 20px;
     background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
     color: #020617;
     font-weight: bold;
     border-color: transparent;
-    text-decoration: none;
+    font-size: 1.2rem;
+    
 
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+    filter: invert(0);
+    cursor: pointer;
+    width: 22px; 
+    height: 22px;
 }
 
 
@@ -154,6 +165,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -webkit-text-fill-color: transparent;
     transition: 0.5s;
     filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+
 }
 
 a.logo-offer {
@@ -1267,10 +1279,7 @@ a.logo-offer {
         margin: 40px 10px 24px;
     }
 
-    /* 4. Angebots-Formular: Innenabstand verkleinern, um Platz zu sparen */
-    .offer-container {
-        padding: 1rem;
-    }
+
 
     /* 5. Cards: Den 120px Abstand am unteren Rand auf ein normales Maß schrumpfen */
     .card {

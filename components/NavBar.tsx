@@ -53,29 +53,30 @@ export default function NavBar() {
 
       <div className={`overlay-menu ${open ? "active" : ""}`} id="overlayMenu">
         <ul className="menu-links">
-          <li>
+          {/* <li>
             <Link href="/#services" onClick={close}>
               Dienstleistungen
             </Link>
-          </li>
+          </li> */}
           {<li>
             <Link href="/#portfolio" onClick={close}>
-              Projekte
+              Aktuelle Projekte
             </Link>
           </li>}
-          <li>
-            <Link href="/#about" onClick={close}>
-              Über mich
-            </Link>
-          </li>
+        
           <li>
             <Link href="/pricing" onClick={close}>
-              Preise
+              Preise & Pakete
             </Link>
           </li>
           <li>
             <Link href="/offer" onClick={close}>
               Angebot anfordern
+            </Link>
+          </li>
+            <li>
+            <Link href="/#about" onClick={close}>
+              Über mich
             </Link>
           </li>
         </ul>

@@ -104,7 +104,7 @@ export default function OfferPage() {
             <li>✓ Perfekt fürs Smartphone optimiert</li>
           </ul>
           <div style={priceStyle}>ab 799 €</div>
-          <Link href="/kontakt" style={buttonStyle}>Projekt anfragen</Link>
+          <Link href="/offer" style={buttonStyle}>Projekt anfragen</Link>
         </div>
 
         {/* Karte 2: Web-Nacharbeitung */}
@@ -118,10 +118,24 @@ export default function OfferPage() {
             <li>✓ Anpassung von Bildern & Texten</li>
           </ul>
           <div style={priceStyle}>ab 249 €</div>
-          <Link href="/kontakt" style={buttonStyle}>Website modernisieren</Link>
+          <Link href="/offer" style={buttonStyle}>Website modernisieren</Link>
         </div>
 
-        {/* Karte 3: Softwarelösungen */}
+         {/* Karte 3: Webpflege */}
+        <div style={cardStyle}>
+          <h2 style={titleStyle}>Rundum-Sorglos</h2>
+          <p style={descStyle}>Damit du dich auf dein Geschäft konzentrieren kannst, kümmere ich mich um die Technik.</p>
+          <ul style={listStyle}>
+            <li>✓ Sicheres Hosting & Backups</li>
+            <li>✓ Regelmäßige System-Updates</li>
+            <li>✓ Kleine inhaltliche Anpassungen</li>
+            <li>✓ Persönlicher Support vor Ort</li>
+          </ul>
+          <div style={priceStyle}>ab 49 € pro Monat</div>
+          <Link href="/offer" style={buttonStyle}>Pflege anfragen</Link>
+        </div>
+
+        {/* Karte 4: Softwarelösungen */}
         <div style={cardStyle}>
           <h2 style={titleStyle}>Smarte Software</h2>
           <p style={descStyle}>Schluss mit der Zettelwirtschaft. Ich baue kleine, smarte Helfer für deinen Arbeitsalltag.</p>
@@ -132,22 +146,10 @@ export default function OfferPage() {
             <li>✓ Genau auf dich zugeschnitten</li>
           </ul>
           <div style={priceStyle}>Individuell</div>
-          <Link href="/kontakt" style={buttonStyle}>Idee besprechen</Link>
+          <Link href="/offer" style={buttonStyle}>Idee besprechen</Link>
         </div>
 
-        {/* Karte 4: Webpflege */}
-        <div style={cardStyle}>
-          <h2 style={titleStyle}>Rundum-Sorglos</h2>
-          <p style={descStyle}>Damit du dich auf dein Geschäft konzentrieren kannst, kümmere ich mich um die Technik.</p>
-          <ul style={listStyle}>
-            <li>✓ Sicheres Hosting & Backups</li>
-            <li>✓ Regelmäßige System-Updates</li>
-            <li>✓ Kleine inhaltliche Anpassungen</li>
-            <li>✓ Persönlicher Support vor Ort</li>
-          </ul>
-          <div style={priceStyle}>ab 49 € p Monat</div>
-          <Link href="/kontakt" style={buttonStyle}>Pflege anfragen</Link>
-        </div>
+       
 
       </section>
 
