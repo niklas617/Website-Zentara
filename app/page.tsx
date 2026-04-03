@@ -106,7 +106,7 @@ export default function HomePage() {
       </section>
 
       {/* VERGLEICHS-SEKTION (08/15 vs Zentara) */}
-      <section className="comparison-section" style={{ maxWidth: "1150px", margin: "0 auto",  }}>
+      <section className="section" style={{ maxWidth: "1150px", margin: "0 auto",  }}>
         <h2 className="section-title">08/15 Webseite vs. <br /> <span className="highlight">Zentara Lösung</span></h2>
         <p style={{ color: "rgb(201, 201, 201)", marginBottom: "50px", fontSize: "1.1rem" }}>
           Das macht den Unterschied zwischen einer einfachen Online-Visitenkarte und einem echten digitalen Aushängeschild aus:
@@ -119,7 +119,7 @@ export default function HomePage() {
             <h3 style={{ fontSize: "1.5rem", color: "#94a3b8", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "15px" }}>
               08/15 Baukasten-Seite
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "18px" }}>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "30px" }}>
               <li style={{ display: "flex", gap: "12px", alignItems: "flex-start", color: "#94a3b8" }}>
                 <span>❌</span> <span>Keine klare Botschaft für den Besucher</span>
               </li>
@@ -146,7 +146,7 @@ export default function HomePage() {
             <h3 style={{ fontSize: "1.5rem", color: "#fff", marginBottom: "20px", borderBottom: "1px solid rgba(14, 165, 233, 0.3)", paddingBottom: "15px" }}>
               Verkaufsstarke Webseite
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "18px" }}>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "30px" }}>
               <li style={{ display: "flex", gap: "12px", alignItems: "flex-start", color: "#e2e8f0" }}>
                 <span>✅</span> <span>Das Angebot wird in Sekunden sofort verstanden</span>
               </li>
