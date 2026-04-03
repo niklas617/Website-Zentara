@@ -58,14 +58,19 @@ export default function NavBar() {
               Dienstleistungen
             </Link>
           </li>
-          { <li>
+          {<li>
             <Link href="/#portfolio" onClick={close}>
               Projekte
             </Link>
-          </li> }
+          </li>}
           <li>
             <Link href="/#about" onClick={close}>
               Über mich
+            </Link>
+          </li>
+          <li>
+            <Link href="/pricing" onClick={close}>
+              Preise
             </Link>
           </li>
           <li>

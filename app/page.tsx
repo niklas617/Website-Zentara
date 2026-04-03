@@ -7,6 +7,7 @@ import { useState } from "react";
 import Impressum from "./impressum/page";
 import AppDownload from "../components/AppDownload";
 import RealEstateChatbot from "../components/RealEstateChatbot";
+import OfferPrizing from "./pricing/page";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -39,6 +40,7 @@ export default function HomePage() {
   };
   // -----------------------
 
+  
   return (
     <section>
       <NavBar />
@@ -50,14 +52,14 @@ export default function HomePage() {
 
 
         <div className="heroSlogan">
-          <p>Ich entwickle individuelle Websites, die Unternehmen professionell nach außen vertreten.</p>
+          <p>Ich entwickle individuelle Websites und Anwendungen, um dein Unternehmen digital sichtbar, effizient und zukunftssicher zu machen.</p>
           <Link href="/offer" className="cta-button">
             Jetzt Angebot anfordern
           </Link>
         </div>
       </section>
 
-          <RealEstateChatbot />
+      <RealEstateChatbot />
 
 
       <section id="services" className="section">

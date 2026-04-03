@@ -66,3 +66,11 @@
 .scrollTopBtn:hover .arrowIcon {
     transform: translateY(-3px);
 }
+
+@media (max-width: 768px) {
+    .container {
+        right: 20px;
+    }
+
+
+}

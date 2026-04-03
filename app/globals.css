@@ -14,6 +14,8 @@
     min-height: 100vh;
 
 } */
+
+
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +24,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100vh;
-    /* Dein Bild laden */
+    /* Bild laden */
     background: linear-gradient(rgba(10, 10, 31, 1),
             rgba(19, 19, 94, 0.95),
             rgba(10, 10, 31, 0.9)),
@@ -37,9 +39,10 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 
-    /* Falls das Bild nicht lädt, zeige zur Sicherheit deine dunkle Farbe */
+    /* Falls das Bild nicht lädt, zeige zur Sicherheit dunkle Farbe */
     background-color: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
 }
+
 
 textarea::placeholder,
 input::placeholder {
@@ -241,14 +244,14 @@ a.logo-offer {
 
 /* Navigation-Bar */
 .navbar {
-    margin-top: 30px;
+    top: 0px;
     width: 100%;
     z-index: 9999;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 30px 20px;
     /*Seitlicher Abstand innerhalb der Navbar*/
     /* background: rgba(15, 23, 42, 0.9); */
 

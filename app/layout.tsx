@@ -4,8 +4,7 @@ import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Zentara | Webentwicklung",
-  description: "Individuelle Softwarelösungen, Webentwicklung und Automatisierung.",
+  title: "Zentara-Solutions",
   icons: {
     icon: "assets/images/favicon.png", // Pfad zu deinem Bild im public-Ordner
     apple: "assets/images/favicon.png", // Optional: Für iPhones
