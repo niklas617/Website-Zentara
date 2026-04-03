@@ -1229,7 +1229,7 @@ a.logo-offer {
 /* Mobile Anpassung */
 @media (max-width: 768px) {
     .chatbot-container {
-        bottom: 20px;
+        bottom: 120px;
         right: 20px;
     }
 
