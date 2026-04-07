@@ -551,7 +551,7 @@ export default function HomePage() {
           <div className="footer-column">
             <h4>Navigation</h4>
             <ul className="footer-links">
-              <li><Link href="#services">Dienstleistungen</Link></li>
+              <li><Link href="/pricing">Dienstleistungen & Preise</Link></li>
               <li><Link href="#portfolio">Projekte</Link></li>
               <li><Link href="#about">Über mich</Link></li>
               <li><Link href="/offer" className="highlight-link">Angebot anfordern</Link></li>

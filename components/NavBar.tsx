@@ -63,22 +63,31 @@ export default function NavBar() {
               Aktuelle Projekte
             </Link>
           </li>}
-        
+
+          <li>
+            <Link href="/#faq" onClick={close}>
+              Häufige Fragen
+            </Link>
+          </li>
+
           <li>
             <Link href="/pricing" onClick={close}>
               Preise & Pakete
             </Link>
           </li>
+
           <li>
             <Link href="/offer" onClick={close}>
               Angebot anfordern
             </Link>
           </li>
-            <li>
+
+          <li>
             <Link href="/#about" onClick={close}>
               Über mich
             </Link>
           </li>
+
         </ul>
       </div>
     </nav>

@@ -336,27 +336,33 @@ a.logo-offer {
 }
 
 /* ZUSTAND 1: Standardmäßig versteckt */
+/* ZUSTAND 1: Standardmäßig versteckt */
 .overlay-menu {
     position: fixed;
-    top: 88px;
+    top: 85px; /* Passt genau unter deine Navbar (ggf. leicht anpassen) */
     left: 0;
-    width: 100%;
-    max-width: 325px;
-    height: calc(100vh-95px);
-    background: transparent;
+    width: 100%; /* Nimmt auf dem Handy die volle Breite ein */
+    height: calc(100vh - 85px); /* Füllt den Rest des Bildschirms nach unten aus */
+    
+    /* Hier ist die Magie: Ein sehr dunkler, fast blickdichter Hintergrund + Blur */
+    background: rgba(5, 5, 20, 0.98); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    /* Macht das Erscheinen "weich" */
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    z-index: 9998; /* Zwingt das Menü GANZ nach vorne (unter die Navbar) */
+    padding: 20px 0; /* Etwas Luft nach oben */
 }
 
 /* ZUSTAND 2: Sichtbar (wird per JS aktiviert) */
 .overlay-menu.active {
-    margin-top: -3rem;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+    /* WICHTIG: Das alte 'margin-top: -3rem;' ist hier gelöscht, da es Fehler verursacht hat! */
 }
 
 
@@ -483,7 +489,7 @@ a.logo-offer {
 /* --- Home page additions (hero/projects) --- */
 
 .hero {
-    padding: 200px 5% 200px;
+    padding: 160px 5% 120px;
     width: 100%;
     text-align: center;
 }
@@ -758,9 +764,20 @@ a.logo-offer {
 
 /* Mobile Anpassung */
 @media (max-width: 768px) {
+    .portfolio-container {
+        padding: 0px;
+        margin: 50px 0;
+        
+    }
+    .slider-image-container {
+        height: 310px;
+        transform: scale(1.4);
+       
+    }
     .slider-btn {
-        width: 35px;
-        height: 35px;
+        margin-top: 130px;;
+        width: 0px;
+        height: 40px;
         font-size: 1rem;
     }
 
