@@ -62,17 +62,17 @@ export default function HomePage() {
       <RealEstateChatbot />
 
       {/* WARUM ZENTARA BEREICH */}
-<section id="why-zentara" className="section" style={{ 
-  background: "linear-gradient(to bottom, transparent 0%, #0a0a23 25%, #0a0a23 75%, transparent 100%)", 
-  paddingBottom: "300px", paddingTop: "300px"
-}}>        <h2 className="section-title">Warum <span className="highlight">Zentara?</span></h2>
+      <section id="why-zentara" className="section" style={{
+        background: "linear-gradient(to bottom, transparent 0%, #0a0a23 25%, #0a0a23 75%, transparent 100%)",
+        paddingBottom: "300px", paddingTop: "300px"
+      }}>        <h2 className="section-title">Warum <span className="highlight">Zentara?</span></h2>
         <p style={{ color: "rgb(201, 201, 201)", maxWidth: "700px", margin: "0 auto 40px", fontSize: "1.1rem" }}>
           Standard-Baukästen stoßen schnell an ihre Grenzen. Ich biete dir Lösungen, die genau auf dein Unternehmen zugeschnitten sind.
         </p>
 
         <div className="grid">
           {/* Grund 1 */}
-          <div className="card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
+          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
             <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Moderne Technologie</h3>
             <p style={{ margin: 0 }}>
               Keine langsamen Standard-Templates. Ich baue blitzschnelle, zukunftssichere Web-Anwendungen mit modernsten Frameworks.
@@ -80,7 +80,7 @@ export default function HomePage() {
           </div>
 
           {/* Grund 2 */}
-          <div className="card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
+          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
             <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Persönlich & Direkt</h3>
             <p style={{ margin: 0 }}>
               Keine anonyme Agentur, keine ewigen Warteschleifen. Du hast einen festen Ansprechpartner, der dein Projekt von A bis Z kennt.
@@ -88,7 +88,7 @@ export default function HomePage() {
           </div>
 
           {/* Grund 3 */}
-          <div className="card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
+          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
             <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>100% Maßgeschneidert</h3>
             <p style={{ margin: 0 }}>
               Dein Unternehmen ist einzigartig – deine Software sollte es auch sein. Ich entwickle exakt das, was du brauchst, ohne unnötigen Ballast.
@@ -96,7 +96,7 @@ export default function HomePage() {
           </div>
 
           {/* Grund 4 */}
-          <div className="card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
+          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
             <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Rundum-Sorglos</h3>
             <p style={{ margin: 0 }}>
               Von der ersten Idee über das Design bis hin zum sicheren Hosting und der laufenden Wartung übernehme ich die komplette Technik.
@@ -106,7 +106,7 @@ export default function HomePage() {
       </section>
 
       {/* VERGLEICHS-SEKTION (08/15 vs Zentara) */}
-      <section className="section" style={{ maxWidth: "1150px", margin: "0 auto",  }}>
+      <section className="section" style={{ maxWidth: "1150px", margin: "0 auto", }}>
         <h2 className="section-title">08/15 Webseite vs. <br /> <span className="highlight">Zentara Lösung</span></h2>
         <p style={{ color: "rgb(201, 201, 201)", marginBottom: "50px", fontSize: "1.1rem" }}>
           Das macht den Unterschied zwischen einer einfachen Online-Visitenkarte und einem echten digitalen Aushängeschild aus:
@@ -115,7 +115,7 @@ export default function HomePage() {
         <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", marginTop: "0", }}>
 
           {/* Die schlechte 08/15 Webseite */}
-          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, opacity: 0.8, paddingBottom: "80px",  }}>
+          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, opacity: 0.8, paddingBottom: "80px", }}>
             <h3 style={{ fontSize: "1.5rem", color: "#94a3b8", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "15px" }}>
               08/15 Baukasten-Seite
             </h3>
@@ -310,6 +310,7 @@ export default function HomePage() {
             </div>
 
             {/* Projekt-Info & Link */}
+            {/* Projekt-Info & Link */}
             <div className="portfolio-info">
               <h3>Fahrwerkeinstellungen-Übersicht leicht gemacht</h3>
               <p>
@@ -319,8 +320,50 @@ export default function HomePage() {
                 <br />
                 Durch die Anbindung an eine Cloud-Datenbank bleiben alle Daten sicher gespeichert und geräteübergreifend verfügbar. Die Anmeldung erfolgt flexibel per E-Mail oder Google-Konto.
               </p>
-              <AppDownload />
 
+              {/* NEU: Professionelle Info-Box für iOS / Android */}
+              <div style={{ padding: "15px 20px", backgroundColor: "rgba(14, 165, 233, 0.05)", borderLeft: "4px solid #0ea5e9", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
+                <p style={{ margin: 0, fontSize: "0.95rem", color: "#e2e8f0" }}>
+                  <strong>Plattform-Hinweis:</strong> MotoSet steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
+                </p>
+              </div>
+
+              {/* NEU: Button Container (Flexbox für nebeneinander/untereinander) */}
+              <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", alignItems: "center" }}>
+
+                {/* Button 1: Dein bestehendes Modal für Android (Leuchtend) */}
+                <AppDownload />
+
+                {/* Button 2: Der neue Web-App Link (Edler Rahmen) */}
+                <Link
+                  href="https://motoset-2d516.web.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    padding: "8px 25px",
+                    background: "transparent",
+                    color: "#0ea5e9",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    borderRadius: "20px",
+                    border: "2px solid #0ea5e9",
+                    transition: "0.3s",
+                    fontSize: "17px"
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = "rgba(14, 165, 233, 0.1)";
+                    e.currentTarget.style.boxShadow = "0 0 15px rgba(14, 165, 233, 0.3)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  Web-App öffnen
+                </Link>
+
+              </div>
             </div>
 
           </div>
@@ -390,12 +433,12 @@ export default function HomePage() {
 
       {/* VERTRAUENS-SEKTION */}
       <section className="section" style={{ maxWidth: "1200px", margin: "0 auto", paddingBottom: "100px" }}>
-        
+
         {/* Teil 1: Die Garantien */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
           <h2 className="section-title">Meine <span className="highlight">Versprechen</span> an dich</h2>
           <div className="grid" style={{ marginTop: "30px", gap: "20px" }}>
-            
+
             <div className="card" style={{ padding: "30px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ fontSize: "3rem", marginBottom: "15px" }}>🤝</div>
               <h3 style={{ color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>Persönlich & Vor Ort</h3>
@@ -418,10 +461,10 @@ export default function HomePage() {
         </div>
 
         {/* Teil 2: Kundenstimmen (Testimonials) */}
-        <div style={{ textAlign: "center", marginTop: "80px" }}>
+        <div style={{ textAlign: "center", marginTop: "120px" }}>
           <h2 className="section-title">Das sagen <span className="highlight">Kunden</span></h2>
           <div className="grid" style={{ marginTop: "30px", gap: "30px" }}>
-            
+
             {/* Bewertung 1 */}
             <div className="card" style={{ padding: "30px", textAlign: "left", marginBottom: "0", position: "relative" }}>
               <div style={{ fontSize: "4rem", color: "rgba(14, 165, 233, 0.2)", position: "absolute", top: "10px", right: "20px", fontFamily: "serif" }}>"</div>
@@ -469,7 +512,7 @@ export default function HomePage() {
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "15px", textAlign: "left" }}>
-          
+
           {/* Frage 1 */}
           <details style={{ background: "rgba(12, 12, 12, 0.4)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", padding: "20px", cursor: "pointer", transition: "0.3s" }}>
             <summary style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>

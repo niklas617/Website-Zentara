@@ -139,14 +139,14 @@ button {
     font-weight: bold;
     border-color: transparent;
     font-size: 1.2rem;
-    
+
 
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(0);
     cursor: pointer;
-    width: 22px; 
+    width: 22px;
     height: 22px;
 }
 
@@ -184,6 +184,10 @@ a.logo-offer {
     font-size: 2.2rem;
     filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
     font-weight: 700;
+}
+
+.why-card {
+    padding: 80px 30px;
 }
 
 /* Das Grid-System (Sehr wichtig für Profis!) */
@@ -339,22 +343,27 @@ a.logo-offer {
 /* ZUSTAND 1: Standardmäßig versteckt */
 .overlay-menu {
     position: fixed;
-    top: 85px; /* Passt genau unter deine Navbar (ggf. leicht anpassen) */
+    top: 85px;
+    /* Passt genau unter deine Navbar (ggf. leicht anpassen) */
     left: 0;
-    width: 100%; /* Nimmt auf dem Handy die volle Breite ein */
-    height: calc(100vh - 85px); /* Füllt den Rest des Bildschirms nach unten aus */
-    
+    width: 100%;
+    /* Nimmt auf dem Handy die volle Breite ein */
+    height: calc(100vh - 85px);
+    /* Füllt den Rest des Bildschirms nach unten aus */
+
     /* Hier ist die Magie: Ein sehr dunkler, fast blickdichter Hintergrund + Blur */
-    background: rgba(5, 5, 20, 0.98); 
+    background: rgba(5, 5, 20, 0.98);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: all 0.3s ease-in-out;
-    z-index: 9998; /* Zwingt das Menü GANZ nach vorne (unter die Navbar) */
-    padding: 20px 0; /* Etwas Luft nach oben */
+    z-index: 9998;
+    /* Zwingt das Menü GANZ nach vorne (unter die Navbar) */
+    padding: 20px 0;
+    /* Etwas Luft nach oben */
 }
 
 /* ZUSTAND 2: Sichtbar (wird per JS aktiviert) */
@@ -437,8 +446,9 @@ a.logo-offer {
 /* app/globals.css */
 
 .comparison-section {
-  position: relative; /* Wichtig für das Pseudoelement */
-  overflow: hidden;
+    position: relative;
+    /* Wichtig für das Pseudoelement */
+    overflow: hidden;
 }
 
 
@@ -751,42 +761,6 @@ a.logo-offer {
     margin-bottom: 15px;
 }
 
-/* Mobile Anpassung */
-@media (max-width: 768px) {
-    .legal-container {
-        padding: 20px;
-    }
-
-    .legal-container h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Mobile Anpassung */
-@media (max-width: 768px) {
-    .portfolio-container {
-        padding: 0px;
-        margin: 50px 0;
-        
-    }
-    .slider-image-container {
-        height: 310px;
-        transform: scale(1.4);
-       
-    }
-    .slider-btn {
-        margin-top: 130px;;
-        width: 0px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    .portfolio-info {
-        padding: 20px;
-    }
-}
-
-
 .roadmap-container {
     display: flex;
     flex-direction: column;
@@ -944,17 +918,6 @@ a.logo-offer {
     text-align: center;
     color: rgb(120, 120, 120);
     font-size: 0.85rem;
-}
-
-/* Mobile Anpassung */
-@media (max-width: 768px) {
-    .footer {
-        padding: 50px 5% 20px;
-    }
-
-    .footer-content {
-        gap: 30px;
-    }
 }
 
 .aboutImage {
@@ -1267,8 +1230,59 @@ a.logo-offer {
     background: #0284c7 !important;
 }
 
-/* Mobile Anpassung */
+
+
+/* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
 @media (max-width: 768px) {
+
+    .heroSlogan {
+        margin-bottom: -230px;
+    }
+
+    .why-card {
+        padding: 40px 35px !important;
+    }
+
+    .footer {
+        padding: 50px 5% 20px;
+    }
+
+    .footer-content {
+        gap: 30px;
+    }
+
+    .portfolio-container {
+        padding: 0px;
+        margin: 50px 0;
+
+    }
+
+    .slider-image-container {
+        height: 310px;
+        transform: scale(1.4);
+
+    }
+
+    .slider-btn {
+        margin-top: 130px;
+        ;
+        width: 0px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .portfolio-info {
+        padding: 20px;
+    }
+
+    .legal-container {
+        padding: 20px;
+    }
+
+    .legal-container h1 {
+        font-size: 2rem;
+    }
+
     .chatbot-container {
         bottom: 120px;
         right: 20px;
@@ -1278,10 +1292,6 @@ a.logo-offer {
         width: calc(100vw - 40px);
         height: 60vh;
     }
-}
-
-/* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
-@media (max-width: 768px) {
 
     /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
     .section {
@@ -1305,8 +1315,6 @@ a.logo-offer {
         margin: 40px 10px 24px;
     }
 
-
-
     /* 5. Cards: Den 120px Abstand am unteren Rand auf ein normales Maß schrumpfen */
     .card {
         margin-bottom: 40px;
@@ -1315,13 +1323,13 @@ a.logo-offer {
 
     /* 6. Roadmap: Verhindert, dass die lila Zahlen-Kreise links aus dem Bildschirm geschoben werden */
     .roadmap-container {
-        margin: 40px 15px 40px 60px;
+        margin: 40px 20px 40px 50px;
         /* Extra 60px Platz links für den Kreis! */
         padding-left: 20px;
     }
 
     .step-number {
-        left: -36px;
+        left: -55px;
         /* Kreis an die verschobene Linie anpassen */
     }
 
@@ -1331,7 +1339,7 @@ a.logo-offer {
     }
 
     .roadmap-item::before {
-        left: -22px;
+        left: -41px;
         /* Linie an die verschobene Position anpassen */
     }
 }
