@@ -14,7 +14,10 @@
     min-height: 100vh;
 
 } */
-
+html {
+  /* Diese Zeile sorgt dafür, dass alle Anker-Links (#) butterweich scrollen */
+  scroll-behavior: smooth;
+}
 
 body {
     margin: 0;

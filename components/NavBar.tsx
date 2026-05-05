@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function NavBar() {
   const [open, setOpen] = useState(false);
 
+  // Schließt das Menü, wenn die Escape-Taste gedrückt wird
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -14,7 +15,7 @@ export default function NavBar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Prevent background scrolling when the overlay is open (mobile-friendly)
+  // Verhindert das Scrollen im Hintergrund, wenn das Overlay-Menü geöffnet ist (Mobile-Friendly)
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -22,6 +23,7 @@ export default function NavBar() {
     };
   }, [open]);
 
+  // Hilfsfunktion zum Schließen des Menüs bei Klick auf einen Link
   const close = () => setOpen(false);
 
   return (
@@ -54,40 +56,52 @@ export default function NavBar() {
       <div className={`overlay-menu ${open ? "active" : ""}`} id="overlayMenu">
         <ul className="menu-links">
           {/* <li>
-            <Link href="/#services" onClick={close}>
+            <a href="#services" onClick={close}>
               Dienstleistungen
-            </Link>
+            </a>
           </li> */}
-          {<li>
-            <Link href="/#portfolio" onClick={close}>
-              Aktuelle Projekte
-            </Link>
-          </li>}
-
+          
+          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
           <li>
-            <Link href="/#faq" onClick={close}>
-              Häufige Fragen
-            </Link>
+            <a href="#portfolio" onClick={close}>
+              Aktuelle Projekte
+            </a>
           </li>
 
+          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          <li>
+            <a href="#faq" onClick={close}>
+              Häufige Fragen
+            </a>
+          </li>
+
+          {/* BEIBEHALTEN: <Link> Komponente für eine echte neue Unterseite */}
           <li>
             <Link href="/pricing" onClick={close}>
               Preise & Pakete
             </Link>
           </li>
 
+          {/* BEIBEHALTEN: <Link> Komponente für eine echte neue Unterseite */}
           <li>
             <Link href="/offer" onClick={close}>
               Angebot anfordern
             </Link>
           </li>
 
+          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
           <li>
-            <Link href="/#about" onClick={close}>
+            <a href="#about" onClick={close}>
               Über mich
-            </Link>
+            </a>
           </li>
 
+          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          <li>
+            <a href="#footer" onClick={close}>
+              Kontakt
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

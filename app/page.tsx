@@ -8,6 +8,7 @@ import Impressum from "./impressum/page";
 import AppDownload from "../components/AppDownload";
 import RealEstateChatbot from "../components/RealEstateChatbot";
 import OfferPrizing from "./pricing/page";
+import { FaInstagram } from "react-icons/fa";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -579,9 +580,8 @@ export default function HomePage() {
         </p>
       </section>
 
-      <footer className="footer">
+      <footer id="footer" className="footer">
         <div className="footer-content">
-
 
 
           {/* Spalte 1: Brand & Info */}
@@ -606,6 +606,26 @@ export default function HomePage() {
             <h4>Kontakt</h4>
             <p><a href="mailto:info@zentara-solutions.de" className="footer-contact-link">info@zentara-solutions.de</a></p>
             {/* Hier kannst du später auch Links zu GitHub oder LinkedIn einfügen */}
+            {/* Social Media Bereich */}
+            <div style={{ marginTop: "15px", display: "flex", gap: "15px" }}>
+              <Link
+                href="https://www.instagram.com/zentara.official" // <- Hier deinen Insta-Namen eintragen!
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                style={{
+                  display: "inline-flex",
+                  color: "#94a3b8", // Standard-Grau
+                  transition: "color 0.3s ease",
+                  fontSize: "25px" // Hier steuerst du direkt die Größe des Icons!
+                }}
+                onMouseOver={(e) => e.currentTarget.style.color = "#0ea5e9"} // Leuchtet blau beim Hovern
+                onMouseOut={(e) => e.currentTarget.style.color = "#94a3b8"}
+              >
+                {/* Hier wird das React-Icon aufgerufen */}
+                <FaInstagram />
+              </Link>
+            </div>
 
             <h4 style={{ marginTop: "20px" }}>Rechtliches</h4>
             <ul className="footer-links">
