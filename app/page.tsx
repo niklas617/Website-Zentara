@@ -64,41 +64,45 @@ export default function HomePage() {
 
       {/* WARUM ZENTARA BEREICH */}
       <section id="why-zentara" className="section" style={{
-        background: "linear-gradient(to bottom, transparent 0%, #0a0a23 25%, #0a0a23 75%, transparent 100%)",
-        paddingBottom: "300px", paddingTop: "300px"
+        background: "linear-gradient(to bottom, transparent 0%, rgba(15,23,42,0.97) 25%, rgba(15,23,42,0.97) 75%, transparent 100%)",
+        paddingBottom: "clamp(80px,12vw,300px)", paddingTop: "clamp(80px,12vw,300px)"
       }}>        <h2 className="section-title">Warum <span className="highlight">Zentara?</span></h2>
-        <p style={{ color: "rgb(201, 201, 201)", maxWidth: "700px", margin: "0 auto 40px", fontSize: "1.1rem" }}>
+        <p style={{ color: "#94a3b8", maxWidth: "700px", margin: "0 auto 40px", fontSize: "1.05rem", lineHeight: "1.7" }}>
           Standard-Baukästen stoßen schnell an ihre Grenzen. Ich biete dir Lösungen, die genau auf dein Unternehmen zugeschnitten sind.
         </p>
 
         <div className="grid">
           {/* Grund 1 */}
-          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
-            <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Moderne Technologie</h3>
+          <div className="card why-card" style={{ padding: "40px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0", border: "1px solid rgba(16, 185, 129, 0.22)" }}>
+            <div style={{ fontSize: "1.8rem", marginBottom: "4px" }}>⚡</div>
+            <h3 style={{ fontSize: "1.2rem", color: "white", margin: 0, fontWeight: 700 }}>Moderne Technologie</h3>
             <p style={{ margin: 0 }}>
               Keine langsamen Standard-Templates. Ich baue blitzschnelle, zukunftssichere Web-Anwendungen mit modernsten Frameworks.
             </p>
           </div>
 
           {/* Grund 2 */}
-          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
-            <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Persönlich & Direkt</h3>
+          <div className="card why-card" style={{ padding: "40px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0", border: "1px solid rgba(16, 185, 129, 0.22)" }}>
+            <div style={{ fontSize: "1.8rem", marginBottom: "4px" }}>🤝</div>
+            <h3 style={{ fontSize: "1.2rem", color: "white", margin: 0, fontWeight: 700 }}>Persönlich & Direkt</h3>
             <p style={{ margin: 0 }}>
               Keine anonyme Agentur, keine ewigen Warteschleifen. Du hast einen festen Ansprechpartner, der dein Projekt von A bis Z kennt.
             </p>
           </div>
 
           {/* Grund 3 */}
-          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
-            <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>100% Maßgeschneidert</h3>
+          <div className="card why-card" style={{ padding: "40px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0", border: "1px solid rgba(16, 185, 129, 0.22)" }}>
+            <div style={{ fontSize: "1.8rem", marginBottom: "4px" }}>🎯</div>
+            <h3 style={{ fontSize: "1.2rem", color: "white", margin: 0, fontWeight: 700 }}>100% Maßgeschneidert</h3>
             <p style={{ margin: 0 }}>
               Dein Unternehmen ist einzigartig – deine Software sollte es auch sein. Ich entwickle exakt das, was du brauchst, ohne unnötigen Ballast.
             </p>
           </div>
 
           {/* Grund 4 */}
-          <div className="card why-card" style={{ padding: "80px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "15px", marginBottom: "0", border: "4px solid rgba(0, 255, 255, 0.2)", borderRadius: "12px" }}>
-            <h3 style={{ fontSize: "1.3rem", color: "white", margin: 0 }}>Rundum-Sorglos</h3>
+          <div className="card why-card" style={{ padding: "40px 30px", textAlign: "left", display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0", border: "1px solid rgba(16, 185, 129, 0.22)" }}>
+            <div style={{ fontSize: "1.8rem", marginBottom: "4px" }}>🛡️</div>
+            <h3 style={{ fontSize: "1.2rem", color: "white", margin: 0, fontWeight: 700 }}>Rundum-Sorglos</h3>
             <p style={{ margin: 0 }}>
               Von der ersten Idee über das Design bis hin zum sicheren Hosting und der laufenden Wartung übernehme ich die komplette Technik.
             </p>
@@ -109,15 +113,15 @@ export default function HomePage() {
       {/* VERGLEICHS-SEKTION (08/15 vs Zentara) */}
       <section className="section" style={{ maxWidth: "1150px", margin: "0 auto", }}>
         <h2 className="section-title">08/15 Webseite vs. <br /> <span className="highlight">Zentara Lösung</span></h2>
-        <p style={{ color: "rgb(201, 201, 201)", marginBottom: "50px", fontSize: "1.1rem" }}>
+        <p style={{ color: "#94a3b8", marginBottom: "50px", fontSize: "1.05rem", lineHeight: "1.7" }}>
           Das macht den Unterschied zwischen einer einfachen Online-Visitenkarte und einem echten digitalen Aushängeschild aus:
         </p>
 
         <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", marginTop: "0", }}>
 
           {/* Die schlechte 08/15 Webseite */}
-          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, opacity: 0.8, paddingBottom: "80px", }}>
-            <h3 style={{ fontSize: "1.5rem", color: "#94a3b8", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "15px" }}>
+          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, opacity: 0.75, paddingBottom: "40px" }}>
+            <h3 style={{ fontSize: "1.4rem", color: "#94a3b8", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "14px", fontWeight: 700 }}>
               08/15 Baukasten-Seite
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "30px" }}>
@@ -143,8 +147,8 @@ export default function HomePage() {
           </div>
 
           {/* Die Premium Zentara Webseite */}
-          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, border: "1.7px solid rgba(14, 165, 233, 0.5)", boxShadow: "0 0 20px rgba(14, 165, 233, 0.15)" }}>
-            <h3 style={{ fontSize: "1.5rem", color: "#fff", marginBottom: "20px", borderBottom: "1px solid rgba(14, 165, 233, 0.3)", paddingBottom: "15px" }}>
+          <div className="card" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0, border: "1px solid rgba(16, 185, 129, 0.45)", boxShadow: "0 0 30px rgba(16, 185, 129, 0.10)" }}>
+            <h3 style={{ fontSize: "1.4rem", color: "#fff", marginBottom: "20px", borderBottom: "1px solid rgba(16, 185, 129, 0.22)", paddingBottom: "14px", fontWeight: 700 }}>
               Verkaufsstarke Webseite
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "30px" }}>
@@ -323,7 +327,7 @@ export default function HomePage() {
               </p>
 
               {/* NEU: Professionelle Info-Box für iOS / Android */}
-              <div style={{ padding: "15px 20px", backgroundColor: "rgba(14, 165, 233, 0.05)", borderLeft: "4px solid #0ea5e9", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
+              <div style={{ padding: "15px 20px", backgroundColor: "rgba(16, 185, 129, 0.06)", borderLeft: "4px solid #10B981", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
                 <p style={{ margin: 0, fontSize: "0.95rem", color: "#e2e8f0" }}>
                   <strong>Plattform-Hinweis:</strong> MotoSet steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
                 </p>
@@ -344,17 +348,17 @@ export default function HomePage() {
                     display: "inline-block",
                     padding: "8px 25px",
                     background: "transparent",
-                    color: "#0ea5e9",
+                    color: "#34D399",
                     textDecoration: "none",
                     fontWeight: "bold",
-                    borderRadius: "20px",
-                    border: "2px solid #0ea5e9",
-                    transition: "0.3s",
-                    fontSize: "17px"
+                    borderRadius: "50px",
+                    border: "2px solid rgba(16, 185, 129, 0.50)",
+                    transition: "0.25s",
+                    fontSize: "0.93rem"
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.background = "rgba(14, 165, 233, 0.1)";
-                    e.currentTarget.style.boxShadow = "0 0 15px rgba(14, 165, 233, 0.3)";
+                    e.currentTarget.style.background = "rgba(16, 185, 129, 0.10)";
+                    e.currentTarget.style.boxShadow = "0 0 18px rgba(16, 185, 129, 0.22)";
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.background = "transparent";
@@ -440,22 +444,22 @@ export default function HomePage() {
           <h2 className="section-title">Meine <span className="highlight">Versprechen</span> an dich</h2>
           <div className="grid" style={{ marginTop: "30px", gap: "20px" }}>
 
-            <div className="card" style={{ padding: "30px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <div style={{ fontSize: "3rem", marginBottom: "15px" }}>🤝</div>
-              <h3 style={{ color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>Persönlich & Vor Ort</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem" }}>Keine ewigen Warteschleifen. Du hast immer mich als direkten Ansprechpartner – auf Wunsch auch gerne bei einem Kaffee.</p>
+            <div className="card" style={{ padding: "32px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", border: "1px solid rgba(16, 185, 129, 0.16)" }}>
+              <div style={{ fontSize: "2.6rem", marginBottom: "14px" }}>🤝</div>
+              <h3 style={{ color: "#fff", fontSize: "1.15rem", marginBottom: "10px", fontWeight: 700 }}>Persönlich & Vor Ort</h3>
+              <p style={{ margin: 0, fontSize: "0.92rem" }}>Keine ewigen Warteschleifen. Du hast immer mich als direkten Ansprechpartner – auf Wunsch auch gerne bei einem Kaffee.</p>
             </div>
 
-            <div className="card" style={{ padding: "30px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <div style={{ fontSize: "3rem", marginBottom: "15px" }}>💶</div>
-              <h3 style={{ color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>100% Kostentransparenz</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem" }}>Keine versteckten Gebühren oder böse Überraschungen auf der Rechnung. Wir vereinbaren klare Fixpreise oder Pakete.</p>
+            <div className="card" style={{ padding: "32px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", border: "1px solid rgba(16, 185, 129, 0.16)" }}>
+              <div style={{ fontSize: "2.6rem", marginBottom: "14px" }}>💶</div>
+              <h3 style={{ color: "#fff", fontSize: "1.15rem", marginBottom: "10px", fontWeight: 700 }}>100% Kostentransparenz</h3>
+              <p style={{ margin: 0, fontSize: "0.92rem" }}>Keine versteckten Gebühren oder böse Überraschungen auf der Rechnung. Wir vereinbaren klare Fixpreise oder Pakete.</p>
             </div>
 
-            <div className="card" style={{ padding: "30px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <div style={{ fontSize: "3rem", marginBottom: "15px" }}>🔒</div>
-              <h3 style={{ color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>Sicher & DSGVO-konform</h3>
-              <p style={{ margin: 0, fontSize: "0.95rem" }}>Deine Website wird nach aktuellen Sicherheitsstandards entwickelt und hostet datenschutzkonform in Europa.</p>
+            <div className="card" style={{ padding: "32px", marginBottom: "0", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", border: "1px solid rgba(16, 185, 129, 0.16)" }}>
+              <div style={{ fontSize: "2.6rem", marginBottom: "14px" }}>🔒</div>
+              <h3 style={{ color: "#fff", fontSize: "1.15rem", marginBottom: "10px", fontWeight: 700 }}>Sicher & DSGVO-konform</h3>
+              <p style={{ margin: 0, fontSize: "0.92rem" }}>Deine Website wird nach aktuellen Sicherheitsstandards entwickelt und hostet datenschutzkonform in Europa.</p>
             </div>
 
           </div>
@@ -467,35 +471,35 @@ export default function HomePage() {
           <div className="grid" style={{ marginTop: "30px", gap: "30px" }}>
 
             {/* Bewertung 1 */}
-            <div className="card" style={{ padding: "30px", textAlign: "left", marginBottom: "0", position: "relative" }}>
-              <div style={{ fontSize: "4rem", color: "rgba(14, 165, 233, 0.2)", position: "absolute", top: "10px", right: "20px", fontFamily: "serif" }}>"</div>
-              <p style={{ fontStyle: "italic", marginBottom: "20px", position: "relative", zIndex: 1 }}>
+            <div className="card" style={{ padding: "32px", textAlign: "left", marginBottom: "0", position: "relative", border: "1px solid rgba(16, 185, 129, 0.18)" }}>
+              <div style={{ fontSize: "3.5rem", color: "rgba(16, 185, 129, 0.18)", position: "absolute", top: "10px", right: "20px", fontFamily: "serif", lineHeight: 1 }}>"</div>
+              <p style={{ fontStyle: "italic", marginBottom: "20px", position: "relative", zIndex: 1, lineHeight: 1.7 }}>
                 "Niklas hat unsere alte Website komplett neu aufgestellt. Endlich konnten neue Kunden generiert werden und die Zusammenarbeit war super unkompliziert. Absolute Empfehlung!"
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(90deg, #0ea5e9, #2dd4bf)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#020617" }}>
-                  M
+              <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg, #10B981, #34D399)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#0F172A", flexShrink: 0 }}>
+                  T
                 </div>
                 <div>
-                  <h4 style={{ color: "#fff", margin: 0, fontSize: "1rem" }}>Thorsten Bach</h4>
-                  <span style={{ color: "#0ea5e9", fontSize: "0.85rem" }}>Handwerksbetrieb aus dem Emsland</span>
+                  <h4 style={{ color: "#fff", margin: 0, fontSize: "0.95rem", fontWeight: 700 }}>Thorsten Bach</h4>
+                  <span style={{ color: "#34D399", fontSize: "0.82rem" }}>Handwerksbetrieb aus dem Emsland</span>
                 </div>
               </div>
             </div>
 
             {/* Bewertung 2 */}
-            <div className="card" style={{ padding: "30px", textAlign: "left", marginBottom: "0", position: "relative" }}>
-              <div style={{ fontSize: "4rem", color: "rgba(14, 165, 233, 0.2)", position: "absolute", top: "10px", right: "20px", fontFamily: "serif" }}>"</div>
-              <p style={{ fontStyle: "italic", marginBottom: "20px", position: "relative", zIndex: 1 }}>
+            <div className="card" style={{ padding: "32px", textAlign: "left", marginBottom: "0", position: "relative", border: "1px solid rgba(16, 185, 129, 0.18)" }}>
+              <div style={{ fontSize: "3.5rem", color: "rgba(16, 185, 129, 0.18)", position: "absolute", top: "10px", right: "20px", fontFamily: "serif", lineHeight: 1 }}>"</div>
+              <p style={{ fontStyle: "italic", marginBottom: "20px", position: "relative", zIndex: 1, lineHeight: 1.7 }}>
                 "Wir brauchten eine Software-Lösung für unsere internen Prozesse. Zentara hat das Problem schnell gelöst und perfekt umgesetzt. Sehr professionell."
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(90deg, #0ea5e9, #2dd4bf)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#020617" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg, #10B981, #34D399)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", color: "#0F172A", flexShrink: 0 }}>
                   S
                 </div>
                 <div>
-                  <h4 style={{ color: "#fff", margin: 0, fontSize: "1rem" }}>Sarah Schmidt</h4>
-                  <span style={{ color: "#0ea5e9", fontSize: "0.85rem" }}>Geschäftsführerin</span>
+                  <h4 style={{ color: "#fff", margin: 0, fontSize: "0.95rem", fontWeight: 700 }}>Sarah Schmidt</h4>
+                  <span style={{ color: "#34D399", fontSize: "0.82rem" }}>Geschäftsführerin</span>
                 </div>
               </div>
             </div>
@@ -508,52 +512,52 @@ export default function HomePage() {
       {/* FAQ BEREICH */}
       <section id="faq" className="section" style={{ maxWidth: "1200px", margin: "0 auto", paddingBottom: "100px" }}>
         <h2 className="section-title">Häufige <span className="highlight">Fragen</span></h2>
-        <p style={{ color: "rgb(201, 201, 201)", marginBottom: "40px", fontSize: "1.1rem" }}>
+        <p style={{ color: "#94a3b8", marginBottom: "40px", fontSize: "1.05rem", lineHeight: "1.7" }}>
           Noch unsicher? Hier findest du die Antworten auf Fragen, die mir oft gestellt werden.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "15px", textAlign: "left" }}>
 
           {/* Frage 1 */}
-          <details style={{ background: "rgba(12, 12, 12, 0.4)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", padding: "20px", cursor: "pointer", transition: "0.3s" }}>
-            <summary style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <details style={{ background: "rgba(10, 20, 45, 0.70)", border: "1px solid rgba(99, 102, 241, 0.14)", borderRadius: "14px", padding: "20px 24px", cursor: "pointer", transition: "border-color 0.25s", backdropFilter: "blur(12px)" }}>
+            <summary style={{ fontSize: "1.05rem", fontWeight: 700, color: "#f1f5f9", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
               Was kostet eine Website bei Zentara?
-              <span style={{ color: "#0ea5e9" }}>+</span>
+              <span style={{ color: "#34D399", fontSize: "1.3rem", fontWeight: 300, flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ color: "rgb(201, 201, 201)", marginTop: "15px", marginBottom: "0", lineHeight: "1.6", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "15px" }}>
+            <p style={{ color: "#94a3b8", marginTop: "16px", marginBottom: "0", lineHeight: "1.7", borderTop: "1px solid rgba(16,185,129,0.10)", paddingTop: "16px" }}>
               Das hängt vom Umfang ab. Eine moderne Basis-Website startet bei 799 €. Für komplexere Projekte mit Buchungssystemen oder individueller Software mache ich dir nach unserem Erstgespräch ein faires, transparentes Festpreis-Angebot. Keine versteckten Kosten!
             </p>
           </details>
 
           {/* Frage 2 */}
-          <details style={{ background: "rgba(12, 12, 12, 0.4)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", padding: "20px", cursor: "pointer", transition: "0.3s" }}>
+          <details style={{ background: "rgba(10, 20, 45, 0.70)", border: "1px solid rgba(99, 102, 241, 0.14)", borderRadius: "14px", padding: "20px 24px", cursor: "pointer", transition: "border-color 0.25s", backdropFilter: "blur(12px)" }}>
             <summary style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               Wie lange dauert die Umsetzung?
-              <span style={{ color: "#0ea5e9" }}>+</span>
+              <span style={{ color: "#34D399", fontSize: "1.3rem", fontWeight: 300, flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ color: "rgb(201, 201, 201)", marginTop: "15px", marginBottom: "0", lineHeight: "1.6", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "15px" }}>
+            <p style={{ color: "#94a3b8", marginTop: "16px", marginBottom: "0", lineHeight: "1.7", borderTop: "1px solid rgba(16,185,129,0.10)", paddingTop: "16px" }}>
               Eine klassische Unternehmenswebsite dauert in der Regel etwa 2 bis 4 Wochen von der ersten Idee bis zum Go-Live. Bei individueller Software oder komplexeren Web-Apps planen wir den Zeitrahmen gemeinsam im Konzept-Gespräch.
             </p>
           </details>
 
           {/* Frage 3 */}
-          <details style={{ background: "rgba(12, 12, 12, 0.4)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", padding: "20px", cursor: "pointer", transition: "0.3s" }}>
+          <details style={{ background: "rgba(10, 20, 45, 0.70)", border: "1px solid rgba(99, 102, 241, 0.14)", borderRadius: "14px", padding: "20px 24px", cursor: "pointer", transition: "border-color 0.25s", backdropFilter: "blur(12px)" }}>
             <summary style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               Muss ich Texte und Bilder selbst liefern?
-              <span style={{ color: "#0ea5e9" }}>+</span>
+              <span style={{ color: "#34D399", fontSize: "1.3rem", fontWeight: 300, flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ color: "rgb(201, 201, 201)", marginTop: "15px", marginBottom: "0", lineHeight: "1.6", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "15px" }}>
+            <p style={{ color: "#94a3b8", marginTop: "16px", marginBottom: "0", lineHeight: "1.7", borderTop: "1px solid rgba(16,185,129,0.10)", paddingTop: "16px" }}>
               Wenn du schon Material hast – super! Wenn nicht, ist das auch kein Problem. Ich unterstütze dich gerne bei der Strukturierung und Erstellung der Texte. Für professionelle Fotos kann ich dir Tipps geben oder Kontakte vermitteln.
             </p>
           </details>
 
           {/* Frage 4 */}
-          <details style={{ background: "rgba(12, 12, 12, 0.4)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", padding: "20px", cursor: "pointer", transition: "0.3s" }}>
+          <details style={{ background: "rgba(10, 20, 45, 0.70)", border: "1px solid rgba(99, 102, 241, 0.14)", borderRadius: "14px", padding: "20px 24px", cursor: "pointer", transition: "border-color 0.25s", backdropFilter: "blur(12px)" }}>
             <summary style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               Was passiert, wenn die Seite online ist?
-              <span style={{ color: "#0ea5e9" }}>+</span>
+              <span style={{ color: "#34D399", fontSize: "1.3rem", fontWeight: 300, flexShrink: 0 }}>+</span>
             </summary>
-            <p style={{ color: "rgb(201, 201, 201)", marginTop: "15px", marginBottom: "0", lineHeight: "1.6", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "15px" }}>
+            <p style={{ color: "#94a3b8", marginTop: "16px", marginBottom: "0", lineHeight: "1.7", borderTop: "1px solid rgba(16,185,129,0.10)", paddingTop: "16px" }}>
               Du wirst nach dem Go-Live nicht allein gelassen! Mit meinem "Rundum-Sorglos-Paket" kümmere ich mich dauerhaft um Updates, Backups, Sicherheit und kleine Textänderungen. Du kannst dich <br />  zu 100 % auf dein Tagesgeschäft konzentrieren.
             </p>
           </details>
@@ -619,7 +623,7 @@ export default function HomePage() {
                   transition: "color 0.3s ease",
                   fontSize: "25px" // Hier steuerst du direkt die Größe des Icons!
                 }}
-                onMouseOver={(e) => e.currentTarget.style.color = "#0ea5e9"} // Leuchtet blau beim Hovern
+                onMouseOver={(e) => e.currentTarget.style.color = "#34D399"}
                 onMouseOut={(e) => e.currentTarget.style.color = "#94a3b8"}
               >
                 {/* Hier wird das React-Icon aufgerufen */}

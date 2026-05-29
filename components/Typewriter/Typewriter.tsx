@@ -1,9 +1,17 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Typewriter.module.css";
 
-const words = ["kreativ", "verständlich", "innovativ", "inspirierend", "digital affin", "verlässlich",];
+const words = [
+  "kreativ", 
+  "verständlich", 
+  "innovativ", 
+  "inspirierend", 
+  "digital affin", 
+  "verlässlich"
+];
 
 export default function Typewriter() {
   const [index, setIndex] = useState(0);
@@ -13,7 +21,7 @@ export default function Typewriter() {
   // Tipp-Logik
   useEffect(() => {
     if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1500); // Pause wenn Wort fertig
+      setTimeout(() => setReverse(true), 1500); // Pause, wenn Wort fertig ist
       return;
     }
 
@@ -33,14 +41,16 @@ export default function Typewriter() {
   return (
     <div className={styles.wrapper}>
       <span className={styles.staticText}>
-        <Link href="/offer" className="logo">
+        <Link href="/offer" className="logo-hero">
           Zentara
-        </Link>{" "}
-        ist 
+        </Link>
+        {" ist "}
       </span>
       <span className={styles.dynamicBox}>
         {words[index].substring(0, subIndex)}
-        <span className={styles.cursor}>_</span>
+        
+        {/* Der leere Span wird durch unser CSS automatisch zum leuchtenden Mint-Cursor */}
+        <span className={styles.cursor}></span>
       </span>
     </div>
   );

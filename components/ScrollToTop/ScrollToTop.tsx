@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './ScrollToTop.module.css'; // Wir nutzen CSS Modules
+import { transform } from 'next/dist/build/swc/generated-native';
 
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -65,9 +66,10 @@ const ScrollToTop = () => {
                 {/* Der Pfeil */}
                 <svg
                     className={styles.arrowIcon}
-                    width="20" height="20" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" strokeWidth="3"
+                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" strokeWidth="4"
                     strokeLinecap="round" strokeLinejoin="round"
+                    style={{transform: "scale(3.5)"}}
                 >
                     <path d="M18 15l-6-6-6 6" />
                 </svg>

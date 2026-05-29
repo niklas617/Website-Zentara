@@ -12,64 +12,68 @@ type FormValues = {
   startDate?: string;
 };
 
-// --- DESIGN-VORLAGEN (Passend zur Pricing-Page) ---
-
 const mainStyle: React.CSSProperties = {
-  backgroundColor: "#050514",
-  color: "#ffffff",
+  backgroundColor: "#0F172A",
+  backgroundImage:
+    "radial-gradient(ellipse 85% 50% at 50% -8%, rgba(16,185,129,0.09) 0%, transparent 65%)",
+  color: "#F8FAFC",
   minHeight: "100vh",
   paddingBottom: "100px",
-  fontFamily: "sans-serif",
+  fontFamily: "inherit",
 };
 
 const formContainerStyle: React.CSSProperties = {
-  backgroundColor: "#0a0a1f",
-  border: "1px solid rgba(0, 255, 255, 0.2)",
-  borderRadius: "12px",
-  padding: "40px",
-  maxWidth: "700px", // Verhindert, dass es zu breit wird
-  margin: "0 auto",  // Zentriert das Formular perfekt auf allen Geräten!
-  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+  backgroundColor: "rgba(30, 41, 59, 0.72)",
+  border: "1px solid rgba(16, 185, 129, 0.14)",
+  borderRadius: "20px",
+  padding: "44px",
+  maxWidth: "700px",
+  margin: "0 auto",
+  boxShadow: "0 4px 40px rgba(0, 0, 0, 0.50)",
+  backdropFilter: "blur(16px)",
+  WebkitBackdropFilter: "blur(16px)",
 };
 
 const labelStyle: React.CSSProperties = {
   display: "block",
-  marginBottom: "20px",
-  color: "#b3b3cc",
-  fontSize: "0.95rem",
+  marginBottom: "22px",
+  color: "#94A3B8",
+  fontSize: "0.93rem",
   textAlign: "left",
+  fontWeight: 500,
 };
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
   marginTop: "8px",
   padding: "14px 16px",
-  backgroundColor: "rgba(255, 255, 255, 0.05)",
-  border: "1px solid rgba(0, 255, 255, 0.2)",
-  borderRadius: "8px",
-  color: "#fff",
+  backgroundColor: "rgba(255, 255, 255, 0.04)",
+  border: "1px solid rgba(16, 185, 129, 0.16)",
+  borderRadius: "10px",
+  color: "#F8FAFC",
   fontSize: "1rem",
   outline: "none",
   fontFamily: "inherit",
-  transition: "all 0.3s ease",
+  transition: "all 0.25s ease",
 };
 
 const buttonStyle: React.CSSProperties = {
   display: "block",
   width: "100%",
   textAlign: "center",
-  background: "linear-gradient(90deg, #0ea5e9, #2dd4bf)", // Der Zentara-Farbverlauf
-  color: "#020617", // Dunkler Text für Kontrast
+  background: "linear-gradient(135deg, #10B981 0%, #34D399 100%)",
+  color: "#0F172A",
   border: "none",
   padding: "16px 20px",
-  borderRadius: "8px",
-  fontWeight: "bold",
-  fontSize: "1.1rem",
+  borderRadius: "50px",
+  fontWeight: 700,
+  fontSize: "1.05rem",
   cursor: "pointer",
-  transition: "transform 0.3s ease, boxShadow 0.3s ease",
-  marginTop: "30px",
+  transition: "transform 0.25s ease, box-shadow 0.25s ease",
+  marginTop: "32px",
+  letterSpacing: "0.02em",
+  boxShadow: "0 4px 22px rgba(16, 185, 129, 0.35)",
 };
-
 
 export default function OfferForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -135,19 +139,33 @@ export default function OfferForm() {
     <main style={mainStyle}>
       <NavBar />
 
-      {/* Kopfbereich passend zur Pricing-Seite */}
-      <header style={{ textAlign: "center", padding: "10px 20px 40px", maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ color: "#00FFFF", fontSize: "2.5rem", marginBottom: "15px" }}>
+      <header style={{
+        textAlign: "center",
+        padding: "80px 20px 40px",
+        maxWidth: "800px",
+        margin: "0 auto",
+      }}>
+        <h1 style={{
+          fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+          fontWeight: 800,
+          letterSpacing: "-0.025em",
+          marginBottom: "16px",
+          background: "linear-gradient(135deg, #10B981 0%, #34D399 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}>
           Projekt anfragen
         </h1>
-        <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "#b3b3cc" }}>
-          Erzähl mir von deiner Idee. Fülle das Formular aus und ich melde mich schnellstmöglich bei dir mit einer ersten Einschätzung.
+        <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "#94A3B8" }}>
+          Erzähl mir von deiner Idee. Fülle das Formular aus und ich melde mich schnellstmöglich
+          bei dir mit einer ersten Einschätzung.
         </p>
       </header>
 
       <section style={{ padding: "0 20px" }}>
         <form ref={formRef} onSubmit={onSubmit} style={formContainerStyle}>
-          
+
           <label style={labelStyle}>
             Dein Name
             <input
@@ -161,24 +179,24 @@ export default function OfferForm() {
 
           <label style={labelStyle}>
             Deine E-Mail
-            <input 
-              type="email" 
-              name="reply_to" 
-              placeholder="name@beispiel.de" 
-              required 
-              style={inputStyle} 
+            <input
+              type="email"
+              name="reply_to"
+              placeholder="name@beispiel.de"
+              required
+              style={inputStyle}
             />
           </label>
 
           <label style={labelStyle}>
             Art des Projekts
             <select name="projectType" required defaultValue="unknown" style={inputStyle}>
-              <option value="unknown" disabled style={{color: "#000"}}>Bitte wählen</option>
-              <option value="website" style={{color: "#000"}}>Neue Website erstellen</option>
-              <option value="modernize" style={{color: "#000"}}>Bestehende Website modernisieren</option>
-              <option value="individual" style={{color: "#000"}}>Individuelles Projekt (Software)</option>
-              <option value="care" style={{color: "#000"}}>Rundum-Sorglos-Paket (Pflege)</option>
-              <option value="other" style={{color: "#000"}}>Sonstiges</option>
+              <option value="unknown" disabled style={{ color: "#000" }}>Bitte wählen</option>
+              <option value="website" style={{ color: "#000" }}>Neue Website erstellen</option>
+              <option value="modernize" style={{ color: "#000" }}>Bestehende Website modernisieren</option>
+              <option value="individual" style={{ color: "#000" }}>Individuelles Projekt (Software)</option>
+              <option value="care" style={{ color: "#000" }}>Rundum-Sorglos-Paket (Pflege)</option>
+              <option value="other" style={{ color: "#000" }}>Sonstiges</option>
             </select>
           </label>
 
@@ -196,29 +214,29 @@ export default function OfferForm() {
           <label style={labelStyle}>
             Ungefährer Budgetrahmen
             <select name="budget" defaultValue="unknown" style={inputStyle}>
-              <option value="unknown" disabled style={{color: "#000"}}>Bitte wählen</option>
-              <option value="0-300" style={{color: "#000"}}>0 – 300 €</option>
-              <option value="300-1000" style={{color: "#000"}}>300 – 1.000 €</option>
-              <option value="1000+" style={{color: "#000"}}>1.000 € +</option>
+              <option value="unknown" disabled style={{ color: "#000" }}>Bitte wählen</option>
+              <option value="0-300" style={{ color: "#000" }}>0 – 300 €</option>
+              <option value="300-1000" style={{ color: "#000" }}>300 – 1.000 €</option>
+              <option value="1000+" style={{ color: "#000" }}>1.000 € +</option>
             </select>
           </label>
 
-          <label style={{ ...labelStyle, color: "#ffffff" }}>
+          <label style={{ ...labelStyle, color: "#F8FAFC" }}>
             Wunsch-Starttermin
-            <input 
-              type="date" 
-              name="startDate" 
-              style={{ ...inputStyle, color: "#fff" }} 
+            <input
+              type="date"
+              name="startDate"
+              style={{ ...inputStyle, color: "#F8FAFC" }}
             />
           </label>
 
-          <button 
-            type="submit" 
-            disabled={sending} 
-            style={{ 
-              ...buttonStyle, 
-              opacity: sending ? 0.7 : 1, 
-              cursor: sending ? "not-allowed" : "pointer" 
+          <button
+            type="submit"
+            disabled={sending}
+            style={{
+              ...buttonStyle,
+              opacity: sending ? 0.7 : 1,
+              cursor: sending ? "not-allowed" : "pointer",
             }}
           >
             {sending ? "Wird gesendet..." : "Anfrage kostenfrei absenden"}

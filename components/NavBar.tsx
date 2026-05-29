@@ -1,12 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
-  // Schließt das Menü, wenn die Escape-Taste gedrückt wird
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -15,7 +16,6 @@ export default function NavBar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Verhindert das Scrollen im Hintergrund, wenn das Overlay-Menü geöffnet ist (Mobile-Friendly)
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -23,10 +23,9 @@ export default function NavBar() {
     };
   }, [open]);
 
-  // Hilfsfunktion zum Schließen des Menüs bei Klick auf einen Link
   const close = () => setOpen(false);
 
-  return (
+ return (
     <nav className="navbar">
       <div className="nav-item nav-left">
         <button
@@ -41,67 +40,89 @@ export default function NavBar() {
         </button>
       </div>
 
-      {/* <div className="nav-item nav-center">
+      <div className="nav-item nav-center">
+        {/* Relativer Link, kein target="_blank" */}
         <Link href="/" className="logo" onClick={close}>
           Zentara
         </Link>
-      </div> */}
+      </div>
 
-      {/* <div className="nav-item nav-right">
+      <div className="nav-item nav-right hide-on-mobile">
+        {/* Relativer Link, kein target="_blank" */}
         <Link href="/offer" className="cta-button" onClick={close}>
           <b>Projekt starten</b>
         </Link>
-      </div> */}
+      </div>
 
       <div className={`overlay-menu ${open ? "active" : ""}`} id="overlayMenu">
         <ul className="menu-links">
-          {/* <li>
-            <a href="#services" onClick={close}>
-              Dienstleistungen
-            </a>
-          </li> */}
           
-          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          {/* Aktuelle Projekte - Intelligenter Link */}
           <li>
-            <a href="#portfolio" onClick={close}>
-              Aktuelle Projekte
-            </a>
+            {pathname === "/" ? (
+              <a href="#portfolio" onClick={close}>
+                Aktuelle Projekte
+              </a>
+            ) : (
+              <Link href="/#portfolio" onClick={close}>
+                Aktuelle Projekte
+              </Link>
+            )}
           </li>
 
-          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          {/* Häufige Fragen - Intelligenter Link */}
           <li>
-            <a href="#faq" onClick={close}>
-              Häufige Fragen
-            </a>
+            {pathname === "/" ? (
+              <a href="#faq" onClick={close}>
+                Häufige Fragen
+              </a>
+            ) : (
+              <Link href="/#faq" onClick={close}>
+                Häufige Fragen
+              </Link>
+            )}
           </li>
 
-          {/* BEIBEHALTEN: <Link> Komponente für eine echte neue Unterseite */}
+          {/* Preise & Pakete - Relativer Link, kein neuer Tab */}
           <li>
             <Link href="/pricing" onClick={close}>
               Preise & Pakete
             </Link>
           </li>
 
-          {/* BEIBEHALTEN: <Link> Komponente für eine echte neue Unterseite */}
+          {/* Angebot anfordern - Relativer Link, kein neuer Tab */}
           <li>
             <Link href="/offer" onClick={close}>
               Angebot anfordern
             </Link>
           </li>
 
-          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          {/* Über mich - Intelligenter Link */}
           <li>
-            <a href="#about" onClick={close}>
-              Über mich
-            </a>
+            {pathname === "/" ? (
+              <a href="#about" onClick={close}>
+                Über mich
+              </a>
+            ) : (
+              <Link href="/#about" onClick={close}>
+                Über mich
+              </Link>
+            )}
           </li>
 
-          {/* ANGEPASST: Reguläres <a> Tag für reibungsloses In-Page-Scrolling */}
+          {/* Kontakt - Intelligenter Link */}
           <li>
-            <a href="#footer" onClick={close}>
-              Kontakt
-            </a>
+            {pathname === "/" ? (
+              <a href="#footer" onClick={close}>
+                Kontakt
+              </a>
+            ) : (
+              <Link href="/#footer" onClick={close}>
+                Kontakt
+              </Link>
+            )}
           </li>
+
         </ul>
       </div>
     </nav>

@@ -1,1348 +1,1190 @@
+
+
+/* --- 1. DESIGN TOKENS ------------------------------------------ */
 :root {
-    color-scheme: dark;
+  color-scheme: dark;
+
+  /* Background scale */
+  --bg-base:    #0F172A;
+  --bg-surface: #1E293B;
+  --bg-card:    rgba(30, 41, 59, 0.72);
+  --bg-glass:   rgba(15, 23, 42, 0.70);
+
+  /* Brand — Mint */
+  --mint:        #10B981;
+  --mint-light:  #34D399;
+  --mint-pale:   #6EE7B7;
+  --grad-brand:  linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  --grad-brand-h:linear-gradient(135deg, #059669 0%, #10B981 100%);
+
+  /* Borders */
+  --border-muted:  rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(16, 185, 129, 0.14);
+  --border-accent: rgba(16, 185, 129, 0.40);
+
+  /* Text */
+  --text-primary:   #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+
+  /* Shadows & glows */
+  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.60);
+  --glow-sm:      0 0 18px rgba(16, 185, 129, 0.30);
+  --glow-md:      0 0 38px rgba(16, 185, 129, 0.18);
 }
 
-
-/* body {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
-    color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 100vh;
-
-} */
+/* --- 2. RESET & BASE ------------------------------------------- */
 html {
-  /* Diese Zeile sorgt dafür, dass alle Anker-Links (#) butterweich scrollen */
   scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 100vh;
-    /* Bild laden */
-    background: linear-gradient(rgba(10, 10, 31, 1),
-            rgba(19, 19, 94, 0.95),
-            rgba(10, 10, 31, 0.9)),
-        url('/assets/images/Herunterladen.jpg');
-    /* Sorgt dafür, dass das Bild immer den ganzen Bildschirm füllt */
-    background-size: cover;
-
-    /* Zentriert das Bild */
-    background-position: center;
-
-    /* Verhindert, dass das Bild beim Scrollen mitrutscht (sieht sehr edel aus!) */
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-
-    /* Falls das Bild nicht lädt, zeige zur Sicherheit dunkle Farbe */
-    background-color: radial-gradient(circle at 50% 50%, rgb(19, 19, 94) 0%, rgb(10, 10, 31) 100%);
-}
-
-
-textarea::placeholder,
-input::placeholder {
-    color: white;
 }
 
 *,
 *::before,
-*,
-::after {
-    box-sizing: border-box;
+*::after {
+  box-sizing: border-box;
 }
 
-/*begrenzung des offer-container */
-.offer-container {
-    max-width: min(1000px, 100%);
-    /* begrenzt die Länge */
-    margin: 0 auto;
-    /* horizontal zentriert */
-    padding: 2rem;
-    /* Innenabstand */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    ;
-
-
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 85% 50% at 50% -8%,  rgba(16, 185, 129, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 38% at 90% 95%,  rgba(52, 211, 153, 0.05) 0%, transparent 55%);
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-header {
-    margin-bottom: 30px;
-    text-align: center;
+/* --- 3. FORM INPUTS -------------------------------------------- */
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-muted);
 }
 
-label {
-    display: block;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-
-
-
-
-/*Textzeilen für Angebotsanfarge*/
 .offer-container input,
 .offer-container textarea,
 .offer-container select {
-    margin-top: 6px;
-    width: 100%;
-    padding: 0.75rem 1rem;
-
-
-    font-size: 1rem;
-    font-family: inherit;
-    color: white;
-
-
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-
+  margin-top: 6px;
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #0ea5e9;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.35);
-    background: rgba(255, 255, 255, 0.1);
+  border-color: var(--mint);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+  background: rgba(16, 185, 129, 0.04);
 }
-
 
 select option {
-    color: #020617;
-    /* dunkler Text */
-    background: #ffffff;
-    /* heller Hintergrund */
+  color: #0f172a;
+  background: #ffffff;
 }
 
-select {
-    cursor: pointer;
-}
-
-button {
-    display: block;
-    margin: 0 auto;
-    padding: 13px 25px;
-    cursor: pointer;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617;
-    font-weight: bold;
-    border-color: transparent;
-    font-size: 1.2rem;
-
-
-}
+select { cursor: pointer; }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0);
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
+  filter: invert(0.6);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
+/* --- 4. GLOBAL BUTTON ------------------------------------------ */
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 13px 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--grad-brand);
+  color: #0F172A;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+}
 
+button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.40);
+}
+
+/* --- 5. LOGO ---------------------------------------------------- */
+.logo-hero {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.25s;
+}
+
+.logo,
 .logo-item {
-    padding-top: 20px;
-    padding-bottom: 30px;
-    pointer-events: all;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: 0.5s;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-
+  pointer-events: all;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.25s;
 }
 
-a.logo-offer {
-    text-decoration: none;
-}
+.logo:hover { opacity: 0.78; }
 
-/* --------------------------------------------------------------------------------------- */
-/* Container-Layout */
+a.logo-offer { text-decoration: none; }
+
+/* --- 6. LAYOUT -------------------------------------------------- */
 .section {
-    padding: 130px 10%;
-    text-align: center;
-    margin-bottom: 20px;
+  padding: clamp(64px, 10vw, 130px) clamp(5%, 7%, 10%);
+  text-align: center;
 }
 
 .section h2 {
-    font-size: 2.2rem;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
-.why-card {
-    padding: 80px 30px;
+.section-title {
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
 }
 
-/* Das Grid-System (Sehr wichtig für Profis!) */
+.highlight {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.card p {
-    color: rgb(201, 201, 201);
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 48px;
+  margin-bottom: 40px;
 }
 
-
-
-/* Futuristisches Card-Design */
+/* --- 7. CARDS --------------------------------------------------- */
 .card {
-    background: rgba(12, 12, 12, 0.1);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1.8px solid rgba(253, 253, 253, 0.678);
-    transition: 0.3s;
-    box-shadow: 0 0 7px rgba(119, 119, 119, 0.637);
-    margin-bottom: 105px;
-
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: 18px;
+  border: 1px solid var(--border-muted);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-    border-color: #0ea5e9;
-    transform: translateY(-10px);
-    box-shadow: 0 0 15px #0ea5e9;
+  border-color: var(--border-accent);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover), var(--glow-md);
 }
 
-.cta-card {
-    font-size: 2rem;
-    font-weight: 600;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    text-decoration: none;
+.card p {
+  color: var(--text-secondary);
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
 
-.cta-card:hover {
-    text-shadow: #0ea4e976 0px 0px 10px;
-
+.why-card {
+  padding: 40px 30px;
 }
 
+/* --- 8. CTA LINKS ---------------------------------------------- */
+.cta-card,
+.cta-button,
 .roadmap-button {
-    font-size: 1.2rem;
-    font-weight: 600;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    text-decoration: none;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: inline-block;
 }
 
+.cta-card { font-size: clamp(1.4rem, 3vw, 2rem); }
+
+.cta-card:hover,
+.cta-button:hover,
 .roadmap-button:hover {
-    text-shadow: #0ea4e976 0px 0px 10px;
-
+  opacity: 0.72;
 }
 
+.cta-roadmap {
+  display: inline-block;
+  padding: 14px 44px;
+  background: var(--grad-brand);
+  color: #0F172A;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 22px rgba(16, 185, 129, 0.38);
+  letter-spacing: 0.02em;
+}
 
-/* ------------------------------------------------------------------------------------- */
+.cta-roadmap:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(16, 185, 129, 0.55);
+}
 
-/* Navigation-Bar */
+/* --- 9. NAVIGATION --------------------------------------------- */
 .navbar {
-    top: 0px;
-    width: 100%;
-    z-index: 9999;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    padding: 30px 20px;
-    /*Seitlicher Abstand innerhalb der Navbar*/
-    /* background: rgba(15, 23, 42, 0.9); */
-
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 36px;
+  gap: 16px;
 }
-
 
 .nav-left {
-    padding-left: 0;
-    margin-left: 20px;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 0;
+  margin-left: 0;
 }
 
-
-.logo {
-    pointer-events: all;
-    align-items: center;
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: 0.5s;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    scrollbar-width: auto;
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Menü-Button links */
+.nav-right {
+  margin-left: auto;
+}
+
+.nav-right .cta-button {
+  display: inline-block;
+  padding: 9px 24px;
+  background: var(--grad-brand);
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  color: #0F172A !important;
+  font-size: 0.88rem;
+  font-weight: 540;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 3px 14px rgba(16, 185, 129, 0.34);
+  white-space: nowrap;
+}
+
+.nav-right .cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.52);
+  opacity: 1;
+}
+
+/* Hamburger Button */
 .menu-btn {
-    padding: 10px 0;
-    align-items: flex-start;
-    margin-left: -10px;
-    background: none;
-    border: none;
-    color: #94a3b8;
-    cursor: pointer;
-    gap: 10px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menu-btn:hover {
+  background: rgba(16, 185, 129, 0.10);
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
 }
 
 .menu-icon {
-    width: 24px;
-    height: 2px;
-    background: #0ea5e9;
-    position: relative;
-    display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--mint-light);
+  position: relative;
+  display: block;
 }
 
 .menu-icon::before,
 .menu-icon::after {
-    content: '';
-    width: 24px;
-    height: 2px;
-    background: #0ea5e9;
-    position: absolute;
-    left: 0;
-    transition: 0.3s;
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: var(--mint-light);
+  position: absolute;
+  left: 0;
+  transition: 0.25s;
 }
 
-.menu-icon::before {
-    top: -8px;
-}
+.menu-icon::before { top: -7px; }
+.menu-icon::after  { bottom: -7px; }
 
-.menu-icon::after {
-    bottom: -8px;
-}
-
-/* ZUSTAND 1: Standardmäßig versteckt */
-/* ZUSTAND 1: Standardmäßig versteckt */
+/* Overlay */
 .overlay-menu {
-    position: fixed;
-    top: 85px;
-    /* Passt genau unter deine Navbar (ggf. leicht anpassen) */
-    left: 0;
-    width: 100%;
-    /* Nimmt auf dem Handy die volle Breite ein */
-    height: calc(100vh - 85px);
-    /* Füllt den Rest des Bildschirms nach unten aus */
-
-    /* Hier ist die Magie: Ein sehr dunkler, fast blickdichter Hintergrund + Blur */
-    background: rgba(5, 5, 20, 0.98);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
-    z-index: 9998;
-    /* Zwingt das Menü GANZ nach vorne (unter die Navbar) */
-    padding: 20px 0;
-    /* Etwas Luft nach oben */
+  position: fixed;
+  top: 57px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 57px);
+  background: rgba(15, 23, 42, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 9998;
+  padding: 32px 36px;
+  border-top: 1px solid var(--border-subtle);
 }
 
-/* ZUSTAND 2: Sichtbar (wird per JS aktiviert) */
 .overlay-menu.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-    /* WICHTIG: Das alte 'margin-top: -3rem;' ist hier gelöscht, da es Fehler verursacht hat! */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
-
 
 .menu-links {
-    list-style: none;
-    text-align: start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
 }
 
 .menu-links li {
-    margin: 25px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-muted);
 }
 
 .menu-links a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-    text-align: center;
+  display: block;
+  padding: 22px 0;
+  font-size: clamp(1.15rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  letter-spacing: -0.01em;
 }
 
 .menu-links a:hover {
-    color: #0ea5e9;
-    padding-left: 20px;
-    text-align: center;
+  color: var(--mint-light);
+  padding-left: 18px;
 }
 
-.center-wrapper {
-    display: flex;
-    justify-content: center;
-    /* Drückt den Inhalt horizontal in die Mitte */
-    align-items: center;
-    width: 100%;
-    margin-top: 40px;
-    /* Abstand nach oben zur Roadmap */
-    margin-bottom: 40px;
-}
-
-/* Der Button selbst braucht jetzt kein Margin mehr */
-.cta-roadmap {
-    padding: 12px 36px;
-    /* Etwas größer gemacht, sieht moderner aus */
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    /* Schön abgerundet */
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-}
-
-.cta-roadmap:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
-}
-
-
-/* Der absolute "Zentrier-Zwang" */
-.center-wrapper {
-    display: flex;
-    justify-content: center;
-    /* Drückt den Inhalt horizontal in die Mitte */
-    align-items: center;
-    width: 100%;
-    margin-top: 40px;
-    /* Abstand nach oben zur Roadmap */
-    margin-bottom: 40px;
-}
-
-/* app/globals.css */
-
-.comparison-section {
-    position: relative;
-    /* Wichtig für das Pseudoelement */
-    overflow: hidden;
-}
-
-
-
-/* Der Button selbst braucht jetzt kein Margin mehr */
-.cta-roadmap {
-    padding: 12px 36px;
-    /* Etwas größer gemacht, sieht moderner aus */
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    /* Schön abgerundet */
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-}
-
-.cta-roadmap:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
-}
-
-.cta-button {
-    font-size: 2rem;
-    font-weight: 600;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    text-decoration: none;
-}
-
-.cta-button:hover {
-    text-shadow: #0ea4e976 0px 0px 10px;
-
-}
-
-
-/* Anpassung für das Menü-Icon, damit es alleine steht */
-.menu-btn {
-    /* Wir entfernen den Text "Menü" und lassen nur das Icon */
-    padding: 10px;
-}
-
-/* --- Home page additions (hero/projects) --- */
-
+/* --- 10. HERO --------------------------------------------------- */
 .hero {
-    padding: 160px 5% 120px;
-    width: 100%;
-    text-align: center;
+  padding: clamp(110px, 16vw, 190px) clamp(5%, 8%, 10%) clamp(60px, 10vw, 120px);
+  width: 100%;
+  text-align: center;
 }
 
 .hero-content {
-    align-items: center;
-    /* flex-direction: column; */
-    margin-top: -3rem;
+  align-items: center;
+  margin-top: 0;
 }
 
-/* .heroSlogan p {
-    text-align: center;
-    font-size: 1.5rem;
-    background-color: aliceblue;
-} */
-
 .heroSlogan a {
-    font-size: 1.7rem;
-    text-decoration: none;
-    font-weight: 600;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    text-align: center;
+  font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .hero p {
-    margin: 200px 20px 24px;
-    font-size: 1.3rem;
-    opacity: 0.9;
-    text-align: center;
-    font-weight: 700;
+  margin: 36px auto 36px;
+  max-width: 680px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-align: center;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.75;
 }
 
-.highlight {
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* .section.alt-bg {
-    background: rgba(223, 8, 8, 0.03);
-} */
-
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    font-weight: 700;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background: rgba(30, 41, 59, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-
-/* --- NEU: PROJEKT SLIDER BEREICH --- */
+/* --- 11. PORTFOLIO / SLIDER ------------------------------------ */
 .portfolio-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
-
-
 
 .portfolio-card {
-    background: rgba(30, 41, 59, 0.35);
-    border: 1px solid rgba(255, 255, 255, .18);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-
+.portfolio-card:hover {
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-hover), var(--glow-md);
+}
 
 .slider-wrapper {
-    position: relative;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    /* Leichter dunkler Hintergrund für den Bildbereich */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider-image-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    /* Contain stellt sicher, dass nichts abgeschnitten wird */
-    transition: opacity 0.3s ease-in-out;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Pfeil-Buttons */
 .slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(15, 23, 42, 0.6);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 35px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    backdrop-filter: blur(4px);
-    transition: 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.72);
+  color: white;
+  border: 1px solid var(--border-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  margin: 0;
+  padding: 0;
 }
 
 .slider-btn:hover {
-    background: #0ea5e9;
-    border-color: #0ea5e9;
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+  background: var(--mint);
+  border-color: var(--mint);
+  box-shadow: var(--glow-sm);
+  transform: translateY(-50%);
+  color: #0F172A;
+  opacity: 1;
 }
 
-.prev-btn {
-    left: 15px;
-}
+.prev-btn { left: 12px; }
+.next-btn { right: 12px; }
 
-.next-btn {
-    right: 15px;
-}
-
-/* Dots unten im Slider */
 .slider-dots {
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
+  position: absolute;
+  bottom: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  z-index: 10;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: 0.3s;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .dot.active {
-    background: #0ea5e9;
-    box-shadow: 0 0 8px #0ea5e9;
+  background: var(--mint);
+  box-shadow: var(--glow-sm);
+  width: 26px;
+  border-radius: 4px;
 }
 
-/* Projekt Informationen unter dem Bild */
 .portfolio-info {
-    padding: 30px;
-    text-align: left;
+  padding: 32px 36px;
+  text-align: left;
 }
 
 .portfolio-info h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: white;
+  margin-top: 0;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .portfolio-info p {
-    color: rgb(201, 201, 201);
-    line-height: 1.6;
-    margin-bottom: 25px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 28px;
 }
 
-/* Der Button zum Projekt */
-.project-link-btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
+.project-link-btn,
 .project-link-btn-download {
-    display: inline-block;
-    padding: 10px 25px;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    color: #020617;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 20px;
-    transition: 0.3s;
-    font-size: 17px;
+  display: inline-block;
+  padding: 10px 28px;
+  background: var(--grad-brand);
+  color: #0F172A;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 0.93rem;
 }
 
-.project-link-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+.project-link-btn:hover,
+.project-link-btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.40);
 }
 
-/* --- FORMATIERUNG FÜR RECHTSTEXTE (Impressum / Datenschutz) --- */
-.legal-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-    /* Überschreibt das Center von .section */
-    background: rgba(30, 41, 59, 0.35);
-    /* Leichte Box, passend zu deinen Cards */
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid rgba(243, 243, 243, 0.1);
-}
-
-.legal-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.legal-container h2 {
-    font-size: 1.5rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: white;
-    text-align: left;
-    /* Wichtig, falls dein globales h2 zentriert ist */
-    filter: none;
-    /* Entfernt den Glow aus deinem Standard-h2 für bessere Lesbarkeit */
-}
-
-.legal-container h3 {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    color: #e2e8f0;
-}
-
-.legal-container p {
-    color: rgb(201, 201, 201);
-    line-height: 1.6;
-    margin-bottom: 15px;
+/* --- 12. ROADMAP ----------------------------------------------- */
+.roadmap-section {
+  padding: clamp(60px, 8vw, 110px) clamp(5%, 7%, 10%);
+  text-align: center;
 }
 
 .roadmap-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    max-width: 800px;
-    margin: 40px auto;
-    padding-left: 40px;
-    /* border-left: 2px solid rgba(139, 92, 246, 0.4);  */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 760px;
+  margin: 48px auto;
+  padding-left: 40px;
 }
 
 .roadmap-item {
-    position: relative;
-    margin-bottom: 50px;
+  position: relative;
+  margin-bottom: 48px;
 }
 
-/* Die vertikale Linie als Pseudoelement an JEDEM Item außer dem letzten */
 .roadmap-item::before {
-    border-left: 2px solid rgba(139, 92, 246, 0.75);
-    margin: 20px auto;
-    content: "";
-    position: absolute;
-    top: 0;
-    /* Beginnt am oberen Rand des Items */
-    left: -41px;
-    /* Positioniere die Linie links vom Content, passend zum Kreis */
-    width: 2px;
-    height: calc(100% + 2rem);
-    z-index: 1;
-    /* Hinter dem Kreis */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -41px;
+  width: 2px;
+  height: calc(100% + 2rem);
+  background: linear-gradient(to bottom, var(--mint), var(--mint-light));
+  opacity: 0.30;
+  z-index: 1;
 }
 
-.roadmap-item:last-child::before {
-    display: none;
-}
-
+.roadmap-item:last-child::before { display: none; }
 
 .step-number {
-    position: absolute;
-    left: -56px;
-    /* Zentriert die Nummer auf der Linie */
-    top: 0;
-    width: 30px;
-    height: 30px;
-    background: #7c3aed;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.8rem;
-    box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
-    z-index: 2;
+  position: absolute;
+  left: -56px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--grad-brand);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.72rem;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.48);
+  z-index: 2;
+  color: #0F172A;
 }
 
 .step-content {
-    background: rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #7c3aeda2;
-    transition: 0.3s;
+  background: var(--bg-card);
+  padding: 20px 26px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .step-content:hover {
-    border-color: #e7ebea;
-    /* Leuchtet Türkis beim Drüberfahren */
+  border-color: var(--border-accent);
+  box-shadow: var(--glow-md);
+}
+
+.step-content h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.step-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+/* --- 13. LEGAL PAGES ------------------------------------------- */
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--bg-card);
+  padding: 48px;
+  border-radius: 20px;
+  border: 1px solid var(--border-muted);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-card);
+}
+
+.legal-container h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 30px;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.legal-container h2 {
+  font-size: 1.25rem;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  text-align: left;
+  filter: none;
+  font-weight: 700;
+}
+
+.legal-container h3 {
+  font-size: 1.05rem;
+  margin-top: 20px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.legal-container p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+/* --- 14. OFFER / FORM ------------------------------------------ */
+.offer-container {
+  max-width: min(700px, 100%);
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* --- 15. PRICE TAGS -------------------------------------------- */
+.price-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-muted);
+  margin-top: auto;
+}
+
+.old-price {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.new-price {
+  font-size: 1.55rem;
+  font-weight: 800;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.discount-badge {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: var(--grad-brand);
+  color: #0F172A;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.40);
+  transform: rotate(10deg);
+  z-index: 10;
+}
+
+.card:hover .discount-badge {
+  transform: rotate(0deg) scale(1.08);
+  transition: 0.25s;
+}
+
+/* --- 16. ABOUT IMAGE ------------------------------------------- */
+.aboutImage {
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(16, 185, 129, 0.18), 0 0 0 1px var(--border-accent);
+}
+
+/* --- 17. PROJECT CARDS (misc) ---------------------------------- */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .project-img {
-    padding: 40px 20px;
-    text-align: center;
-    opacity: 0.7;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 32px 20px;
+  text-align: center;
+  opacity: 0.8;
+  border-bottom: 1px solid var(--border-muted);
 }
 
-.project-info {
-    padding: 20px;
+.project-info { padding: 20px; }
+
+/* --- 18. CHATBOT ----------------------------------------------- */
+.chatbot-container {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: inherit;
 }
 
-/* --- FOOTER --- */
+.chatbot-toggle-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  border: none;
+  color: #0F172A;
+  font-size: 1.55rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 22px rgba(16, 185, 129, 0.45);
+  transition: transform 0.25s, box-shadow 0.25s;
+  padding: 0;
+  margin: 0;
+}
+
+.chatbot-toggle-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.62);
+  opacity: 1;
+}
+
+.chatbot-wrapper.floating {
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  width: 380px;
+  height: 500px;
+  background: var(--bg-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.60);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-title {
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.chatbot-subtitle {
+  margin: 3px 0 0;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.chatbot-close-btn {
+  background: none !important;
+  border: none !important;
+  color: var(--text-muted) !important;
+  font-size: 1.35rem;
+  cursor: pointer;
+  font-weight: 400;
+  box-shadow: none !important;
+  margin-right: -8px;
+  padding: 4px 8px !important;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.chatbot-close-btn:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  transform: none;
+  opacity: 1;
+}
+
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatbot-body::-webkit-scrollbar { width: 4px; }
+.chatbot-body::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.28);
+  border-radius: 2px;
+}
+
+.chat-row   { display: flex; width: 100%; }
+.row-user   { justify-content: flex-end; }
+.row-bot    { justify-content: flex-start; }
+
+.chat-message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.msg-user {
+  background: var(--grad-brand);
+  color: #0F172A;
+  border-bottom-right-radius: 3px;
+}
+
+.msg-bot {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-secondary);
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-content p            { margin: 0 0 6px 0; }
+.markdown-content p:last-child { margin: 0; }
+.markdown-content ul           { margin: 6px 0 6px 18px; padding: 0; }
+
+.chatbot-footer {
+  display: flex;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.18);
+  border-top: 1px solid var(--border-muted);
+  gap: 8px;
+  align-items: center;
+}
+
+.chatbot-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.chatbot-input::placeholder { color: var(--text-muted); }
+.chatbot-input:focus         { border-color: var(--mint); }
+
+.chatbot-send-btn,
+.chatbot-upload-btn {
+  background: var(--mint) !important;
+  color: #0F172A !important;
+  border: none !important;
+  padding: 9px 16px !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  height: auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  transition: background 0.2s !important;
+}
+
+.chatbot-upload-btn {
+  background: transparent !important;
+  color: var(--mint-light) !important;
+  font-size: 1.1rem !important;
+  padding: 6px 8px !important;
+}
+
+.chatbot-send-btn:hover {
+  background: var(--mint-light) !important;
+  transform: none;
+  opacity: 0.92;
+}
+
+/* --- 19. FOOTER ------------------------------------------------ */
 .footer {
-    background: rgba(10, 10, 31, 0.8);
-    /* Etwas dunkler als der restliche Hintergrund */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 60px 10% 20px;
-    margin-top: 100px;
+  background: rgba(8, 13, 25, 0.97);
+  border-top: 1px solid var(--border-muted);
+  padding: clamp(48px, 6vw, 80px) clamp(5%, 7%, 10%) 24px;
+  margin-top: 80px;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-    text-align: left;
-    /* Überschreibt das text-align: center von body/section */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 48px;
+  text-align: left;
 }
 
 .footer-logo {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    margin-bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  margin-bottom: 16px;
 }
 
 .footer-column p {
-    color: rgb(180, 180, 180);
-    line-height: 1.6;
-    font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.90rem;
 }
 
 .footer-column h4 {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.80rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer-links li {
-    margin-bottom: 12px;
-}
+.footer-links li { margin-bottom: 10px; }
 
 .footer-links a,
 .footer-contact-link {
-    color: rgb(180, 180, 180);
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  font-size: 0.90rem;
 }
 
 .footer-links a:hover,
 .footer-contact-link:hover {
-    color: #0ea5e9;
-    padding-left: 5px;
-    /* Cooler kleiner Slide-Effekt beim Hovern */
+  color: var(--mint-light);
+  padding-left: 4px;
 }
 
 .highlight-link {
-    color: #2dd4bf !important;
-    /* Hebt den "Angebot"-Link leicht hervor */
-    font-weight: bold;
+  color: var(--mint-light) !important;
+  font-weight: 600;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    text-align: center;
-    color: rgb(120, 120, 120);
-    font-size: 0.85rem;
+  border-top: 1px solid var(--border-muted);
+  padding-top: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.80rem;
 }
 
-.aboutImage {
-    backdrop-filter: blur(0);
-    border-radius: 5%;
-    box-shadow: 0 2px 10px 0.5px #0ea5e9;
+/* --- 20. COMPARISON SECTION ------------------------------------ */
+.comparison-section {
+  position: relative;
+  overflow: hidden;
 }
 
-/* --- PREISSCHILDER & RABATTE FÜR CARDS --- */
-
-/* Wir machen die Card zur Flexbox, damit der Preis immer ganz unten am Rand klebt */
-.card {
-    position: relative;
-    /* WICHTIG: Damit das Badge nicht wegfliegt! */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Der Text soll den restlichen Platz einnehmen, um den Preis nach unten zu drücken */
-.card p {
-    flex-grow: 1;
-    margin-bottom: 25px;
-}
-
-/* Container für die Preise */
-.price-tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    /* Abstand zwischen altem und neuem Preis */
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /* Feine Trennlinie */
-    margin-top: auto;
-    /* Drückt den Container nach ganz unten */
-}
-
-/* Der alte, durchgestrichene Preis */
-.old-price {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.3);
-    /* Leicht transparentes Grau */
-    text-decoration: line-through;
-    /* Durchgestrichen */
-    font-weight: 500;
-}
-
-/* Der neue, leuchtende Preis */
-.new-price {
-    font-size: 1.6rem;
-    font-weight: 800;
-    /* Wir nutzen deine cyan/türkis Hauptfarben! */
-    background: linear-gradient(90deg, #0ea5e9, #2dd4bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
-    /* Leichtes Leuchten */
-}
-
-/* Das schwebende "Angebot"-Badge oben rechts */
-.discount-badge {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background: #7c3aed;
-    /* Das Lila aus deiner Roadmap für coolen Kontrast */
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.5);
-    /* Lila Glow */
-    transform: rotate(10deg);
-    /* Leicht schräg für den "Sticker"-Look */
-    z-index: 10;
-}
-
-/* Optional: Das Badge wackelt leicht, wenn man über die Karte fährt */
-.card:hover .discount-badge {
-    transform: rotate(0deg) scale(1.1);
-    transition: 0.3s ease-in-out;
-}
-
-
-/* =========================================
-   KOMPLETTES CHATBOT WIDGET CSS
-   ========================================= */
-
-/* 1. Der unsichtbare Container unten rechts */
-.chatbot-container {
-    position: fixed;
-    bottom: 120px;
-    right: 30px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-family: sans-serif;
-}
-
-/* 2. Der runde Schalter (Toggle Button) */
-.chatbot-toggle-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #0ea5e9, #2dd4bf);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-    transition: transform 0.3s ease;
-    padding: 0;
-    margin: 0;
-}
-
-.chatbot-toggle-icon:hover {
-    transform: scale(1.08);
-}
-
-/* 3. Das schwebende Hauptfenster */
-.chatbot-wrapper.floating {
-    position: absolute;
-    bottom: 85px;
-    right: 0;
-    width: 380px;
-    height: 485px;
-    background: rgba(15, 23, 42, 0.95);
-    /* Dunkler, leicht transparenter Hintergrund */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-/* 4. Der Header */
-.chatbot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header-text-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.chatbot-title {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #fff;
-    font-weight: 600;
-}
-
-.chatbot-subtitle {
-    margin: 4px 0px 0 0;
-    font-size: 0.8rem;
-    color: #94a3b8;
-}
-
-.chatbot-close-btn {
-    background: none !important;
-    border: none !important;
-    color: #94a3b8 !important;
-    font-size: 1.5rem;
-    cursor: pointer;
-    font-weight: 60;
-    box-shadow: none !important;
-    margin-right: -20px;
-}
-
-.chatbot-close-btn:hover {
-    color: #fff !important;
-}
-
-/* 5. Der Chat-Bereich (Body) */
-.chatbot-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Scrollbar aufhübschen */
-.chatbot-body::-webkit-scrollbar {
-    width: 6px;
-}
-
-.chatbot-body::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-}
-
-/* 6. Die Chat-Nachrichten */
-.chat-row {
-    display: flex;
-    width: 100%;
-}
-
-.row-user {
-    justify-content: flex-end;
-}
-
-.row-bot {
-    justify-content: flex-start;
-}
-
-.chat-message {
-    max-width: 80%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.msg-user {
-    background: linear-gradient(135deg, #0ea5e9, #2dd4bf);
-    color: #fff;
-    border-bottom-right-radius: 2px;
-}
-
-.msg-bot {
-    background: rgba(255, 255, 255, 0.1);
-    color: #e2e8f0;
-    border-bottom-left-radius: 2px;
-}
-
-/* Markdown Anpassungen für den Bot */
-.markdown-content p {
-    margin: 0 0 8px 0;
-}
-
-.markdown-content p:last-child {
-    margin: 0;
-}
-
-.markdown-content ul {
-    margin: 8px 0 8px 20px;
-    padding: 0;
-}
-
-/* 7. Der Eingabebereich (Footer) */
-.chatbot-footer {
-    display: flex;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 10px;
-    align-items: center;
-}
-
-.chatbot-input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 20px;
-    outline: none;
-    font-size: 0.9rem;
-}
-
-.chatbot-input::placeholder {
-    color: #64748b;
-}
-
-.chatbot-input:focus {
-    border-color: #0ea5e9;
-}
-
-/* Überschreibt deine globalen Button-Styles für den Senden-Button */
-.chatbot-send-btn,
-.chatbot-upload-btn {
-    background: #0ea5e9 !important;
-    color: white !important;
-    border: none !important;
-    padding: 10px 15px !important;
-    border-radius: 20px !important;
-    cursor: pointer !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    box-shadow: none !important;
-    height: auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-}
-
-.chatbot-upload-btn {
-    background: transparent !important;
-    font-size: 1.2rem !important;
-    padding: 5px !important;
-}
-
-.chatbot-send-btn:hover {
-    background: #0284c7 !important;
-}
-
-
-
-/* --- RESPONSIVE DESIGN FÜR HANDY & TABLET --- */
+/* --- 21. RESPONSIVE -------------------------------------------- */
 @media (max-width: 768px) {
+  .hide-on-mobile { display: none; }
 
-    .heroSlogan {
-        margin-bottom: -230px;
-    }
+  .logo-hero { font-size: clamp(1.6rem, 6vw, 2.6rem); }
 
-    .why-card {
-        padding: 40px 35px !important;
-    }
+  .heroSlogan { margin-bottom: 65px; }
 
-    .footer {
-        padding: 50px 5% 20px;
-    }
+  .why-card   { padding: 32px 24px !important; }
 
-    .footer-content {
-        gap: 30px;
-    }
+  .footer { padding: 48px 5% 20px; }
 
-    .portfolio-container {
-        padding: 0px;
-        margin: 50px 0;
+  .footer-content { gap: 28px; }
 
-    }
+  .portfolio-container {
+    padding: 0;
+    margin: 32px 0;
+  }
 
-    .slider-image-container {
-        height: 310px;
-        transform: scale(1.4);
+  .portfolio-info { padding: 20px; }
 
-    }
+  .slider-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.88rem;
+  }
 
-    .slider-btn {
-        margin-top: 130px;
-        ;
-        width: 0px;
-        height: 40px;
-        font-size: 1rem;
-    }
+  .legal-container { padding: 24px 20px; }
 
-    .portfolio-info {
-        padding: 20px;
-    }
+  .legal-container h1 { font-size: 1.75rem; }
 
-    .legal-container {
-        padding: 20px;
-    }
+  .chatbot-container {
+    bottom: 110px;
+    right: 20px;
+  }
 
-    .legal-container h1 {
-        font-size: 2rem;
-    }
+  .chatbot-wrapper.floating {
+    width: calc(100vw - 40px);
+    height: 60vh;
+  }
 
-    .chatbot-container {
-        bottom: 120px;
-        right: 20px;
-    }
+  .section { padding: clamp(48px, 8vw, 80px) 5%; }
 
-    .chatbot-wrapper.floating {
-        width: calc(100vw - 40px);
-        height: 60vh;
-    }
+  .hero { padding: 110px 5% 60px; }
 
-    /* 1. Generelle Sektions-Abstände stark reduzieren (vorher 200px margin) */
-    .section {
-        padding: 60px 5%;
-        margin-bottom: 70px;
-    }
+  .hero p { margin: 24px auto; }
 
-    .heroSlogan a {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
+  .card { padding: 24px 20px; }
 
-    /* 2. Hero-Bereich kompakter machen */
-    .hero {
-        padding: 200px 5% 60px;
-        padding-bottom: 220px;
-    }
+  .roadmap-container {
+    margin: 32px 20px 32px 50px;
+    padding-left: 20px;
+  }
 
-    /* 3. Der Text im Hero hatte 200px Margin - das sprengt jedes Handy-Display! */
-    .hero p {
-        margin: 40px 10px 24px;
-    }
+  .step-number { left: -55px; }
 
-    /* 5. Cards: Den 120px Abstand am unteren Rand auf ein normales Maß schrumpfen */
-    .card {
-        margin-bottom: 40px;
-        padding: 20px;
-    }
+  .roadmap-item::before { left: -41px; }
 
-    /* 6. Roadmap: Verhindert, dass die lila Zahlen-Kreise links aus dem Bildschirm geschoben werden */
-    .roadmap-container {
-        margin: 40px 20px 40px 50px;
-        /* Extra 60px Platz links für den Kreis! */
-        padding-left: 20px;
-    }
+  .navbar { padding: 14px 20px; }
 
-    .step-number {
-        left: -55px;
-        /* Kreis an die verschobene Linie anpassen */
-    }
+  .overlay-menu {
+    top: 53px;
+    height: calc(100vh - 53px);
+    padding: 24px 20px;
+  }
+}
 
-    /* 7. Große Überschriften / Logos auf dem Handy minimal verkleinern */
-    .logo-item {
-        font-size: 2.2rem;
-    }
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
 
-    .roadmap-item::before {
-        left: -41px;
-        /* Linie an die verschobene Position anpassen */
-    }
+  .cta-roadmap {
+    font-size: 0.93rem;
+    padding: 12px 30px;
+  }
 }
