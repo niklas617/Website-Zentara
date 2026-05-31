@@ -1,37 +1,35 @@
-
-
 /* --- 1. DESIGN TOKENS ------------------------------------------ */
 :root {
   color-scheme: dark;
 
   /* Background scale */
-  --bg-base:    #0F172A;
+  --bg-base: #0F172A;
   --bg-surface: #1E293B;
-  --bg-card:    rgba(30, 41, 59, 0.72);
-  --bg-glass:   rgba(15, 23, 42, 0.70);
+  --bg-card: rgba(30, 41, 59, 0.72);
+  --bg-glass: rgba(15, 23, 42, 0.70);
 
   /* Brand — Mint */
-  --mint:        #10B981;
-  --mint-light:  #34D399;
-  --mint-pale:   #6EE7B7;
-  --grad-brand:  linear-gradient(135deg, #10B981 0%, #34D399 100%);
-  --grad-brand-h:linear-gradient(135deg, #059669 0%, #10B981 100%);
+  --mint: #10B981;
+  --mint-light: #34D399;
+  --mint-pale: #6EE7B7;
+  --grad-brand: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  --grad-brand-h: linear-gradient(135deg, #059669 0%, #10B981 100%);
 
   /* Borders */
-  --border-muted:  rgba(255, 255, 255, 0.06);
+  --border-muted: rgba(255, 255, 255, 0.06);
   --border-subtle: rgba(16, 185, 129, 0.14);
   --border-accent: rgba(16, 185, 129, 0.40);
 
   /* Text */
-  --text-primary:   #F8FAFC;
+  --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
-  --text-muted:     #64748B;
+  --text-muted: #64748B;
 
   /* Shadows & glows */
-  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
   --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.60);
-  --glow-sm:      0 0 18px rgba(16, 185, 129, 0.30);
-  --glow-md:      0 0 38px rgba(16, 185, 129, 0.18);
+  --glow-sm: 0 0 18px rgba(16, 185, 129, 0.30);
+  --glow-md: 0 0 38px rgba(16, 185, 129, 0.18);
 }
 
 /* --- 2. RESET & BASE ------------------------------------------- */
@@ -52,8 +50,8 @@ body {
   color: var(--text-primary);
   background-color: var(--bg-base);
   background-image:
-    radial-gradient(ellipse 85% 50% at 50% -8%,  rgba(16, 185, 129, 0.09) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 38% at 90% 95%,  rgba(52, 211, 153, 0.05) 0%, transparent 55%);
+    radial-gradient(ellipse 85% 50% at 50% -8%, rgba(16, 185, 129, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 38% at 90% 95%, rgba(52, 211, 153, 0.05) 0%, transparent 55%);
   overflow-x: hidden;
   overflow-y: auto;
   min-height: 100vh;
@@ -96,7 +94,9 @@ select option {
   background: #ffffff;
 }
 
-select { cursor: pointer; }
+select {
+  cursor: pointer;
+}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(0.6);
@@ -106,6 +106,46 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* --- 4. GLOBAL BUTTON ------------------------------------------ */
+
+
+/* Zielgenaue Ansprache des Buttons im Menü, um globale Button-Styles zu überschreiben */
+.menu-links .submenu-trigger {
+  display: block;
+  padding: 22px 0;
+  font-size: clamp(1.15rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-links .submenu-trigger:hover {
+  color: var(--mint-light);
+  padding-left: 18px;
+}
+
+/* Entfernt den Standard-Fokus-Rahmen, der bei Buttons oft stört */
+.menu-links .submenu-trigger:focus {
+  outline: none;
+}
+
+.dropdown-arrow {
+  font-size: 0.85rem;
+  padding-left: 5px;
+  color: var(--mint-light);
+}
+
 button {
   display: block;
   margin: 0 auto;
@@ -155,9 +195,13 @@ button:hover {
   transition: opacity 0.25s;
 }
 
-.logo:hover { opacity: 0.78; }
+.logo:hover {
+  opacity: 0.78;
+}
 
-a.logo-offer { text-decoration: none; }
+a.logo-offer {
+  text-decoration: none;
+}
 
 /* --- 6. LAYOUT -------------------------------------------------- */
 .section {
@@ -248,7 +292,9 @@ a.logo-offer { text-decoration: none; }
   display: inline-block;
 }
 
-.cta-card { font-size: clamp(1.4rem, 3vw, 2rem); }
+.cta-card {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
 
 .cta-card:hover,
 .cta-button:hover,
@@ -377,8 +423,13 @@ a.logo-offer { text-decoration: none; }
   transition: 0.25s;
 }
 
-.menu-icon::before { top: -7px; }
-.menu-icon::after  { bottom: -7px; }
+.menu-icon::before {
+  top: -7px;
+}
+
+.menu-icon::after {
+  bottom: -7px;
+}
 
 /* Overlay */
 .overlay-menu {
@@ -539,8 +590,13 @@ a.logo-offer { text-decoration: none; }
   opacity: 1;
 }
 
-.prev-btn { left: 12px; }
-.next-btn { right: 12px; }
+.prev-btn {
+  left: 12px;
+}
+
+.next-btn {
+  right: 12px;
+}
 
 .slider-dots {
   position: absolute;
@@ -639,7 +695,9 @@ a.logo-offer { text-decoration: none; }
   z-index: 1;
 }
 
-.roadmap-item:last-child::before { display: none; }
+.roadmap-item:last-child::before {
+  display: none;
+}
 
 .step-number {
   position: absolute;
@@ -827,7 +885,9 @@ label {
   border-bottom: 1px solid var(--border-muted);
 }
 
-.project-info { padding: 20px; }
+.project-info {
+  padding: 20px;
+}
 
 /* --- 18. CHATBOT ----------------------------------------------- */
 .chatbot-container {
@@ -939,15 +999,27 @@ label {
   gap: 12px;
 }
 
-.chatbot-body::-webkit-scrollbar { width: 4px; }
+.chatbot-body::-webkit-scrollbar {
+  width: 4px;
+}
+
 .chatbot-body::-webkit-scrollbar-thumb {
   background: rgba(16, 185, 129, 0.28);
   border-radius: 2px;
 }
 
-.chat-row   { display: flex; width: 100%; }
-.row-user   { justify-content: flex-end; }
-.row-bot    { justify-content: flex-start; }
+.chat-row {
+  display: flex;
+  width: 100%;
+}
+
+.row-user {
+  justify-content: flex-end;
+}
+
+.row-bot {
+  justify-content: flex-start;
+}
 
 .chat-message {
   max-width: 80%;
@@ -969,9 +1041,18 @@ label {
   border-bottom-left-radius: 3px;
 }
 
-.markdown-content p            { margin: 0 0 6px 0; }
-.markdown-content p:last-child { margin: 0; }
-.markdown-content ul           { margin: 6px 0 6px 18px; padding: 0; }
+.markdown-content p {
+  margin: 0 0 6px 0;
+}
+
+.markdown-content p:last-child {
+  margin: 0;
+}
+
+.markdown-content ul {
+  margin: 6px 0 6px 18px;
+  padding: 0;
+}
 
 .chatbot-footer {
   display: flex;
@@ -995,8 +1076,13 @@ label {
   transition: border-color 0.2s;
 }
 
-.chatbot-input::placeholder { color: var(--text-muted); }
-.chatbot-input:focus         { border-color: var(--mint); }
+.chatbot-input::placeholder {
+  color: var(--text-muted);
+}
+
+.chatbot-input:focus {
+  border-color: var(--mint);
+}
 
 .chatbot-send-btn,
 .chatbot-upload-btn {
@@ -1078,7 +1164,9 @@ label {
   margin: 0;
 }
 
-.footer-links li { margin-bottom: 10px; }
+.footer-links li {
+  margin-bottom: 10px;
+}
 
 .footer-links a,
 .footer-contact-link {
@@ -1115,24 +1203,38 @@ label {
 
 /* --- 21. RESPONSIVE -------------------------------------------- */
 @media (max-width: 768px) {
-  .hide-on-mobile { display: none; }
+  .hide-on-mobile {
+    display: none;
+  }
 
-  .logo-hero { font-size: clamp(1.6rem, 6vw, 2.6rem); }
+  .logo-hero {
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
+  }
 
-  .heroSlogan { margin-bottom: 65px; }
+  .heroSlogan {
+    margin-bottom: 65px;
+  }
 
-  .why-card   { padding: 32px 24px !important; }
+  .why-card {
+    padding: 32px 24px !important;
+  }
 
-  .footer { padding: 48px 5% 20px; }
+  .footer {
+    padding: 48px 5% 20px;
+  }
 
-  .footer-content { gap: 28px; }
+  .footer-content {
+    gap: 28px;
+  }
 
   .portfolio-container {
     padding: 0;
     margin: 32px 0;
   }
 
-  .portfolio-info { padding: 20px; }
+  .portfolio-info {
+    padding: 20px;
+  }
 
   .slider-btn {
     width: 34px;
@@ -1140,9 +1242,13 @@ label {
     font-size: 0.88rem;
   }
 
-  .legal-container { padding: 24px 20px; }
+  .legal-container {
+    padding: 24px 20px;
+  }
 
-  .legal-container h1 { font-size: 1.75rem; }
+  .legal-container h1 {
+    font-size: 1.75rem;
+  }
 
   .chatbot-container {
     bottom: 110px;
@@ -1154,24 +1260,38 @@ label {
     height: 60vh;
   }
 
-  .section { padding: clamp(48px, 8vw, 80px) 5%; }
+  .section {
+    padding: clamp(48px, 8vw, 80px) 5%;
+  }
 
-  .hero { padding: 110px 5% 60px; }
+  .hero {
+    padding: 110px 5% 60px;
+  }
 
-  .hero p { margin: 24px auto; }
+  .hero p {
+    margin: 24px auto;
+  }
 
-  .card { padding: 24px 20px; }
+  .card {
+    padding: 24px 20px;
+  }
 
   .roadmap-container {
     margin: 32px 20px 32px 50px;
     padding-left: 20px;
   }
 
-  .step-number { left: -55px; }
+  .step-number {
+    left: -55px;
+  }
 
-  .roadmap-item::before { left: -41px; }
+  .roadmap-item::before {
+    left: -41px;
+  }
 
-  .navbar { padding: 14px 20px; }
+  .navbar {
+    padding: 14px 20px;
+  }
 
   .overlay-menu {
     top: 53px;
@@ -1181,7 +1301,9 @@ label {
 }
 
 @media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
   .cta-roadmap {
     font-size: 0.93rem;

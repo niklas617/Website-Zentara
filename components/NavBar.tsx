@@ -6,11 +6,15 @@ import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false); // 1. Neuer State für das Dropdown
   const pathname = usePathname();
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        setProjectsOpen(false); // Dropdown schließen, wenn ESC gedrückt wird
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
@@ -23,9 +27,12 @@ export default function NavBar() {
     };
   }, [open]);
 
-  const close = () => setOpen(false);
+  const close = () => {
+    setOpen(false);
+    setProjectsOpen(false); // Dropdown zurücksetzen, wenn man navigiert
+  };
 
- return (
+  return (
     <nav className="navbar">
       <div className="nav-item nav-left">
         <button
@@ -35,20 +42,19 @@ export default function NavBar() {
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
+
         >
           <span className="menu-icon" />
         </button>
       </div>
 
       <div className="nav-item nav-center">
-        {/* Relativer Link, kein target="_blank" */}
         <Link href="/" className="logo" onClick={close}>
           Zentara
         </Link>
       </div>
 
       <div className="nav-item nav-right hide-on-mobile">
-        {/* Relativer Link, kein target="_blank" */}
         <Link href="/offer" className="cta-button" onClick={close}>
           <b>Projekt starten</b>
         </Link>
@@ -56,21 +62,66 @@ export default function NavBar() {
 
       <div className={`overlay-menu ${open ? "active" : ""}`} id="overlayMenu">
         <ul className="menu-links">
-          
-          {/* Aktuelle Projekte - Intelligenter Link */}
-          <li>
-            {pathname === "/" ? (
-              <a href="#portfolio" onClick={close}>
-                Aktuelle Projekte
-              </a>
-            ) : (
-              <Link href="/#portfolio" onClick={close}>
-                Aktuelle Projekte
-              </Link>
+
+          {/* 2. & 3. Aktuelle Projekte - Mit Unterkategorien */}
+          <li className="has-submenu">
+            <button
+              className="submenu-trigger"
+              onClick={() => setProjectsOpen(!projectsOpen)}
+              aria-expanded={projectsOpen}
+              style={{
+                backgroundColor: "transparent",
+                backgroundImage: "none",
+                border: "none",
+                boxShadow: "none"
+              }}
+            >
+              Aktuelle Projekte
+              <span className="dropdown-arrow">
+                {projectsOpen ? " ▲" : " ▼"}
+              </span>
+            </button>
+
+            {/* Das Untermenü wird nur angezeigt, wenn projectsOpen true ist */}
+            {projectsOpen && (
+              <ul className="submenu">
+                <li>
+                  {/* Link zur allgemeinen Übersicht, falls gewünscht */}
+                  {pathname === "/" ? (
+                    <a href="#portfolio" onClick={close}>Alle ansehen</a>
+                  ) : (
+                    <Link href="/#portfolio" onClick={close}>Alle ansehen</Link>
+                  )}
+                </li>
+
+                {/* Spezifische Unterprojekte */}
+                <li>
+                  {pathname === "/" ? (
+                    <a href="#money-dashboard" onClick={close}>
+                      Money-Dashboard
+                    </a>
+                  ) : (
+                    <Link href="/#money-dashboard" onClick={close}>
+                      Money-Dashboard
+                    </Link>
+                  )}
+                </li>
+                <li>
+                  {pathname === "/" ? (
+                    <a href="#motoset" onClick={close}>
+                      MotoSet
+                    </a>
+                  ) : (
+                    <Link href="/#motoset" onClick={close}>
+                      MotoSet
+                    </Link>
+                  )}
+                </li>
+              </ul>
             )}
           </li>
 
-          {/* Häufige Fragen - Intelligenter Link */}
+          {/* Häufige Fragen */}
           <li>
             {pathname === "/" ? (
               <a href="#faq" onClick={close}>
@@ -83,21 +134,21 @@ export default function NavBar() {
             )}
           </li>
 
-          {/* Preise & Pakete - Relativer Link, kein neuer Tab */}
+          {/* Preise & Pakete */}
           <li>
             <Link href="/pricing" onClick={close}>
               Preise & Pakete
             </Link>
           </li>
 
-          {/* Angebot anfordern - Relativer Link, kein neuer Tab */}
+          {/* Angebot anfordern */}
           <li>
             <Link href="/offer" onClick={close}>
               Angebot anfordern
             </Link>
           </li>
 
-          {/* Über mich - Intelligenter Link */}
+          {/* Über mich */}
           <li>
             {pathname === "/" ? (
               <a href="#about" onClick={close}>
@@ -110,7 +161,7 @@ export default function NavBar() {
             )}
           </li>
 
-          {/* Kontakt - Intelligenter Link */}
+          {/* Kontakt */}
           <li>
             {pathname === "/" ? (
               <a href="#footer" onClick={close}>
@@ -124,7 +175,7 @@ export default function NavBar() {
           </li>
 
         </ul>
-      </div>
-    </nav>
+      </div >
+    </nav >
   );
 }

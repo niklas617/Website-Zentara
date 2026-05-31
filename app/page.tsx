@@ -281,7 +281,7 @@ export default function HomePage() {
 
       {/* MotoSet Projekt Bereich mit eigenem Slider */}
       <section id="motoset" className="section">
-        <h2>Aktuelles Projekt: Fahrwerkeinstellungs-App</h2>
+        <h2>Aktuelles Projekt: MotoSet</h2>
 
         <div className="portfolio-container">
           <div className="portfolio-card">
