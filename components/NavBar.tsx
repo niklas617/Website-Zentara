@@ -97,11 +97,11 @@ export default function NavBar() {
                 {/* Spezifische Unterprojekte */}
                 <li>
                   {pathname === "/" ? (
-                    <a href="#money-dashboard" onClick={close}>
+                    <a href="#portfolio" onClick={close}>
                       Money-Dashboard
                     </a>
                   ) : (
-                    <Link href="/#money-dashboard" onClick={close}>
+                    <Link href="/#portfolio" onClick={close}>
                       Money-Dashboard
                     </Link>
                   )}
