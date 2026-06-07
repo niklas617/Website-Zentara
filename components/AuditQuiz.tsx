@@ -3,25 +3,40 @@
 import React, { useState } from "react";
 
 export default function AuditQuiz() {
+    const [hasStartedTracking, setHasStartedTracking] = useState(false);
     // States für die Logik
     const [currentStep, setCurrentStep] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
-    const totalQuestions = 7; 
+    const totalQuestions = 7;
+    // --- NEU: States für das Formular ---
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState("");
 
-    // Funktion, wenn ein Button (Ja/Nein) geklickt wird
+    // --- NEU: Hier speichern wir die genauen Antworten ---
+    const [answers, setAnswers] = useState<Record<number, string>>({});
+
+    // Funktion wird aufgerufen, wenn auf Ja/Nein geklickt wird
     const handleAnswer = (answer: string) => {
-        // Hier könnten wir die Antworten (yes/no) in einem Array speichern, falls wir sie später ans Backend senden wollen.
+        if (!hasStartedTracking) {
+            if (typeof window !== 'undefined' && (window as any).umami) {
+                (window as any).umami.track('Quiz_Start');
+            }
+            setHasStartedTracking(true);
+        }
+        // 1. Antwort speichern (z.B. Frage 1 = "yes")
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [currentStep]: answer
+        }));
 
-        if (currentStep < 7) {
+        // 2. Weiter zur nächsten Frage oder zum Ladebildschirm
+        if (currentStep < totalQuestions) {
             setCurrentStep(currentStep + 1);
         } else {
-            // Wenn alle Fragen beantwortet sind -> Ladebildschirm starten
             setIsLoading(true);
-
-            // Simuliere Ladezeit für 2.5 Sekunden, dann zeige Lead-Capture an
             setTimeout(() => {
                 setIsLoading(false);
-                setCurrentStep(99); // 99 ist unser Code für das E-Mail-Formular
+                setCurrentStep(99);
             }, 2500);
         }
     };
@@ -106,15 +121,14 @@ export default function AuditQuiz() {
                 {/* FRAGE 6 */}
                 {currentStep === 6 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">6. Die Agentur-Falle</h3>
-                        <p>Können Sie Texte oder Angebote innerhalb von Minuten anpassen, ohne auf Dritte warten oder extra bezahlen zu müssen?</p>
+                        <h3 className="quiz-question">6. Die Abhängigkeits-Falle</h3>
+                        <p>Wenn Sie heute einen Text oder Preis ändern möchten: Können Sie das in 2 Minuten selbst erledigen, oder müssen Sie dafür Ihrem Webdesigner schreiben (und warten)?</p>
                         <div className="quiz-options">
-                            <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, das geht blitzschnell</button>
-                            <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein / Sehr starr und teuer</button>
+                            <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, mache ich in Sekunden selbst</button>
+                            <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein, müssen wir extra in Auftrag geben</button>
                         </div>
                     </div>
                 )}
-
                 {/* FRAGE 7 */}
                 {currentStep === 7 && !isLoading && (
                     <div className="quiz-step active">
@@ -143,16 +157,79 @@ export default function AuditQuiz() {
                         <p style={{ textAlign: "center", marginBottom: "30px" }}>
                             Wohin sollen wir Ihre detaillierte Auswertung und Ihren Performance-Score senden?
                         </p>
-                        <div className="offer-container" style={{ padding: 0 }}>
-                            <input type="text" placeholder="Ihr Vorname" style={{ marginBottom: "12px" }} required />
-                            <input type="email" placeholder="Ihre beste E-Mail-Adresse" required />
-                            <button className="cta-roadmap" style={{ width: "100%", marginTop: "20px" }}>
-                                Jetzt Ergebnis erhalten
+
+                        <form
+                            className="offer-container"
+                            style={{ padding: 0 }}
+                            onSubmit={async (e) => {
+                                e.preventDefault(); // Verhindert das Neuladen der Seite
+                                setIsSubmitting(true); // Button auf "Wird gespeichert..." setzen
+                                setSubmitMessage(""); // Alte Fehlermeldungen löschen
+
+                                // Formulardaten sauber auslesen
+                                const formData = new FormData(e.currentTarget);
+                                const name = formData.get('name');
+                                const email = formData.get('email');
+
+                                try {
+                                    // Score berechnen: Wir zählen die FEHLER (wie oft "no" geklickt wurde)
+                                    const fehlerScore = Object.values(answers).filter(val => val === "no").length;
+
+                                    const response = await fetch('/api/save-lead', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ name, email, score: fehlerScore }) // answers können wir weglassen, da unsere DB-Tabelle aktuell nur den Score speichert
+                                    });
+                                    const data = await response.json();
+
+                                    if (response.ok) {
+                                        setSubmitMessage("✅ Erfolgreich eingetragen! Die Auswertung ist auf dem Weg.");
+                                        // Optional: Hier könntest du das Formular nach Erfolg ausblenden
+
+                                        // --- NEU: Tracking für den Quiz-Abschluss ---
+                                        if (typeof window !== 'undefined' && (window as any).umami) {
+                                            (window as any).umami.track('Quiz_Submit_Lead');
+                                        }
+                                    } else {
+                                        // Zeigt den Fehler aus der Datenbank (z.B. "E-Mail existiert schon")
+                                        setSubmitMessage("❌ " + (data.message || "Es ist ein Fehler aufgetreten."));
+                                    }
+                                } catch (error) {
+                                    console.error("Fetch-Fehler:", error);
+                                    setSubmitMessage("❌ Netzwerkfehler. Bitte überprüfe deine Verbindung.");
+                                } finally {
+                                    setIsSubmitting(false); // Button wieder freigeben
+                                }
+                            }}
+                        >
+                            <input type="text" name="name" placeholder="Ihr Vorname" style={{ marginBottom: "12px" }} required disabled={isSubmitting} />
+                            <input type="email" name="email" placeholder="Ihre beste E-Mail-Adresse" required disabled={isSubmitting} />
+
+                            <button
+                                type="submit"
+                                className="cta-roadmap"
+                                style={{ width: "100%", marginTop: "20px", opacity: isSubmitting ? 0.7 : 1 }}
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? "Wird gespeichert..." : "Auswertung jetzt freischalten"}
                             </button>
+
+                            {/* Hier wird die Erfolgs- oder Fehlermeldung angezeigt */}
+                            {submitMessage && (
+                                <p style={{
+                                    textAlign: "center",
+                                    marginTop: "15px",
+                                    fontWeight: "bold",
+                                    color: submitMessage.includes("✅") ? "var(--mint)" : "#ef4444"
+                                }}>
+                                    {submitMessage}
+                                </p>
+                            )}
+
                             <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", textAlign: "center", marginTop: "12px" }}>
                                 100% sicher. Kein Spam. Abmeldung jederzeit möglich.
                             </p>
-                        </div>
+                        </form>
                     </div>
                 )}
 
