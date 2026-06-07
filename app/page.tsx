@@ -9,6 +9,7 @@ import AppDownload from "../components/AppDownload";
 import RealEstateChatbot from "../components/RealEstateChatbot";
 import OfferPrizing from "./pricing/page";
 import { FaInstagram } from "react-icons/fa";
+import AuditQuiz from "../components/AuditQuiz";
 
 export default function HomePage() {
   // --- SLIDESHOW LOGIK ---
@@ -176,52 +177,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 
-      <section id="services" className="section">
-        <h2>Meine Dienstleistungen</h2>
-        <div className="grid">
-
-          Karte 1 mit Rabatt Badge
-          <div className="card">
-            <div className="discount-badge">Angebot</div>
-            <h3>Webentwicklung</h3>
-            <p>Moderne Webentwicklung mit Fokus auf Performance nach Kundenwunsch.</p>
-
-            <div className="price-tag">
-              <span className="old-price">ab 1099€</span>
-              <span className="new-price">ab 799€</span>
-            </div>
-          </div>
-
-          Karte 2 Standard ohne Badge, aber reduziert
-          <div className="card">
-            <h3>Web-Nacharbeitung</h3>
-            <p>Analyse, Optimierung und technische Weiterentwicklung bestehender Web-Anwendungen.</p>
-
-            <div className="price-tag">
-              <span className="old-price">ab 499€</span>
-              <span className="new-price">ab 249€</span>
-            </div>
-          </div>
-
-          Karte 3 Stundenlohn / Fixpreis
-          <div className="card">
-            <h3>Webpflege</h3>
-            <p>Kontinuierliche Pflege, Wartung und Optimierung bestehender Web-Lösungen.</p>
-
-            <div className="price-tag">
-              <span className="old-price">ab 49€/h</span>
-              <span className="new-price">ab 29€/h</span>
-            </div>
-          </div>
-
-        </div>
-        <div>
-          <Link href="/offer" className="cta-card">
-            <b>Jetzt Angebot anfordern</b>
-          </Link>
-        </div>
-      </section> */}
+      {/* --- NEU: LEADMAGNET AUDIT QUIZ HIER EINFÜGEN --- */}
+      <section id="website-audit" className="section" style={{ background: "rgba(16, 185, 129, 0.03)" }}>
+        <h2 className="section-title">Machen Sie den 5-Minuten <span className="highlight">Website-Check</span></h2>
+        <p style={{ color: "#94a3b8", marginBottom: "40px", fontSize: "1.05rem", lineHeight: "1.7", maxWidth: "700px", margin: "0 auto 40px" }}>
+          Finden Sie in 7 kurzen Fragen heraus, ob Ihre Website Kunden gewinnt oder unbemerkt Zeit und Umsatz verbrennt.
+        </p>
+        
+        <AuditQuiz />
+        
+      </section>
 
       {/* NEUER PROJEKT BEREICH MIT SLIDER */}
       <section id="portfolio" className="section">

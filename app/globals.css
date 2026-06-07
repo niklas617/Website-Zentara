@@ -146,6 +146,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--mint-light);
 }
 
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
 button {
   display: block;
   margin: 0 auto;
