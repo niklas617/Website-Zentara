@@ -29,20 +29,19 @@ export async function POST(request: Request) {
     await pool.end();
 
     // --- 2. E-MAIL VERSAND LOGIK ---
-    
+
     // Baue den individuellen Link zusammen
     // WICHTIG: Ersetze "http://localhost:3000" später durch deine echte Live-Domain!
-    const baseUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://zentara-solutions.de' 
+    const baseUrl = process.env.NODE_ENV === 'production'
+      ? 'https://zentara-solutions.de'
       : 'http://localhost:3000';
-      
+
     const auswertungsLink = `${baseUrl}/evaluation?score=${score}`;
 
     // Sende die E-Mail
     // Sende die E-Mail
     await resend.emails.send({
-      from: 'Zentara <onboarding@resend.dev>', // Später anpassen!
-      to: email,
+      from: 'Zentara <info@zentara-solutions.de>', to: email,
       subject: 'Dein Website-Audit Ergebnis ist da!',
       html: `
         <!DOCTYPE html>
@@ -99,7 +98,7 @@ export async function POST(request: Request) {
                       <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td width="50" style="vertical-align: middle;">
-                            <img src="https://ui-avatars.com/api/?name=Niklas+Smit&background=10B981&color=0f172a&rounded=true" width="45" height="45" alt="Niklas Smit" style="border-radius: 50%; display: block;">
+                            <img src="/public/assests/images/favicon.png" width="45" height="45" alt="Niklas Smit" style="border-radius: 50%; display: block;">
                           </td>
                           <td style="vertical-align: middle; padding-left: 15px;">
                             <p style="margin: 0; font-size: 16px; color: #0f172a; font-weight: bold;">Niklas Smit</p>
@@ -131,25 +130,25 @@ export async function POST(request: Request) {
 
 
     // --- 3. ERFOLGSMELDUNG ANS FRONTEND ---
-    return NextResponse.json({ 
-      success: true, 
+    return NextResponse.json({
+      success: true,
       message: 'Lead gespeichert und E-Mail versendet.',
       leadId: result.rows[0].id
     }, { status: 200 });
 
   } catch (error: any) {
     console.error('Fehler:', error);
-    
+
     if (error.code === '23505') {
-      return NextResponse.json({ 
-        success: false, 
-        message: 'Diese E-Mail-Adresse wurde bereits eingetragen.' 
+      return NextResponse.json({
+        success: false,
+        message: 'Diese E-Mail-Adresse wurde bereits eingetragen.'
       }, { status: 409 });
     }
 
-    return NextResponse.json({ 
-      success: false, 
-      message: 'Ein interner Serverfehler ist aufgetreten.' 
+    return NextResponse.json({
+      success: false,
+      message: 'Ein interner Serverfehler ist aufgetreten.'
     }, { status: 500 });
   }
 }
