@@ -98,7 +98,7 @@ export async function POST(request: Request) {
                       <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td width="50" style="vertical-align: middle;">
-                            <img src="/public/assests/images/favicon.png" width="45" height="45" alt="Niklas Smit" style="border-radius: 50%; display: block;">
+                            <img src="public/assests/images/favicon.png" width="45" height="45" alt="Niklas Smit" style="border-radius: 50%; display: block;">
                           </td>
                           <td style="vertical-align: middle; padding-left: 15px;">
                             <p style="margin: 0; font-size: 16px; color: #0f172a; font-weight: bold;">Niklas Smit</p>

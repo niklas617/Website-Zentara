@@ -188,6 +188,17 @@ export default function OfferForm() {
             />
           </label>
 
+               <label style={labelStyle}>
+            Deine Domain (optional)
+            <input
+              type="domain"
+              name="from_domain"
+              placeholder="beispiel-domain.de"
+              required
+              style={inputStyle}
+            />
+          </label>
+
           <label style={labelStyle}>
             Art des Projekts
             <select name="projectType" required defaultValue="unknown" style={inputStyle}>
