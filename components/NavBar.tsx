@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -46,17 +47,18 @@ export default function NavBar() {
         >
           <span className="menu-icon" />
         </button>
+        <ThemeToggle />
       </div>
 
       <div className="nav-item nav-center">
         <Link href="/" className="logo" onClick={close}>
-          Zentara
+          Zentara-Solutions
         </Link>
       </div>
 
       <div className="nav-item nav-right hide-on-mobile">
         <Link href="/offer" className="cta-button" onClick={close}>
-          <b>Projekt starten</b>
+          <b>Erstgespräch sichern</b>
         </Link>
       </div>
 
@@ -121,6 +123,28 @@ export default function NavBar() {
             )}
           </li>
 
+          
+          {/* Website-Check */}
+          <li>
+            <Link href="#website-audit" onClick={close}>
+              Kostenloser Website Check
+            </Link>
+          </li>
+
+          {/* Angebot anfordern */}
+          <li>
+            <Link href="/offer" onClick={close}>
+              Angebot anfordern
+            </Link>
+          </li>
+          
+          {/* Preise & Pakete */}
+          <li>
+            <Link href="/pricing" onClick={close}>
+              Preise & Pakete
+            </Link>
+          </li>
+
           {/* Häufige Fragen */}
           <li>
             {pathname === "/" ? (
@@ -134,19 +158,6 @@ export default function NavBar() {
             )}
           </li>
 
-          {/* Preise & Pakete */}
-          <li>
-            <Link href="/pricing" onClick={close}>
-              Preise & Pakete
-            </Link>
-          </li>
-
-          {/* Angebot anfordern */}
-          <li>
-            <Link href="/offer" onClick={close}>
-              Angebot anfordern
-            </Link>
-          </li>
 
           {/* Über mich */}
           <li>

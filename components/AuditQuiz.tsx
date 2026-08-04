@@ -7,7 +7,7 @@ export default function AuditQuiz() {
     // States für die Logik
     const [currentStep, setCurrentStep] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
-    const totalQuestions = 7;
+    const totalQuestions = 9;
     // --- NEU: States für das Formular ---
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState("");
@@ -74,7 +74,7 @@ export default function AuditQuiz() {
                 {currentStep === 2 && !isLoading && (
                     <div className="quiz-step active">
                         <h3 className="quiz-question">2. Mobile-First als Standard</h3>
-                        <p>Lassen sich alle Formulare auf dem Handy bedienen, ohne dass der Nutzer zoomen muss?</p>
+                        <p>Lassen sich alle Formulare auf dem Handy bedienen? <br></br> Die Formation der Website ist korrekt?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, absolut</button>
                             <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein / Weiß nicht</button>
@@ -85,7 +85,19 @@ export default function AuditQuiz() {
                 {/* FRAGE 3 */}
                 {currentStep === 3 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">3. Die unsichtbare Visitenkarte</h3>
+                        <h3 className="quiz-question">3. KI - Chatbot als Standart</h3>
+                        <p>Gibt es auf der Website einen KI basierten Chatbot um Nutzern die Suche abzunehmen?</p>
+                        <div className="quiz-options">
+                            <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, wir arbeiten mit KI</button>
+                            <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein, was ist KI?</button>
+                        </div>
+                    </div>
+                )}
+
+                {/* FRAGE 4 */}
+                {currentStep === 4 && !isLoading && (
+                    <div className="quiz-step active">
+                        <h3 className="quiz-question">4. Die unsichtbare Visitenkarte</h3>
                         <p>Werden Sie bei Google auf Seite 1 gefunden, wenn ein potenzieller Kunde exakt nach Ihrer Hauptdienstleistung sucht?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, wir dominieren Seite 1</button>
@@ -94,10 +106,10 @@ export default function AuditQuiz() {
                     </div>
                 )}
 
-                {/* FRAGE 4 */}
-                {currentStep === 4 && !isLoading && (
+                {/* FRAGE 5 */}
+                {currentStep === 5 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">4. Das Copy-Paste-Problem</h3>
+                        <h3 className="quiz-question">5. Das Copy-Paste-Problem</h3>
                         <p>Landen Kundenanfragen automatisch, strukturiert und DSGVO-konform in Ihrem System, ohne dass Daten händisch abgetippt werden müssen?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, alles vollautomatisiert</button>
@@ -106,10 +118,10 @@ export default function AuditQuiz() {
                     </div>
                 )}
 
-                {/* FRAGE 5 */}
-                {currentStep === 5 && !isLoading && (
+                {/* FRAGE 6 */}
+                {currentStep === 6 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">5. Der Conversion-Blindflug</h3>
+                        <h3 className="quiz-question">6. Der Conversion-Blindflug</h3>
                         <p>Wissen Sie exakt, auf welcher Unterseite Ihre Website-Besucher abspringen und warum sie nicht bei Ihnen anfragen?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, wir messen das präzise</button>
@@ -118,10 +130,10 @@ export default function AuditQuiz() {
                     </div>
                 )}
 
-                {/* FRAGE 6 */}
-                {currentStep === 6 && !isLoading && (
+                {/* FRAGE 7 */}
+                {currentStep === 7 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">6. Die Abhängigkeits-Falle</h3>
+                        <h3 className="quiz-question">7. Die Abhängigkeits-Falle</h3>
                         <p>Wenn Sie heute einen Text oder Preis ändern möchten: Können Sie das in 2 Minuten selbst erledigen, oder müssen Sie dafür Ihrem Webdesigner schreiben (und warten)?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, mache ich in Sekunden selbst</button>
@@ -129,14 +141,25 @@ export default function AuditQuiz() {
                         </div>
                     </div>
                 )}
-                {/* FRAGE 7 */}
-                {currentStep === 7 && !isLoading && (
+                {/* FRAGE 8 */}
+                {currentStep === 8 && !isLoading && (
                     <div className="quiz-step active">
-                        <h3 className="quiz-question">7. Das Vertrauens-Defizit</h3>
+                        <h3 className="quiz-question">8. Das Vertrauens-Defizit</h3>
                         <p>Zeigt Ihre Website ohne zu scrollen echte Kundenstimmen oder Fallstudien, die sofort beweisen, dass Sie Ergebnisse liefern?</p>
                         <div className="quiz-options">
                             <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, Social Proof ist stark sichtbar</button>
                             <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein / Eher klassische Unternehmensvorstellung</button>
+                        </div>
+                    </div>
+                )}
+                {/* FRAGE 9 */}
+                {currentStep === 9 && !isLoading && (
+                    <div className="quiz-step active">
+                        <h3 className="quiz-question">9. Die Benutzerfreundlichkeit</h3>
+                        <p>Ist die Website klar strukturiert und benutzerfreundlich? <br></br> Gibt es einheitliche CTA´s?</p>
+                        <div className="quiz-options">
+                            <button onClick={() => handleAnswer("yes")} className="quiz-option-btn">Ja, sie ist klar strukturiert</button>
+                            <button onClick={() => handleAnswer("no")} className="quiz-option-btn">Nein, sie ist nicht klar strukturiert</button>
                         </div>
                     </div>
                 )}
@@ -203,7 +226,7 @@ export default function AuditQuiz() {
                             }}
                         >
                             <input type="text" name="name" placeholder="Ihr Vorname" style={{ marginBottom: "12px" }} required disabled={isSubmitting} />
-                            <input type="email" name="email" placeholder="Ihre beste E-Mail-Adresse" required disabled={isSubmitting} />
+                            <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required disabled={isSubmitting} />
 
                             <button
                                 type="submit"

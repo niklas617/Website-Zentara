@@ -116,6 +116,7 @@ export default function OfferPage() {
         padding: "0 20px"
       }}>
 
+        
         {/* Karte 1: Webdesign Starter */}
         <div style={cardStyle}>
           <h2 style={titleStyle}>Digitale Visitenkarte</h2>
@@ -143,6 +144,7 @@ export default function OfferPage() {
           <div style={priceStyle}>ab 249 €</div>
           <Link href="/offer" style={buttonStyle}>Website modernisieren</Link>
         </div>
+      
 
          {/* Karte 3: Webpflege */}
         <div style={cardStyle}>

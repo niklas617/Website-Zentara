@@ -11,7 +11,7 @@ function ScoreResult() {
     // Wir lesen den Score (Anzahl der "Nein"-Antworten bzw. Fehler) aus der URL. Standard ist 0.
     const scoreParam = searchParams.get("score");
     const fehlerCount = scoreParam ? parseInt(scoreParam, 10) : 0;
-    const maxScore = 7;
+    const maxScore = 9;
 
     // Dynamische Inhalte basierend auf der Fehleranzahl
     let statusColor = "";
@@ -22,25 +22,25 @@ function ScoreResult() {
     if (fehlerCount <= 1) {
         statusColor = "var(--mint)"; // Grün
         headline = "Exzellent: Starkes Fundament";
-        description = "Glückwunsch! Ihre Website arbeitet hochgradig effizient. Sie haben ein solides digitales Fundament und machen fast alles richtig.";
-        actionText = "Lassen Sie uns in einem kurzen Call prüfen, wie wir die letzten Prozentpunkte für noch mehr Wachstum herausholen.";
+        description = "Glückwunsch! Deine Website arbeitet hochgradig effizient. Du hast ein solides digitales Fundament und machst fast alles richtig.";
+        actionText = "Lass uns in einem kurzen Call prüfen, wie wir die letzten Prozentpunkte für noch mehr Wachstum herausholen.";
     } else if (fehlerCount <= 4) {
         statusColor = "#F59E0B"; // Orange (Warnung)
         headline = "Warnsignal: Versteckte Umsatzkiller";
-        description = "Ihre Website verliert aktuell regelmäßig qualifizierte Anfragen an den Wettbewerb. Ihr Team verschwendet Zeit mit manuellen Prozessen, die wir leicht digitalisieren könnten.";
-        actionText = "Wir sollten diese Lecks schnellstens schließen. Buchen Sie ein 15-Minuten-Audit, um die genauen Fehlerquellen zu beheben.";
+        description = "Deine Website verliert aktuell regelmäßig qualifizierte Anfragen an den Wettbewerb. Dein Team verschwendet Zeit mit manuellen Prozessen, die wir leicht digitalisieren könnten.";
+        actionText = "Wir sollten diese Lecks schnellstens schließen. Buche jetzt ein kostenloses 15-Minuten-Audit, um die genauen Fehlerquellen zu beheben.";
     } else {
         statusColor = "#EF4444"; // Rot (Kritisch)
         headline = "Kritischer Zustand: Akuter Handlungsbedarf!";
-        description = "Ihr digitaler Auftritt ist aktuell ein reines Kostenrisiko. Sie verbrennen durch ineffiziente Prozesse und schlechte Conversion-Raten täglich bares Geld und administrative Lebenszeit.";
-        actionText = "Das müssen wir sofort stoppen. Buchen Sie jetzt ein kostenfreies Strategiegespräch, um einen Notfall-Plan aufzustellen.";
+        description = "Dein digitaler Auftritt ist aktuell ein reines Kostenrisiko. Du verbrennst durch ineffiziente Prozesse und schlechte Conversion-Raten täglich bares Geld und administrative Lebenszeit.";
+        actionText = "Das müssen wir sofort stoppen. Buche jetzt ein kostenfreies Strategiegespräch, um einen Notfall-Plan aufzustellen.";
     }
 
     return (
         <div className="card" style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center", padding: "50px 30px", borderTop: `4px solid ${statusColor}` }}>
 
             <p style={{ textTransform: "uppercase", letterSpacing: "1px", color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "10px" }}>
-                Ihr persönliches Audit-Ergebnis
+                Dein persönliches Audit-Ergebnis
             </p>
 
             <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "var(--text-primary)", marginBottom: "20px", fontWeight: 800 }}>

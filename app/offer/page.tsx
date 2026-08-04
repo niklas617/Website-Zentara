@@ -8,7 +8,6 @@ type FormValues = {
   reply_to: string;
   projectType: string;
   message: string;
-  budget?: string;
   startDate?: string;
 };
 
@@ -90,6 +89,24 @@ export default function OfferForm() {
     }
   }, []);
 
+  // Übernimmt eine Auswahl aus dem Preis-Rechner (per URL-Parameter) ins Formular.
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) return;
+    const params = new URLSearchParams(window.location.search);
+    const message = params.get("message");
+    const projectType = params.get("projectType");
+
+    if (message) {
+      const el = form.elements.namedItem("message") as HTMLTextAreaElement | null;
+      if (el) el.value = message;
+    }
+    if (projectType) {
+      const el = form.elements.namedItem("projectType") as HTMLSelectElement | null;
+      if (el) el.value = projectType;
+    }
+  }, []);
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current || sending) return;
@@ -97,15 +114,7 @@ export default function OfferForm() {
     const fd = new FormData(formRef.current);
     const data = Object.fromEntries(fd.entries()) as unknown as FormValues;
 
-    const budgetMissing = !data.budget || data.budget === "unknown";
     const startDateMissing = !data.startDate;
-
-    if (budgetMissing) {
-      const proceed = window.confirm(
-        "Hinweis:\nOhne Budget ist eine Einschätzung schwieriger.\n\nMöchtest du trotzdem absenden?"
-      );
-      if (!proceed) return;
-    }
 
     if (startDateMissing) {
       const proceed = window.confirm(
@@ -220,16 +229,6 @@ export default function OfferForm() {
               required
               style={{ ...inputStyle, resize: "vertical" }}
             />
-          </label>
-
-          <label style={labelStyle}>
-            Ungefährer Budgetrahmen
-            <select name="budget" defaultValue="unknown" style={inputStyle}>
-              <option value="unknown" disabled style={{ color: "#000" }}>Bitte wählen</option>
-              <option value="0-300" style={{ color: "#000" }}>0 – 300 €</option>
-              <option value="300-1000" style={{ color: "#000" }}>300 – 1.000 €</option>
-              <option value="1000+" style={{ color: "#000" }}>1.000 € +</option>
-            </select>
           </label>
 
           <label style={{ ...labelStyle, color: "#F8FAFC" }}>
