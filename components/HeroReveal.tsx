@@ -9,6 +9,8 @@ type Props = {
   className?: string;
   /** Millisekunden Versatz zwischen den Wörtern */
   stagger?: number;
+  /** Klasse für hervorgehobene Wörter (Default: Zentara-Mint "highlight"). */
+  highlightClassName?: string;
 };
 
 /**
@@ -17,7 +19,12 @@ type Props = {
  * (dann erscheint die Headline sofort komplett). Der Wortabstand kommt aus CSS
  * (.word-reveal-wrap { margin-right }), damit nichts zusammenklebt.
  */
-export default function HeroReveal({ parts, className = "", stagger = 85 }: Props) {
+export default function HeroReveal({
+  parts,
+  className = "",
+  stagger = 85,
+  highlightClassName = "highlight",
+}: Props) {
   const [start, setStart] = useState(false);
 
   useEffect(() => {
@@ -41,7 +48,7 @@ export default function HeroReveal({ parts, className = "", stagger = 85 }: Prop
           return (
             <span className="word-reveal-wrap" key={`${pi}-${wi}`} aria-hidden="true">
               <span
-                className={`word-reveal ${start ? "word-reveal--in" : ""} ${part.highlight ? "highlight" : ""}`}
+                className={`word-reveal ${start ? "word-reveal--in" : ""} ${part.highlight ? highlightClassName : ""}`}
                 style={{ transitionDelay: `${idx * stagger}ms` }}
               >
                 {w}

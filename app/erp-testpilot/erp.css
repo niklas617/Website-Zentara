@@ -1,0 +1,546 @@
+/* =============================================================
+   ERP-Testpilot Landingpage – eigenes Orange/Schwarz-Schema.
+   Alle Variablen sind auf .erp-page gescoped und getrennt von den
+   Zentara-Variablen. Zusätzlich werden die wenigen generischen Tokens,
+   die wiederverwendete Komponenten (Reveal/TiltCard/MagneticButton/
+   HeroReveal) nutzen, innerhalb dieser Scope auf ERP-Werte gemappt.
+   ============================================================= */
+.erp-page {
+  /* --- ERP Design-Tokens --- */
+  --erp-orange: #f59e0b;
+  --erp-orange-bright: #fbbf24;
+  --erp-orange-dim: #b45309;
+  --erp-bg: #0a0a0b;
+  --erp-bg-2: #101012;
+  --erp-card: #161619;
+  --erp-card-2: #1d1d21;
+  --erp-border: rgba(245, 158, 11, 0.18);
+  --erp-border-strong: rgba(245, 158, 11, 0.5);
+  --erp-text: #fafafa;
+  --erp-text-dim: #a1a1aa;
+  --erp-text-muted: #71717a;
+  --erp-grad: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  --erp-glow: 0 0 42px rgba(245, 158, 11, 0.22);
+
+  /* --- Kompatibilitäts-Mapping für wiederverwendete Komponenten --- */
+  --text-primary: var(--erp-text);
+  --text-secondary: var(--erp-text-dim);
+  --text-muted: var(--erp-text-muted);
+  --border-subtle: var(--erp-border);
+  --border-accent: var(--erp-border-strong);
+  --glow-md: var(--erp-glow);
+  --bg-base: var(--erp-bg);
+  --bg-card: var(--erp-card);
+
+  color-scheme: dark;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--erp-text);
+  background: var(--erp-bg);
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% -6%, rgba(245, 158, 11, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 92% 100%, rgba(245, 158, 11, 0.08) 0%, transparent 55%);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.erp-highlight {
+  background: var(--erp-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Sektions-Grundgerüst --- */
+.erp-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 120px) clamp(20px, 6vw, 48px);
+  text-align: center;
+}
+
+.erp-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--erp-orange-bright);
+  margin-bottom: 16px;
+}
+
+.erp-section-title {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  color: var(--erp-text);
+}
+
+.erp-lead {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--erp-text-dim);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+/* --- Einheitlicher CTA-Button --- */
+.erp-cta {
+  display: inline-block;
+  padding: 15px 38px;
+  border-radius: 999px;
+  background: var(--erp-grad);
+  color: #1a1206;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.32);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s, filter 0.25s;
+}
+
+.erp-cta:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.5);
+}
+
+.erp-cta--lg {
+  padding: 18px 48px;
+  font-size: 1.1rem;
+}
+
+@keyframes erpPulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(245, 158, 11, 0.32), 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+  50% {
+    box-shadow: 0 10px 36px rgba(245, 158, 11, 0.55), 0 0 26px 4px rgba(245, 158, 11, 0.35);
+  }
+}
+
+.erp-cta--pulse {
+  animation: erpPulse 2.6s ease-in-out infinite;
+}
+
+/* =============================================================
+   1 — HERO
+   ============================================================= */
+.erp-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(110px, 18vw, 200px) clamp(20px, 6vw, 48px) clamp(70px, 12vw, 140px);
+  text-align: center;
+}
+
+.erp-ember {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Statischer Glow (bleibt auch bei reduced-motion) */
+.erp-hero::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: min(680px, 90%);
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, transparent 68%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+  animation: erpGlowPulse 6s ease-in-out infinite;
+}
+
+@keyframes erpGlowPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.erp-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.erp-hero .erp-eyebrow {
+  border: 1px solid var(--erp-border-strong);
+  border-radius: 999px;
+  padding: 7px 18px;
+  background: rgba(245, 158, 11, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+.erp-hero-headline {
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 22px 0 0;
+  color: var(--erp-text);
+}
+
+.erp-hero-sub {
+  margin: 24px auto 34px;
+  max-width: 620px;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.7;
+  color: var(--erp-text-dim);
+}
+
+/* =============================================================
+   3 — FEATURE-BENTO
+   ============================================================= */
+.erp-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+  text-align: left;
+}
+
+.erp-bento-cell {
+  display: flex;
+}
+
+.erp-span-3 { grid-column: span 3; }
+.erp-span-2 { grid-column: span 2; }
+
+.erp-feature-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--erp-card-2), var(--erp-card));
+  border: 1px solid var(--erp-border);
+  border-radius: 18px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.erp-feature-card:hover {
+  border-color: var(--erp-border-strong);
+  box-shadow: 0 0 0 1px var(--erp-border-strong), var(--erp-glow);
+}
+
+.erp-feature-icon {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.erp-feature-card h3 {
+  margin: 4px 0 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--erp-text);
+}
+
+.erp-feature-card p {
+  margin: 0;
+  color: var(--erp-text-dim);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* =============================================================
+   4 — ERSTE EINBLICKE (Mockups + Platzhalter)
+   ============================================================= */
+.erp-mockups {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 48px);
+  flex-wrap: wrap;
+  margin-top: 44px;
+}
+
+.erp-laptop {
+  width: min(560px, 90vw);
+}
+
+.erp-laptop-screen {
+  background: #0c0c0e;
+  border: 10px solid #161618;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 25px 60px -18px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--erp-border-strong);
+  aspect-ratio: 16 / 10;
+}
+
+.erp-laptop-base {
+  height: 14px;
+  background: linear-gradient(#1c1c1e, #0a0a0b);
+  border-radius: 0 0 12px 12px;
+  position: relative;
+}
+
+.erp-laptop-base::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 6px;
+  background: #050505;
+  border-radius: 0 0 6px 6px;
+}
+
+.erp-phone {
+  width: min(210px, 60vw);
+  background: #161618;
+  border-radius: 34px;
+  padding: 10px;
+  box-shadow: 0 25px 60px -18px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--erp-border-strong);
+  position: relative;
+}
+
+.erp-phone-notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 15px;
+  background: #0c0c0e;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.erp-phone-screen {
+  background: #0c0c0e;
+  border-radius: 24px;
+  aspect-ratio: 9 / 19.5;
+}
+
+/* Platzhalter-Innenfläche (später durch echten Screenshot/Video ersetzen) */
+.erp-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed var(--erp-border-strong);
+  color: var(--erp-orange-bright);
+}
+
+.erp-laptop-screen.erp-placeholder {
+  border-radius: 6px 6px 0 0;
+  margin: 0;
+}
+
+.erp-phone-screen.erp-placeholder {
+  border-radius: 20px;
+}
+
+.erp-placeholder strong {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.erp-placeholder small {
+  color: var(--erp-text-muted);
+  font-size: 0.72rem;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+/* =============================================================
+   5 — PILOTPHASE-ANGEBOT
+   ============================================================= */
+.erp-offer-card {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 56px);
+  border-radius: 24px;
+  background: linear-gradient(165deg, rgba(245, 158, 11, 0.08), var(--erp-card));
+  border: 1px solid var(--erp-border-strong);
+  box-shadow: 0 0 0 1px var(--erp-border), 0 0 70px rgba(245, 158, 11, 0.18);
+  overflow: hidden;
+}
+
+.erp-offer-badge {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1a1206;
+  background: var(--erp-grad);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.erp-offer-card h2 {
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.erp-offer-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 56px);
+  margin: 28px 0;
+}
+
+.erp-offer-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.erp-stat-num {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1;
+  background: var(--erp-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.erp-stat-label {
+  color: var(--erp-text-dim);
+  font-size: 0.88rem;
+}
+
+.erp-offer-note {
+  color: var(--erp-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto 26px;
+}
+
+/* =============================================================
+   6 — HAUPT-CTA / FORMULAR
+   ============================================================= */
+.erp-cta-section {
+  max-width: 560px;
+}
+
+.erp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.erp-form input {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--erp-border);
+  color: var(--erp-text);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.erp-form input::placeholder {
+  color: var(--erp-text-muted);
+}
+
+.erp-form input:focus {
+  border-color: var(--erp-orange);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+.erp-submit {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.erp-form-status {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.erp-form-status--ok { color: var(--erp-orange-bright); }
+.erp-form-status--error { color: #f87171; }
+
+/* =============================================================
+   7 — FOOTER
+   ============================================================= */
+.erp-footer {
+  border-top: 1px solid var(--erp-border);
+  padding: 44px 24px 40px;
+  text-align: center;
+  color: var(--erp-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.erp-footer a {
+  color: var(--erp-orange-bright);
+  text-decoration: none;
+}
+
+.erp-footer a:hover {
+  text-decoration: underline;
+}
+
+.erp-footer-private {
+  color: var(--erp-text-dim);
+  max-width: 520px;
+  margin: 0 auto 10px;
+}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+@media (max-width: 900px) {
+  .erp-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .erp-span-3,
+  .erp-span-2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .erp-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================================
+   prefers-reduced-motion: keine Bewegung
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .erp-hero::before,
+  .erp-cta--pulse {
+    animation: none;
+  }
+  .erp-cta,
+  .erp-feature-card {
+    transition: none;
+  }
+}
