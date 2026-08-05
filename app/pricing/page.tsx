@@ -5,40 +5,40 @@ import Link from "next/link";
 import NavBar from "../../components/NavBar";
 import RealEstateChatbot from "../../components/RealEstateChatbot";
 
-// --- 1. DESIGN-VORLAGEN (Angepasst an das Premium Dark / Mint Theme) ---
+// --- 1. DESIGN-VORLAGEN (Theme-fähig über CSS-Variablen: dunkel & hell) ---
 const mainStyle: React.CSSProperties = {
-  backgroundColor: "#0F172A",
+  backgroundColor: "var(--bg-base)",
   backgroundImage: "radial-gradient(ellipse 85% 50% at 50% -8%, rgba(16,185,129,0.09) 0%, transparent 65%)",
-  color: "#F8FAFC",
+  color: "var(--text-primary)",
   minHeight: "100vh",
   paddingBottom: "100px",
   fontFamily: "inherit",
 };
 
 const cardStyle: React.CSSProperties = {
-  backgroundColor: "rgba(30, 41, 59, 0.72)",
-  border: "1px solid rgba(16, 185, 129, 0.14)",
+  backgroundColor: "var(--bg-card)",
+  border: "1px solid var(--border-subtle)",
   borderRadius: "20px",
   padding: "30px",
   display: "flex",
   flexDirection: "column",
-  boxShadow: "0 4px 40px rgba(0, 0, 0, 0.50)",
+  boxShadow: "var(--shadow-card)",
   backdropFilter: "blur(16px)",
   WebkitBackdropFilter: "blur(16px)",
   transition: "transform 0.3s ease, borderColor 0.3s ease",
 };
 
 const titleStyle: React.CSSProperties = {
-  color: "#F8FAFC",
+  color: "var(--text-primary)",
   fontSize: "1.5rem",
   marginBottom: "15px",
-  borderBottom: "1px solid rgba(16, 185, 129, 0.14)",
+  borderBottom: "1px solid var(--border-subtle)",
   paddingBottom: "10px",
   fontWeight: 700,
 };
 
 const descStyle: React.CSSProperties = {
-  color: "#94A3B8",
+  color: "var(--text-secondary)",
   fontSize: "0.95rem",
   lineHeight: "1.5",
   marginBottom: "20px",
@@ -49,14 +49,14 @@ const listStyle: React.CSSProperties = {
   listStyleType: "none",
   padding: 0,
   margin: "0 0 30px 0",
-  color: "#F8FAFC",
+  color: "var(--text-primary)",
   fontSize: "0.9rem",
   lineHeight: "1.8",
   flexGrow: 1,
 };
 
 const priceStyle: React.CSSProperties = {
-  color: "#10B981", // Das neue Mint-Grün
+  color: "var(--mint)", // Markenfarbe – bleibt in beiden Themes mint
   fontSize: "1.8rem",
   fontWeight: "bold",
   textAlign: "center",
@@ -101,7 +101,7 @@ export default function OfferPage() {
         }}>
           Webdesign & Software aus dem Emsland
         </h1>
-        <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "#94A3B8" }}>
+        <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "var(--text-secondary)" }}>
           Als Entwickler direkt hier aus der Region lege ich Wert auf persönliche Beratung und klare Kommunikation. Lass uns dein Projekt gemeinsam digital umsetzen.
         </p>
       </header>

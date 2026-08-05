@@ -1,10 +1,12 @@
 "use client"; // Ganz wichtig in Next.js für Client-Interaktionen
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './ScrollToTop.module.css'; // Wir nutzen CSS Modules
 import { transform } from 'next/dist/build/swc/generated-native';
 
 const ScrollToTop = () => {
+    const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(false);
     const [progress, setProgress] = useState(0);
 
@@ -38,6 +40,9 @@ const ScrollToTop = () => {
     const radius = 28;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (progress / 100) * circumference;
+
+    // Auf der exklusiven ERP-Testpilot-Seite keinen Scroll-to-Top-Button zeigen
+    if (pathname?.startsWith("/erp-testpilot")) return null;
 
     return (
         <div className={`${styles.container} ${isVisible ? styles.show : ""}`}>

@@ -7,6 +7,7 @@
   --bg-surface: #1E293B;
   --bg-card: rgba(30, 41, 59, 0.72);
   --bg-glass: rgba(15, 23, 42, 0.70);
+  --input-bg: rgba(255, 255, 255, 0.04);
 
   /* Brand — Mint */
   --mint: #10B981;
@@ -1477,6 +1478,7 @@ label {
   --bg-surface: #FFFFFF;
   --bg-card: #FFFFFF;
   --bg-glass: rgba(255, 255, 255, 0.92);
+  --input-bg: rgba(15, 23, 42, 0.04);
 
   --mint: #0E9E70;
   --mint-light: #0EA271;

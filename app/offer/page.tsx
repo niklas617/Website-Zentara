@@ -12,23 +12,23 @@ type FormValues = {
 };
 
 const mainStyle: React.CSSProperties = {
-  backgroundColor: "#0F172A",
+  backgroundColor: "var(--bg-base)",
   backgroundImage:
     "radial-gradient(ellipse 85% 50% at 50% -8%, rgba(16,185,129,0.09) 0%, transparent 65%)",
-  color: "#F8FAFC",
+  color: "var(--text-primary)",
   minHeight: "100vh",
   paddingBottom: "100px",
   fontFamily: "inherit",
 };
 
 const formContainerStyle: React.CSSProperties = {
-  backgroundColor: "rgba(30, 41, 59, 0.72)",
-  border: "1px solid rgba(16, 185, 129, 0.14)",
+  backgroundColor: "var(--bg-card)",
+  border: "1px solid var(--border-subtle)",
   borderRadius: "20px",
   padding: "44px",
   maxWidth: "700px",
   margin: "0 auto",
-  boxShadow: "0 4px 40px rgba(0, 0, 0, 0.50)",
+  boxShadow: "var(--shadow-card)",
   backdropFilter: "blur(16px)",
   WebkitBackdropFilter: "blur(16px)",
 };
@@ -36,7 +36,7 @@ const formContainerStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   display: "block",
   marginBottom: "22px",
-  color: "#94A3B8",
+  color: "var(--text-secondary)",
   fontSize: "0.93rem",
   textAlign: "left",
   fontWeight: 500,
@@ -46,10 +46,10 @@ const inputStyle: React.CSSProperties = {
   width: "100%",
   marginTop: "8px",
   padding: "14px 16px",
-  backgroundColor: "rgba(255, 255, 255, 0.04)",
-  border: "1px solid rgba(16, 185, 129, 0.16)",
+  backgroundColor: "var(--input-bg)",
+  border: "1px solid var(--border-subtle)",
   borderRadius: "10px",
-  color: "#F8FAFC",
+  color: "var(--text-primary)",
   fontSize: "1rem",
   outline: "none",
   fontFamily: "inherit",
@@ -166,7 +166,7 @@ export default function OfferForm() {
         }}>
           Projekt anfragen
         </h1>
-        <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "#94A3B8" }}>
+        <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "var(--text-secondary)" }}>
           Erzähl mir von deiner Idee. Fülle das Formular aus und ich melde mich schnellstmöglich
           bei dir mit einer ersten Einschätzung.
         </p>
@@ -231,12 +231,12 @@ export default function OfferForm() {
             />
           </label>
 
-          <label style={{ ...labelStyle, color: "#F8FAFC" }}>
+          <label style={{ ...labelStyle, color: "var(--text-primary)" }}>
             Wunsch-Starttermin
             <input
               type="date"
               name="startDate"
-              style={{ ...inputStyle, color: "#F8FAFC" }}
+              style={{ ...inputStyle, color: "var(--text-primary)" }}
             />
           </label>
 
