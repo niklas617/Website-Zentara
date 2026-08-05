@@ -198,28 +198,35 @@ export default function ErpTestpilotPage() {
           <span className="erp-eyebrow">Erste Einblicke</span>
           <h2 className="erp-section-title">So sieht es aus</h2>
           <p className="erp-lead">
-            Ein Vorgeschmack auf die Oberfläche. Die echten Screenshots und ein kurzes Demo-Video
-            folgen in Kürze – hier siehst du schon die Rahmen.
+            Ein Vorgeschmack auf die Oberfläche und das Design.
           </p>
         </Reveal>
 
         <Reveal delay={120}>
           <div className="erp-mockups">
             <div className="erp-laptop">
-              <div className="erp-laptop-screen erp-placeholder">
-                <strong>Screenshot folgt</strong>
-                <small>Platzhalter – hier kommt später der Dashboard-Screenshot / das Demo-Video rein.</small>
+              <div className="erp-laptop-screen">
+                <img
+                  src="/assets/images/erp-web.png"
+                  alt="ERP Web Interface"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "4px 4px 0 0"
+                  }}
+                />
               </div>
               <div className="erp-laptop-base" />
             </div>
 
-            <div className="erp-phone">
+            {/* <div className="erp-phone">
               <span className="erp-phone-notch" />
               <div className="erp-phone-screen erp-placeholder">
                 <strong>Screenshot folgt</strong>
                 <small>Platzhalter – mobile Ansicht.</small>
               </div>
-            </div>
+            </div> */}
           </div>
         </Reveal>
       </section>
@@ -243,7 +250,7 @@ export default function ErpTestpilotPage() {
                 <span className="erp-stat-label">Einrichtungsgebühr</span>
               </div>
               <div className="erp-offer-stat">
-                <CountUp end={30} suffix={" %"} className="erp-stat-num" />
+                <CountUp end={20} suffix={" %"} className="erp-stat-num" />
                 <span className="erp-stat-label">Rabatt danach – auf Lebenszeit</span>
               </div>
             </div>
@@ -251,7 +258,7 @@ export default function ErpTestpilotPage() {
             <p className="erp-offer-note">
               Im Austausch für ein kurzes Feedback-Gespräch und die Erlaubnis, Screenshots &
               Demo-Material zu verwenden. Danach sicherst du dir dauerhaft{" "}
-              <strong>30&nbsp;% Frühbucher-Rabatt</strong> – so lange du dabei bist.
+              <strong>20&nbsp;% Frühbucher-Rabatt</strong> – so lange du dabei bist.
             </p>
 
             <MagneticButton href="#einsteigen" className="erp-cta erp-cta--lg">

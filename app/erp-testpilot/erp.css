@@ -268,7 +268,8 @@
 }
 
 .erp-laptop {
-  width: min(560px, 90vw);
+  width: min(1100px, 120vw);
+  overflow: hidden;
 }
 
 .erp-laptop-screen {
@@ -277,7 +278,7 @@
   border-bottom: none;
   border-radius: 14px 14px 0 0;
   box-shadow: 0 25px 60px -18px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--erp-border-strong);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 18 / 10;
 }
 
 .erp-laptop-base {
