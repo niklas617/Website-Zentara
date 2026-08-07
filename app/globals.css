@@ -36,6 +36,10 @@
 /* --- 2. RESET & BASE ------------------------------------------- */
 html {
   scroll-behavior: smooth;
+  /* Fluide Grundschrift: auf dem Handy 16px, wächst auf großen
+     Monitoren bis 19px – dadurch skaliert der gesamte rem-basierte
+     Text (Fließtext, Leads, Überschriften) auf dem Desktop mit. */
+  font-size: clamp(16px, 13.6px + 0.38vw, 19px);
 }
 
 *,
@@ -1379,16 +1383,23 @@ label {
     gap: 10px;
   }
 
-  /* Logo im verbleibenden Platz neben den linken Icons zentrieren,
-     damit es auf schmalen Screens nie mit ihnen überlappt. */
+  /* Symmetrisches Mobile-Layout:  ☰ links · Logo exakt mittig · ☀/🌙 rechts.
+     Das Logo bleibt absolut zentriert (echte Mitte). Damit links nur das
+     Menü-Icon Platz braucht, wandert der Theme-Toggle nach ganz rechts –
+     so kann das Logo mittig sitzen, ohne mit den Icons zu überlappen. */
   .nav-center {
-    position: static;
-    left: auto;
-    transform: none;
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+  }
+
+  .nav-left .theme-toggle {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.35rem;
   }
 
   .heroSlogan {
