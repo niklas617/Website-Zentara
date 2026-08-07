@@ -234,42 +234,45 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Button 1: Deine Money-App */}
-              <ApkDownloadButton
-                buttonLabel="App herunterladen"
-                apkPath="/downloads/money_app.apk"
-                apkName="money_app.apk"
-                title="Download der Money-App"
-                description="Lade dir die native Android-Version der Money-App herunter. Sicherheitshinweis: Da es ein direkter Download ist, bestätige bitte die Installation aus unbekannten Quellen."
-              />
+              <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", alignItems: "center" }}>
+                {/* Button 1: Deine Money-App */}
+                <div>
+                  <ApkDownloadButton
+                    buttonLabel="App herunterladen"
+                    apkPath="/downloads/money_app.apk"
+                    apkName="money_app.apk"
+                    title="Download der Money-App"
+                    description="Lade dir die native Android-Version der Money-App herunter. Sicherheitshinweis: Da es ein direkter Download ist, bestätige bitte die Installation aus unbekannten Quellen."
+                  />
+                </div>
 
-              {/* Button 2: Dein Link zum Live-Projekt (Streamlit – unverändert) */}
-              <Link href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-block",
-                  marginLeft: "15px",
-                  padding: "8px 25px ",
-                  background: "transparent",
-                  color: "#34D399",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  borderRadius: "50px",
-                  border: "2px solid rgba(16, 185, 129, 0.50)",
-                  transition: "0.25s",
-                  fontSize: "0.93rem"
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = "rgba(16, 185, 129, 0.10)";
-                  e.currentTarget.style.boxShadow = "0 0 18px rgba(16, 185, 129, 0.22)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                Web-App öffnen
-              </Link>
+                {/* Button 2: Dein Link zum Live-Projekt (Streamlit – unverändert) */}
+                <Link href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    padding: "8px 25px",
+                    background: "transparent",
+                    color: "#34D399",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    borderRadius: "50px",
+                    border: "2px solid rgba(16, 185, 129, 0.50)",
+                    transition: "0.25s",
+                    fontSize: "0.93rem"
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = "rgba(16, 185, 129, 0.10)";
+                    e.currentTarget.style.boxShadow = "0 0 18px rgba(16, 185, 129, 0.22)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  Web-App öffnen
+                </Link>
+              </div>
             </div>
           </TiltCard>
         </div>

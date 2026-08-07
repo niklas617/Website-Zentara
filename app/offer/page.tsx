@@ -25,7 +25,7 @@ const formContainerStyle: React.CSSProperties = {
   backgroundColor: "var(--bg-card)",
   border: "1px solid var(--border-subtle)",
   borderRadius: "20px",
-  padding: "44px",
+  padding: "clamp(20px, 5vw, 44px)",
   maxWidth: "700px",
   margin: "0 auto",
   boxShadow: "var(--shadow-card)",
@@ -172,7 +172,7 @@ export default function OfferForm() {
         </p>
       </header>
 
-      <section style={{ padding: "0 20px" }}>
+      <section style={{ padding: "0 clamp(12px, 3.5vw, 20px)" }}>
         <form ref={formRef} onSubmit={onSubmit} style={formContainerStyle}>
 
           <label style={labelStyle}>
