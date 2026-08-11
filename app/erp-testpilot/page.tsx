@@ -21,7 +21,7 @@ const FEATURES: Feature[] = [
     big: true,
   },
   {
-    icon: "🚗",
+    icon: "🏍️",
     title: "Kunden & Fahrzeuge – KI-Scan",
     desc: "Fahrzeugschein abfotografieren, die KI liest alles aus. Kunde und Fahrzeug in Sekunden angelegt.",
     big: true,
@@ -250,15 +250,15 @@ export default function ErpTestpilotPage() {
                 <span className="erp-stat-label">Einrichtungsgebühr</span>
               </div>
               <div className="erp-offer-stat">
-                <CountUp end={20} suffix={" %"} className="erp-stat-num" />
-                <span className="erp-stat-label">Rabatt danach – auf Lebenszeit</span>
+                <CountUp end={30} suffix={" %"} className="erp-stat-num" />
+                <span className="erp-stat-label">Rabatt danach – für 12 Monate</span>
               </div>
             </div>
 
             <p className="erp-offer-note">
               Im Austausch für ein kurzes Feedback-Gespräch und die Erlaubnis, Screenshots &
-              Demo-Material zu verwenden. Danach sicherst du dir dauerhaft{" "}
-              <strong>20&nbsp;% Frühbucher-Rabatt</strong> – so lange du dabei bist.
+              Demo-Material zu verwenden (Keine Kundendaten). Danach sicherst du dir dauerhaft{" "}
+              <strong>30&nbsp;% Frühbucher-Rabatt</strong> – für 12 Monate.
             </p>
 
             <MagneticButton href="#einsteigen" className="erp-cta erp-cta--lg">
@@ -274,8 +274,7 @@ export default function ErpTestpilotPage() {
           <span className="erp-eyebrow">Dein Platz wartet</span>
           <h2 className="erp-section-title">Bereit, dein Werkstatt-Chaos zu beenden?</h2>
           <p className="erp-lead">
-            Kurz eintragen – ich melde mich persönlich bei dir und richte deinen Testpiloten-Zugang
-            ein.
+            Kurz und unverbindlich eintragen – ich melde mich persönlich bei dir 
           </p>
         </Reveal>
 
