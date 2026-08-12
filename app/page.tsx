@@ -55,6 +55,10 @@ export default function HomePage() {
     "/assets/images/federbein.png",
     "/assets/images/session.png",
   ];
+  // Hochkant-Screenshots der mobilen Money-App (z. B. 1080×2340, echtes Handy-Format).
+  // Sobald vorhanden: Dateien in public/assets/images/ ablegen und hier eintragen –
+  // dann verschwindet der Platzhalter im Duo-Layout automatisch.
+  const moneyMobileImages: string[] = [];
 
   return (
     <section>
@@ -212,7 +216,12 @@ export default function HomePage() {
 
         <div className="portfolio-container">
           <TiltCard className="portfolio-card" max={4}>
-            <DeviceShowcase device="laptop" images={projectImages} alt="Money-Dashboard – Screenshot der Web-App" />
+            <DeviceShowcase
+              device="duo"
+              images={projectImages}
+              phoneImages={moneyMobileImages}
+              alt="Money-Dashboard – Web- und mobile App"
+            />
 
             <div className="portfolio-info">
               <h3>Finanz-Übersicht leicht gemacht</h3>
@@ -247,7 +256,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Button 2: Dein Link zum Live-Projekt (Streamlit – unverändert) */}
-                <Link href="https://money-dashboard-qem5mns8rbvthdkgffx5uq.streamlit.app/" target="_blank"
+                <Link href="https://dashboard.zentara-solutions.de/" target="_blank"
                   rel="noopener noreferrer"
                   style={{
                     display: "inline-block",

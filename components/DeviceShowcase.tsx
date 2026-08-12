@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type Props = {
-  device: "phone" | "laptop";
+  device: "phone" | "laptop" | "duo";
   images: string[];
+  /** Für device="duo": Hochkant-Screenshots für das überlappende Handy. */
+  phoneImages?: string[];
   alt: string;
 };
 
@@ -52,12 +54,99 @@ function useParallax(strength: number) {
  * integriertem Bild-Slider. Ersetzt die statischen Portfolio-Screenshots.
  * Farben/Rahmen sind an das Zentara-Farbschema (CSS-Variablen) angepasst.
  */
-export default function DeviceShowcase({ device, images, alt }: Props) {
+export default function DeviceShowcase({ device, images, phoneImages, alt }: Props) {
   const [current, setCurrent] = useState(0);
   const { ref, offset } = useParallax(device === "phone" ? 0.09 : 0.06);
+  // Zweite, leicht stärkere Parallax für das Handy im Duo-Layout → dezente Tiefe.
+  const phone = useParallax(0.1);
 
   const next = () => setCurrent((p) => (p + 1) % images.length);
   const prev = () => setCurrent((p) => (p === 0 ? images.length - 1 : p - 1));
+
+  // Duo: Laptop als Haupt-Slider, davor überlappend ein Handy.
+  if (device === "duo") {
+    const pics = phoneImages ?? [];
+    const phoneSrc = pics.length ? pics[current % pics.length] : null;
+
+    return (
+      <div className="device-slider device-slider--duo">
+        <button className="slider-btn prev-btn" onClick={prev} type="button" aria-label="Vorheriges Bild">
+          &#10094;
+        </button>
+
+        <div className="device-duo">
+          <div
+            ref={ref}
+            className="device device--laptop"
+            style={{ transform: `translate3d(0, ${offset}px, 0)` }}
+          >
+            <div className="laptop-frame">
+              <div className="device-screen device-screen--laptop">
+                <Image
+                  src={images[current]}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 600px) 92vw, 520px"
+                  quality={90}
+                  className="device-img"
+                  style={{ objectPosition: "top" }}
+                />
+              </div>
+            </div>
+            <div className="laptop-base">
+              <span className="laptop-hinge" />
+            </div>
+          </div>
+
+          <div
+            ref={phone.ref}
+            className="device-duo-phone"
+            style={{ transform: `translate3d(0, ${phone.offset}px, 0)` }}
+          >
+            <div className="phone-frame">
+              <span className="phone-notch" />
+              <div className="device-screen device-screen--phone">
+                {phoneSrc ? (
+                  <Image
+                    src={phoneSrc}
+                    alt={`${alt} – mobile Ansicht`}
+                    fill
+                    sizes="360px"
+                    quality={90}
+                    className="device-img"
+                    style={{ objectPosition: "top" }}
+                  />
+                ) : (
+                  <div className="device-placeholder" aria-hidden="true">
+                    <span className="device-placeholder-icon">📱</span>
+                    <strong>Mobil-Ansicht</strong>
+                    <small>Screenshot folgt</small>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button className="slider-btn next-btn" onClick={next} type="button" aria-label="Nächstes Bild">
+          &#10095;
+        </button>
+
+        <div className="slider-dots" role="tablist" aria-label="Bildauswahl">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`dot ${i === current ? "active" : ""}`}
+              onClick={() => setCurrent(i)}
+              aria-label={`Bild ${i + 1} von ${images.length} anzeigen`}
+              aria-current={i === current}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`device-slider device-slider--${device}`}>
@@ -78,7 +167,12 @@ export default function DeviceShowcase({ device, images, alt }: Props) {
                 src={images[current]}
                 alt={alt}
                 fill
-                sizes="230px"
+                /* object-fit: cover zeichnet das 16:9-Bild in der hohen
+                   Handy-Box ~810px breit – daher hier eine entsprechend
+                   große sizes-Angabe, damit next/image eine scharfe
+                   Variante (statt einer 640px-Miniatur) lädt. */
+                sizes="810px"
+                quality={90}
                 className="device-img"
                 style={{ objectPosition: "top" }}
               />
@@ -92,7 +186,10 @@ export default function DeviceShowcase({ device, images, alt }: Props) {
                   src={images[current]}
                   alt={alt}
                   fill
-                  sizes="(max-width: 600px) 85vw, 440px"
+                  /* Cover zeichnet das Bild ~500px breit im Laptop-Rahmen;
+                     großzügige sizes + höhere Qualität für scharfe Screenshots. */
+                  sizes="(max-width: 600px) 92vw, 520px"
+                  quality={90}
                   className="device-img"
                   style={{ objectPosition: "top" }}
                 />
