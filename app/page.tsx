@@ -15,7 +15,6 @@ import Reveal from "../components/Reveal";
 import DeviceShowcase from "../components/DeviceShowcase";
 import StatsCounter from "../components/StatsCounter";
 import PriceCalculator from "../components/PriceCalculator";
-import TiltCard from "../components/TiltCard";
 import MagneticButton from "../components/MagneticButton";
 import CaseStudies from "../components/CaseStudies";
 import FooterContact from "../components/FooterContact";
@@ -215,7 +214,7 @@ export default function HomePage() {
         <h2>Aktuelles Projekt: Money-Dashboard</h2>
 
         <div className="portfolio-container">
-          <TiltCard className="portfolio-card" max={4}>
+          <div className="portfolio-card">
             <DeviceShowcase
               device="duo"
               images={projectImages}
@@ -283,7 +282,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </TiltCard>
+          </div>
         </div>
       </section>
 
@@ -292,7 +291,7 @@ export default function HomePage() {
         <h2>Aktuelles Projekt: MotoSet</h2>
 
         <div className="portfolio-container">
-          <TiltCard className="portfolio-card" max={4}>
+          <div className="portfolio-card">
             <DeviceShowcase device="phone" images={projectImagesDownload} alt="MotoSet – Screenshot der App" />
 
             <div className="portfolio-info">
@@ -345,7 +344,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </TiltCard>
+          </div>
         </div>
       </section>
 

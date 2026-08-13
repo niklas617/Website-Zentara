@@ -542,12 +542,25 @@ a.logo-offer {
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s, box-shadow 0.45s;
+  will-change: transform;
 }
 
+/* Sanftes Anheben Richtung Betrachter statt Maus-Neigung – ruhig und clean. */
 .portfolio-card:hover {
-  border-color: var(--border-subtle);
-  box-shadow: var(--shadow-hover), var(--glow-md);
+  transform: translateY(-12px);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-hover), 0 0 60px rgba(16, 185, 129, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card {
+    transition: border-color 0.35s, box-shadow 0.45s;
+  }
+  .portfolio-card:hover {
+    transform: none;
+  }
 }
 
 .slider-wrapper {
