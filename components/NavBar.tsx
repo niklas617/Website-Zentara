@@ -140,6 +140,13 @@ export default function NavBar() {
             </Link>
           </li>
 
+          {/* Blog */}
+          <li>
+            <Link href="/blog" onClick={close}>
+              Blog
+            </Link>
+          </li>
+
           {/* Häufige Fragen */}
           <li>
             {pathname === "/" ? (

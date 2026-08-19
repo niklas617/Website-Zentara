@@ -159,12 +159,9 @@ export default function OfferForm() {
           fontWeight: 800,
           letterSpacing: "-0.025em",
           marginBottom: "16px",
-          background: "linear-gradient(135deg, #10B981 0%, #34D399 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
+          color: "var(--text-primary)",
         }}>
-          Kostenloses 1:1 Beratungsgespräch anfragen
+          Kostenloses <span className="highlight">1:1 Beratungsgespräch anfragen</span>
         </h1>
         <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "var(--text-secondary)" }}>
           Erzähl mir von deiner Idee. Fülle das Formular aus und ich melde mich schnellstmöglich

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 // --- Preise leicht anpassbar ---------------------------------------------
-const BASE_PRICE = 399;
+const BASE_PRICE = 799;
 
 type Feature = { id: string; category: string; label: string; price: number; hint?: string };
 
