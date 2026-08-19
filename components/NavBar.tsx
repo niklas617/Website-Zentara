@@ -88,33 +88,28 @@ export default function NavBar() {
             {projectsOpen && (
               <ul className="submenu">
                 <li>
-                  {/* Link zur allgemeinen Übersicht, falls gewünscht */}
-                  {pathname === "/" ? (
-                    <a href="#portfolio" onClick={close}>Alle ansehen</a>
-                  ) : (
-                    <Link href="/#portfolio" onClick={close}>Alle ansehen</Link>
-                  )}
+                    <Link href="/project" onClick={close}>Alle ansehen</Link>
                 </li>
 
                 {/* Spezifische Unterprojekte */}
                 <li>
                   {pathname === "/" ? (
-                    <a href="#portfolio" onClick={close}>
+                    <a href="project#portfolio" onClick={close}>
                       Money-Dashboard
                     </a>
                   ) : (
-                    <Link href="/#portfolio" onClick={close}>
+                    <Link href="/project#portfolio" onClick={close}>
                       Money-Dashboard
                     </Link>
                   )}
                 </li>
                 <li>
                   {pathname === "/" ? (
-                    <a href="#motoset" onClick={close}>
+                    <a href="project#motoset" onClick={close}>
                       MotoSet
                     </a>
                   ) : (
-                    <Link href="/#motoset" onClick={close}>
+                    <Link href="/project#motoset" onClick={close}>
                       MotoSet
                     </Link>
                   )}
@@ -124,10 +119,10 @@ export default function NavBar() {
           </li>
 
           
-          {/* Website-Check */}
+          {/* Handwerks-Digital-Audit */}
           <li>
             <Link href="#website-audit" onClick={close}>
-              Kostenloser Website Check
+              Kostenloses Handwerks-Audit
             </Link>
           </li>
 

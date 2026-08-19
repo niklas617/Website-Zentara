@@ -9,7 +9,7 @@ export default function Impressum() {
                 <div className="legal-container">
                     <h1>Impressum</h1>
 
-                    <h2>Angaben gemäß § 5 TMG</h2>
+                    <h2>Angaben gemäß § 5 DDG</h2>
                     <p>Niklas Smit<br />
                         Webdesign<br />
                         Am Waldfriedhof<br />

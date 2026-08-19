@@ -20,6 +20,7 @@ import CaseStudies from "../components/CaseStudies";
 import FooterContact from "../components/FooterContact";
 import RoadmapTimeline from "../components/RoadmapTimeline";
 
+
 // 3D-/Gradient-Akzent im Hero: lazy geladen (kein SSR), rein CSS → sehr leicht.
 const HeroBackdrop = dynamic(() => import("../components/HeroBackdrop"), { ssr: false });
 
@@ -37,27 +38,6 @@ const whatsappHref = whatsappReady
   : "mailto:info@zentara-solutions.de";
 
 export default function HomePage() {
-  // Portfolio-Screenshots
-  const projectImages = [
-    "/assets/images/LogIn.png",
-    "/assets/images/Balkendiagramm.png",
-    "/assets/images/Kuchendiagramm.png",
-    "/assets/images/Buchungen.png",
-    "/assets/images/Buchungenliste.png",
-    "/assets/images/Kategorien.png",
-  ];
-  const projectImagesDownload = [
-    "/assets/images/loginmotoset .png",
-    "/assets/images/start.png",
-    "/assets/images/setup.png",
-    "/assets/images/strecke.png",
-    "/assets/images/federbein.png",
-    "/assets/images/session.png",
-  ];
-  // Hochkant-Screenshots der mobilen Money-App (z. B. 1080×2340, echtes Handy-Format).
-  // Sobald vorhanden: Dateien in public/assets/images/ ablegen und hier eintragen –
-  // dann verschwindet der Platzhalter im Duo-Layout automatisch.
-  const moneyMobileImages: string[] = [];
 
   return (
     <section>
@@ -69,13 +49,12 @@ export default function HomePage() {
         <div className="hero-content">
           <HeroReveal
             parts={[
-              { text: "Websites & Software, die aus" },
-              { text: "Besuchern Kunden machen.", highlight: true },
+              { text: "Websites & Software," },
+              { text: "die", highlight: true }, { text: "Fachkräfte" }, { text: "anziehen und das", highlight: true }, { text: "Büro" }, { text: "entlasten.", highlight: true },
             ]}
           />
           <p className="hero-sub">
-            Ich entwickle individuelle Websites und Anwendungen, um dein Unternehmen digital
-            sichtbar, effizient und zukunftssicher zu machen.
+            Schluss mit Zettelwirtschaft und veralteten Homepages. Zeit für automatisierte Abläufe, mehr Marge und qualifizierte Bewerbungen.
           </p>
           <div className="hero-cta-row">
             <MagneticButton href="/offer" className="cta-primary cta-primary--lg">
@@ -116,10 +95,10 @@ export default function HomePage() {
             <div className="card compare-card compare-card--bad" style={{ padding: "40px 30px", textAlign: "left", marginBottom: 0 }}>
               <h3 className="compare-heading compare-heading--bad">08/15 Baukasten-Seite</h3>
               <ul className="compare-list">
-                <li><span>❌</span> <span>Keine klare Botschaft für den Besucher</span></li>
-                <li><span>❌</span> <span>Wirkt altmodisch und erzeugt kein Vertrauen</span></li>
-                <li><span>❌</span> <span>Lange Ladezeiten, die Kunden abbrechen lassen</span></li>
-                <li><span>❌</span> <span>Auf dem Smartphone verschoben oder schlecht lesbar</span></li>
+                <li><span>❌</span> <span>Keine oder wenige qualifizierte Bewerbungen</span></li>
+                <li><span>❌</span> <span>Anfragen für zeitraubende, unrentable Kleinprojekte</span></li>
+                <li><span>❌</span> <span>Manuelle Übertragungen vom Zettel ins Büro-System</span></li>
+                <li><span>❌</span> <span>Schlechte mobile Ladezeiten vergraulen Bewerber</span></li>
                 <li><span>❌</span> <span>Verwirrt den Nutzer, statt ihn zu leiten</span></li>
                 <li><span>❌</span> <span>Generiert keine echten Kundenanfragen</span></li>
               </ul>
@@ -134,12 +113,12 @@ export default function HomePage() {
             >
               <h3 className="compare-heading compare-heading--good">Verkaufsstarke Webseite</h3>
               <ul className="compare-list">
-                <li><span>✅</span> <span>Das Angebot wird in Sekunden sofort verstanden</span></li>
-                <li><span>✅</span> <span>Modernes Design baut direkt Vertrauen auf</span></li>
-                <li><span>✅</span> <span>Blitzschnelle Ladezeiten durch moderne Next.js Technik</span></li>
-                <li><span>✅</span> <span>100% optimiert für jedes Smartphone &amp; Tablet</span></li>
+                <li><span>✅</span> <span>Express-Bewerberstrecke direkt auf dem Smartphone</span></li>
+                <li><span>✅</span> <span>Vorqualifizierung von Kundenanfragen für höhere Marge</span></li>
+                <li><span>✅</span> <span>Anbindung an DATANORM, GAEB, IDS Connect & ERPs</span></li>
+                <li><span>✅</span> <span>100% optimiert für jedes Smartphone &amp; Tablet, unter 1 Sekunde Ladezeit</span></li>
                 <li><span>✅</span> <span>Klare Struktur und intuitive Bedienung</span></li>
-                <li style={{ fontWeight: "bold" }}><span>✅</span> <span>Verwandelt einfache Besucher in zahlende Kunden</span></li>
+                <li style={{ fontWeight: "bold" }}><span>✅</span> <span>Verwandelt Besucher in zahlende Kunden</span></li>
               </ul>
             </div>
           </Reveal>
@@ -148,7 +127,6 @@ export default function HomePage() {
 
       {/* 4 — BENTO-GRID: WARUM ZENTARA */}
       <section id="why-zentara" className="section why-section">
-        <span className="section-eyebrow">Warum Zentara</span>
         <h2 className="section-title">Warum <span className="highlight">Zentara?</span></h2>
         <p className="section-lead">
           Du arbeitest nicht mit einer anonymen Agentur, sondern direkt mit mir – vom ersten
@@ -208,154 +186,17 @@ export default function HomePage() {
         <StatsCounter />
       </section>
 
-      {/* 6 — PORTFOLIO: MONEY-DASHBOARD (Laptop-Mockup) */}
-      <section id="portfolio" className="section">
-        <span className="section-eyebrow">Portfolio</span>
-        <h2>Aktuelles Projekt: Money-Dashboard</h2>
 
-        <div className="portfolio-container">
-          <div className="portfolio-card">
-            <DeviceShowcase
-              device="duo"
-              images={projectImages}
-              phoneImages={moneyMobileImages}
-              alt="Money-Dashboard – Web- und mobile App"
-            />
-
-            <div className="portfolio-info">
-              <h3>Finanz-Übersicht leicht gemacht</h3>
-              <p>
-                Dieses Projekt ist eine benutzerfreundliche und sichere Anwendung zur Verwaltung von persönlichen oder geschäftlichen Finanzen. <br />
-                <br />
-                Das Ziel des Dashboards ist es, alltägliche Zahlungsströme in einer klaren, leicht verständlichen Übersicht darzustellen, damit Nutzer jederzeit die volle Kontrolle über ihr Geld behalten.
-                <br /> <br />
-                Außerdem gibt es die möglichkeit Kryptos und Aktien leicht und unkompliziert zu tracken.
-                <br />
-                Schluss mit kompliziertem Papierkram oder unübersichtlichen Excel-Tabellen.
-                <br /> <br />
-                Das Finanz-Dashboard bietet eine moderne, intuitive und stressfreie Lösung, um Finanzen smart zu planen und fundierte finanzielle Entscheidungen zu treffen.
-              </p>
-
-              <div style={{ padding: "15px 20px", backgroundColor: "rgba(16, 185, 129, 0.06)", borderLeft: "4px solid #10B981", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
-                <p style={{ margin: 0, fontSize: "0.95rem", color: "var(--text-primary)" }}>
-                  <strong>Plattform-Hinweis:</strong> Die Money-App steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
-                </p>
-              </div>
-
-              <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", alignItems: "center" }}>
-                {/* Button 1: Deine Money-App */}
-                <div>
-                  <ApkDownloadButton
-                    buttonLabel="App herunterladen"
-                    apkPath="/downloads/money_app.apk"
-                    apkName="money_app.apk"
-                    title="Download der Money-App"
-                    description="Lade dir die native Android-Version der Money-App herunter. Sicherheitshinweis: Da es ein direkter Download ist, bestätige bitte die Installation aus unbekannten Quellen."
-                  />
-                </div>
-
-                {/* Button 2: Dein Link zum Live-Projekt (Streamlit – unverändert) */}
-                <Link href="https://dashboard.zentara-solutions.de/" target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-block",
-                    padding: "8px 25px",
-                    background: "transparent",
-                    color: "#34D399",
-                    textDecoration: "none",
-                    fontWeight: "bold",
-                    borderRadius: "50px",
-                    border: "2px solid rgba(16, 185, 129, 0.50)",
-                    transition: "0.25s",
-                    fontSize: "0.93rem"
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = "rgba(16, 185, 129, 0.10)";
-                    e.currentTarget.style.boxShadow = "0 0 18px rgba(16, 185, 129, 0.22)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  Web-App öffnen
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 — PORTFOLIO: MOTOSET (Handy-Mockup) */}
-      <section id="motoset" className="section">
-        <h2>Aktuelles Projekt: MotoSet</h2>
-
-        <div className="portfolio-container">
-          <div className="portfolio-card">
-            <DeviceShowcase device="phone" images={projectImagesDownload} alt="MotoSet – Screenshot der App" />
-
-            <div className="portfolio-info">
-              <h3>Fahrwerkeinstellungen-Übersicht leicht gemacht</h3>
-              <p>
-                MotoSet ist eine moderne, mobile Anwendung zur strukturierten Erfassung und Optimierung von Motorrad-Fahrwerks-Setups, speziell für Trackdays und ambitionierte Fahrer. <br />
-                <br />
-                Ziel der Anwendung ist es, komplexe Fahrwerksdaten einfach zugänglich zu machen und Fahrern dabei zu helfen, ihr Setup effizient zu analysieren und gezielt zu optimieren.<br />
-                <br />
-                Durch die Anbindung an eine Cloud-Datenbank bleiben alle Daten sicher gespeichert und geräteübergreifend verfügbar. Die Anmeldung erfolgt flexibel per E-Mail oder Google-Konto.
-              </p>
-
-              <div style={{ padding: "15px 20px", backgroundColor: "rgba(16, 185, 129, 0.06)", borderLeft: "4px solid #10B981", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
-                <p style={{ margin: 0, fontSize: "0.95rem", color: "var(--text-primary)" }}>
-                  <strong>Plattform-Hinweis:</strong> MotoSet steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
-                </p>
-              </div>
-
-              <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", alignItems: "center" }}>
-                {/* Button 1: Android-Download */}
-                <AppDownload />
-
-                {/* Button 2: Web-App Link */}
-                <Link
-                  href="https://motoset-2d516.web.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-block",
-                    padding: "8px 25px",
-                    background: "transparent",
-                    color: "#34D399",
-                    textDecoration: "none",
-                    fontWeight: "bold",
-                    borderRadius: "50px",
-                    border: "2px solid rgba(16, 185, 129, 0.50)",
-                    transition: "0.25s",
-                    fontSize: "0.93rem"
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = "rgba(16, 185, 129, 0.10)";
-                    e.currentTarget.style.boxShadow = "0 0 18px rgba(16, 185, 129, 0.22)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  Web-App öffnen
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 7 — CASE STUDIES (Platzhalter, per Flag deaktiviert) */}
       {SHOW_CASE_STUDIES && <CaseStudies />}
 
-      {/* 8 — WEBSITE-AUDIT QUIZ (Leadmagnet) */}
+      {/* 8 — HANDWERKS-DIGITAL-AUDIT (Leadmagnet) */}
       <section id="website-audit" className="section" style={{ background: "rgba(16, 185, 129, 0.03)" }}>
-        <h2 className="section-title">Mache den 3-Minuten <span className="highlight">Website-Check</span></h2>
+        <h2 className="section-title">Mach das <span className="highlight">Handwerks-Digital-Audit</span></h2>
         <p className="section-lead">
-          Finde in 9 kurzen Fragen heraus, ob deine Website Kunden gewinnt oder unbemerkt Zeit und Umsatz verbrennt.
+          Beantworte 11 kurze Fragen und finde in wenigen Minuten heraus, wo dein Betrieb digital Zeit,
+          Anfragen und Fachkräfte verliert – und wo du schon stark aufgestellt bist.
         </p>
         <AuditQuiz />
       </section>
@@ -376,7 +217,7 @@ export default function HomePage() {
       {/* 10 — ROADMAP (scroll-animierte Timeline) */}
       <RoadmapTimeline />
 
-       <section className="section final-cta">
+      <section className="section final-cta">
         <Reveal>
           <h2 className="section-title">Bereit für den nächsten Schritt?</h2>
           <p className="section-lead">
@@ -503,6 +344,107 @@ export default function HomePage() {
               Du wirst nach dem Go-Live nicht allein gelassen! Mit meinem &quot;Rundum-Sorglos-Paket&quot; kümmere ich mich dauerhaft um Updates, Backups, Sicherheit und kleine Textänderungen. Du kannst dich zu 100 % auf dein Tagesgeschäft konzentrieren.
             </p>
           </details>
+
+          <details className="faq-item">
+            <summary>
+              Bindet ihr auch unsere Handwerkersoftware an (z. B. DATEV, GAEB, DATANORM)?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Ja. Ich entwickle individuelle Schnittstellen zwischen deiner Website und deiner Handwerkersoftware – etwa DATANORM- und GAEB-Anbindung für den Großhandel, DATEV- und ZUGFeRD-Rechnungsexport oder IDS Connect für Online-Bestellungen. So entfällt doppelte Dateneingabe, und deine Systeme arbeiten direkt zusammen statt nebeneinander.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Baut ihr auch ein Bewerberportal, über das sich Fachkräfte direkt bei uns bewerben können?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Ja, ein Express-Bewerberportal gehört zu meinen Smarte-Software-Lösungen. Bewerber können sich in unter zwei Minuten direkt über deine Website melden – ohne PDF-Upload oder Umwege über Jobportale. Das senkt die Hürde für Initiativbewerbungen deutlich und hilft dir aktiv bei der Mitarbeitergewinnung.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Was unterscheidet eine Website von euch von einer Baukasten-Seite wie Wix oder Jimdo?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Baukästen nutzen Vorlagen, die tausende andere Firmen ebenfalls verwenden, und sind bei individuellen Funktionen schnell begrenzt. Ich programmiere jede Website individuell mit Next.js – schneller, technisch flexibler und ohne fremdes Branding. Das Ergebnis ist eine Seite, die exakt zu deinem Betrieb passt statt zu einer Vorlage.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Wir haben schon eine Agentur bzw. einen Bekannten, der unsere Website macht – warum zu euch wechseln?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Viele Agenturen konzentrieren sich rein aufs Design. Mein Schwerpunkt liegt zusätzlich auf der technischen Tiefe: Anbindung an DATANORM, GAEB oder DATEV, Bewerberportale und Performance. Wenn deine aktuelle Lösung solche Schnittstellen nicht bietet, lohnt sich zumindest ein unverbindliches Gespräch, um Lücken zu identifizieren.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Wir sind aktuell auf Monate ausgebucht – brauchen wir überhaupt eine neue Website?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Gerade dann kann sich eine Überarbeitung lohnen – nicht um mehr Anfragen zu bekommen, sondern um gezielt margenstarke Aufträge anzuziehen, unrentable Kleinanfragen zu filtern und über ein Bewerberportal dringend benötigte Fachkräfte zu gewinnen. Es geht also um Qualität statt Menge.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Ist meine Website bei euch DSGVO-konform und rechtlich abgesichert?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Ja, alle Websites werden 100% DSGVO-konform umgesetzt, inklusive datenschutzkonformem Hosting in Europa, korrekter Datenschutzerklärung und – wo nötig – Cookie-Einwilligung. Rechtliche Basics wie ein rechtssicheres Impressum gehören ebenfalls zum Leistungsumfang, damit du dir darüber keine Sorgen machen musst.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Kann ich die Inhalte später selbst pflegen, oder brauche ich dafür Programmierkenntnisse?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Kleine Textanpassungen kannst du je nach Setup meist selbst vornehmen oder gibst sie mir kurz durch – ganz ohne Programmierkenntnisse. Für laufende Wartung, Updates und größere Änderungen übernehme ich im Rundum-Sorglos-Paket die komplette Pflege, damit du dich auf dein Tagesgeschäft konzentrieren kannst.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Arbeitet ihr auch mit Betrieben außerhalb des Emslands/Niedersachsens zusammen?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Ja, ich arbeite deutschlandweit remote mit Handwerksbetrieben und KMU zusammen – Erstgespräche und Abstimmungen laufen unkompliziert per Video-Call oder Telefon. Persönliche Vor-Ort-Termine sind im Emsland und der näheren Umgebung ebenfalls möglich, aber keine Voraussetzung für die Zusammenarbeit.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Bietet ihr auch reine Softwarelösungen ohne Website an, z. B. interne Tools?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Ja. Neben Websites entwickle ich auch eigenständige interne Tools – etwa digitale Urlaubsanträge, Buchungssysteme, Kosten-Kalkulatoren oder Schnittstellen zu deiner Handwerkersoftware. Diese Lösungen laufen unabhängig von deiner Website und werden individuell auf deinen Arbeitsalltag zugeschnitten.
+            </p>
+          </details>
+
+          <details className="faq-item">
+            <summary>
+              Wie läuft die Zusammenarbeit ab – von der ersten Anfrage bis zum Livegang?
+              <span className="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Nach deiner unverbindlichen Anfrage folgt ein kostenloses Erstgespräch, danach Konzeption, Design und Entwicklung mit modernen Frameworks wie Next.js, gefolgt von gemeinsamem Review und Launch. Eine klassische Website dauert dabei in der Regel 2 bis 4 Wochen.
+            </p>
+          </details>
+
         </div>
       </section>
 
@@ -582,7 +524,7 @@ export default function HomePage() {
             <h4>Navigation</h4>
             <ul className="footer-links">
               <li><Link href="/pricing">Dienstleistungen &amp; Preise</Link></li>
-              <li><Link href="#portfolio">Projekte</Link></li>
+              <li><Link href="/project#portfolio">Projekte</Link></li>
               <li><Link href="#about">Über mich</Link></li>
               <li><Link href="/offer" className="highlight-link">Angebot anfordern</Link></li>
             </ul>

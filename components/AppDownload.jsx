@@ -16,7 +16,7 @@ export default function AppDownload() {
 
             {/* 2. Das Pop-up (Modal) */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
+                <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4 ">
 
                     {/* Die Box an sich: text-center sorgt für den zentrierten Text */}
                     <div className="bg-[#0f102e] border border-cyan-500/50 p-8 rounded-2xl max-w-lg w-full text-center shadow-[0_0_30px_rgba(0,255,255,0.1)]">

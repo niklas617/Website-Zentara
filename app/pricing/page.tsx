@@ -99,10 +99,10 @@ export default function OfferPage() {
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
         }}>
-          Webdesign & Software aus dem Emsland
+          Preise & Pakete für Handwerksbetriebe
         </h1>
         <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "var(--text-secondary)" }}>
-          Als Entwickler direkt hier aus der Region lege ich Wert auf persönliche Beratung und klare Kommunikation. Lass uns dein Projekt gemeinsam digital umsetzen.
+          Ob neue Website, Bewerberportal oder Anbindung an deine Handwerkersoftware – hier findest du das passende Paket, um Fachkräfte anzuziehen und dein Büro zu entlasten.
         </p>
       </header>
 
@@ -165,13 +165,27 @@ export default function OfferPage() {
           <h2 style={titleStyle}>Smarte Software</h2>
           <p style={descStyle}>Schluss mit der Zettelwirtschaft. Ich baue kleine, smarte Helfer für deinen Arbeitsalltag.</p>
           <ul style={listStyle}>
+            <li>✓ Express-Bewerberportal ohne PDF-Upload</li>
             <li>✓ Digitale Urlaubsanträge</li>
             <li>✓ Einfache Buchungssysteme</li>
-            <li>✓ Interne Kosten-Kalkulatoren</li>
             <li>✓ Genau auf dich zugeschnitten</li>
           </ul>
           <div style={priceStyle}>Individuell</div>
           <Link href="/offer" style={buttonStyle}>Idee besprechen</Link>
+        </div>
+
+        {/* Karte 5: Schnittstellen & Automatisierung */}
+        <div style={cardStyle}>
+          <h2 style={titleStyle}>Schnittstellen & Automatisierung</h2>
+          <p style={descStyle}>Verbindet deine Website direkt mit deiner Handwerkersoftware – keine doppelte Dateneingabe mehr.</p>
+          <ul style={listStyle}>
+            <li>✓ Anbindung an DATANORM / GAEB</li>
+            <li>✓ DATEV- &amp; ZUGFeRD-Rechnungsexport</li>
+            <li>✓ IDS Connect für Großhandel-Bestellungen</li>
+            <li>✓ Individuell nach deinem System</li>
+          </ul>
+          <div style={priceStyle}>Individuell</div>
+          <Link href="/offer" style={buttonStyle}>Schnittstelle anfragen</Link>
         </div>
 
       </section>

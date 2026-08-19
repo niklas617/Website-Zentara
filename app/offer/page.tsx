@@ -164,7 +164,7 @@ export default function OfferForm() {
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
         }}>
-          Projekt anfragen
+          Kostenloses 1:1 Beratungsgespräch anfragen
         </h1>
         <p style={{ fontSize: "1.05rem", lineHeight: "1.75", color: "var(--text-secondary)" }}>
           Erzähl mir von deiner Idee. Fülle das Formular aus und ich melde mich schnellstmöglich
@@ -225,7 +225,7 @@ export default function OfferForm() {
             <textarea
               name="message"
               rows={4}
-              placeholder="Beschreibe dein Projekt so genau wie möglich..."
+              placeholder="Beschreibe dein Projekt kurz, alles weitere klären wir im Gespräch."
               required
               style={{ ...inputStyle, resize: "vertical" }}
             />

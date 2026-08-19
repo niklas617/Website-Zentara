@@ -8,31 +8,37 @@ import React, { Suspense } from "react";
 // Diese Komponente wertet den URL-Parameter aus
 function ScoreResult() {
     const searchParams = useSearchParams();
-    // Wir lesen den Score (Anzahl der "Nein"-Antworten bzw. Fehler) aus der URL. Standard ist 0.
+    // Score (Anzahl "Problem"-Antworten) und die maximal mögliche Fehlerzahl aus der URL lesen.
+    // maxScore kommt dynamisch aus dem Quiz (Anzahl gewerteter Fragen) – Fallback 9 für ältere Links.
     const scoreParam = searchParams.get("score");
-    const fehlerCount = scoreParam ? parseInt(scoreParam, 10) : 0;
-    const maxScore = 9;
+    const maxParam = searchParams.get("max");
+    const maxScore = maxParam ? Math.max(1, parseInt(maxParam, 10) || 9) : 9;
+    const fehlerCountRaw = scoreParam ? parseInt(scoreParam, 10) : 0;
+    const fehlerCount = Math.min(Math.max(fehlerCountRaw || 0, 0), maxScore); // sicher auf [0, maxScore]
 
-    // Dynamische Inhalte basierend auf der Fehleranzahl
+    // Bänder proportional zum Maximum – so bleiben sie korrekt, egal wie viele Fragen gewertet werden.
+    const ratio = fehlerCount / maxScore;
+
+    // Dynamische Inhalte basierend auf dem Anteil kritischer Antworten
     let statusColor = "";
     let headline = "";
     let description = "";
     let actionText = "";
 
-    if (fehlerCount <= 1) {
+    if (ratio <= 0.2) {
         statusColor = "var(--mint)"; // Grün
-        headline = "Exzellent: Starkes Fundament";
-        description = "Glückwunsch! Deine Website arbeitet hochgradig effizient. Du hast ein solides digitales Fundament und machst fast alles richtig.";
+        headline = "Exzellent: Digital stark aufgestellt";
+        description = "Glückwunsch! Dein Betrieb arbeitet digital hochgradig effizient – von der Kundenanfrage über die Angebotserstellung bis zur Fachkräftegewinnung läuft fast alles rund. Ein solides Fundament, auf dem sich hervorragend aufbauen lässt.";
         actionText = "Lass uns in einem kurzen Call prüfen, wie wir die letzten Prozentpunkte für noch mehr Wachstum herausholen.";
-    } else if (fehlerCount <= 4) {
+    } else if (ratio <= 0.5) {
         statusColor = "#F59E0B"; // Orange (Warnung)
-        headline = "Warnsignal: Versteckte Umsatzkiller";
-        description = "Deine Website verliert aktuell regelmäßig qualifizierte Anfragen an den Wettbewerb. Dein Team verschwendet Zeit mit manuellen Prozessen, die wir leicht digitalisieren könnten.";
-        actionText = "Wir sollten diese Lecks schnellstens schließen. Buche jetzt ein kostenloses 15-Minuten-Audit, um die genauen Fehlerquellen zu beheben.";
+        headline = "Warnsignal: Versteckte Umsatz- & Zeitfresser";
+        description = "In deinen digitalen Abläufen stecken mehrere Lücken – etwa bei Kundenanfragen, verpassten Anrufen, der Angebotserstellung oder der Fachkräftegewinnung. Dein Team verliert dadurch regelmäßig Zeit und dein Betrieb bares Geld an den Wettbewerb.";
+        actionText = "Wir sollten diese Lecks schnellstens schließen. Buche jetzt ein kostenloses 15-Minuten-Audit, um die genauen Schwachstellen zu beheben.";
     } else {
         statusColor = "#EF4444"; // Rot (Kritisch)
         headline = "Kritischer Zustand: Akuter Handlungsbedarf!";
-        description = "Dein digitaler Auftritt ist aktuell ein reines Kostenrisiko. Du verbrennst durch ineffiziente Prozesse und schlechte Conversion-Raten täglich bares Geld und administrative Lebenszeit.";
+        description = "Dein Betrieb verschenkt aktuell an vielen Stellen Potenzial: manuelle Prozesse, verlorene Anfragen und fehlende digitale Sichtbarkeit kosten dich täglich Aufträge, Fachkräfte und wertvolle Arbeitszeit.";
         actionText = "Das müssen wir sofort stoppen. Buche jetzt ein kostenfreies Strategiegespräch, um einen Notfall-Plan aufzustellen.";
     }
 
@@ -52,7 +58,7 @@ function ScoreResult() {
                 <div style={{ fontSize: "4rem", fontWeight: 900, color: statusColor, lineHeight: 1 }}>
                     {fehlerCount} <span style={{ fontSize: "1.5rem", color: "var(--text-muted)", fontWeight: 500 }}>/ {maxScore}</span>
                 </div>
-                <p style={{ color: "var(--text-muted)", marginTop: "10px" }}>Kritische Fehlerstellen gefunden</p>
+                <p style={{ color: "var(--text-muted)", marginTop: "10px" }}>kritische Baustellen in deinem Betrieb</p>
             </div>
 
             <div style={{ background: "rgba(255,255,255,0.03)", padding: "25px", borderRadius: "12px", border: "1px solid var(--border-muted)", marginBottom: "40px" }}>
