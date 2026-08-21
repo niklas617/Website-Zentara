@@ -1726,6 +1726,10 @@ label {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  /* Nach unten weich ausblenden, damit der Mint-Glow nicht hart abgeschnitten wirkt
+     (v. a. auf kurzen Heros wie /project). */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
 }
 
 .hero-blob {
@@ -2093,6 +2097,11 @@ label {
     right: 0;
     bottom: -18px;
     width: clamp(94px, 30%, 124px);
+  }
+  /* Pfeile nach oben in den freien Laptop-Bereich – nur mobil, damit sie
+     das überlappende Handy-Mockup unten rechts nicht mehr verdecken. */
+  .device-slider--duo .slider-btn {
+    top: 34%;
   }
 }
 
@@ -3613,6 +3622,7 @@ label {
 .blog-content .blog-cta-btn:hover {
   color: #0f172a;
   text-decoration: none;
+  line-height: 1.3;
 }
 
 /* --- Interne Verlinkung --- */
@@ -3664,5 +3674,44 @@ label {
 @media (prefers-reduced-motion: reduce) {
   .blog-hero-kicker-dot {
     animation: none !important;
+  }
+}
+
+/* --- Mobile-Feinschliff: Blog-CTA kompakter, Slider-Pfeile aus dem Weg --- */
+@media (max-width: 600px) {
+  /* Blog-CTA-Button: nicht mehr riesig, volle Breite, kompakt */
+  .blog-cta {
+    padding: 22px 16px;
+  }
+
+  .blog-cta-lead {
+    font-size: 1rem;
+  }
+
+  .blog-content .blog-cta-btn {
+    display: block;
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 0.94rem;
+    line-height: 1.3;
+    border-radius: 14px;
+    letter-spacing: 0;
+    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Geräte-Slider: überlappende Pfeile ausblenden – die Punkte bleiben
+     klickbar und übernehmen die Navigation (kein Verdecken des Mockups mehr). */
+  .slider-btn {
+    display: none;
+  }
+
+  .slider-dots {
+    bottom: 12px;
+    gap: 10px;
+  }
+
+  .slider-dots .dot {
+    width: 11px;
+    height: 11px;
   }
 }

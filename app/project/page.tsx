@@ -23,12 +23,14 @@ const projectImages = [
 ];
 
 const projectImagesDownload = [
-  "/assets/images/loginmotoset .png",
-  "/assets/images/start.png",
-  "/assets/images/setup.png",
-  "/assets/images/strecke.png",
-  "/assets/images/federbein.png",
-  "/assets/images/session.png",
+  "/assets/images/motoset-00.jpg",
+  "/assets/images/motoset-01.jpg",
+  "/assets/images/motoset-02.jpg",
+  "/assets/images/motoset-03.jpg",
+  "/assets/images/motoset-04.jpg",
+  "/assets/images/motoset-05.jpg",
+  "/assets/images/motoset-06.jpg",
+  "/assets/images/motoset-07.jpg",
 ];
 
 // Hochkant-Screenshots der mobilen Money-App (z. B. 1080x2340)

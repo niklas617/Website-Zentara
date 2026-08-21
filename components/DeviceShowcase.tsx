@@ -161,7 +161,6 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
       >
         {device === "phone" ? (
           <div className="phone-frame">
-            <span className="phone-notch" />
             <div className="device-screen device-screen--phone">
               <Image
                 src={images[current]}
