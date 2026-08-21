@@ -33,7 +33,7 @@ const projectImagesDownload = [
   "/assets/images/motoset-07.jpg",
 ];
 
-// Hochkant-Screenshots der mobilen Money-App (z. B. 1080x2340)
+// Hochkant-Screenshots der mobilen Monetra-App (z. B. 1080x2340)
 const moneyMobileImages: string[] = [];
 
 export default function ProjectPage() {
@@ -57,7 +57,7 @@ export default function ProjectPage() {
       
       {/* 6 — PORTFOLIO: MONEY-DASHBOARD (Laptop-Mockup) */}
       <section id="portfolio" className="section">
-        <h2>Projekt: Money-Dashboard</h2>
+        <h2>Projekt: Monetra</h2>
 
         <div className="portfolio-container">
           <div className="portfolio-card">
@@ -67,7 +67,7 @@ export default function ProjectPage() {
               device="duo"
               images={projectImages}
               phoneImages={moneyMobileImages}
-              alt="Money-Dashboard – Web- und mobile App"
+              alt="Monetra – Web- und mobile App"
             />
 
             <div className="portfolio-info">
@@ -78,22 +78,22 @@ export default function ProjectPage() {
 
               <div style={{ padding: "15px 20px", backgroundColor: "rgba(16, 185, 129, 0.06)", borderLeft: "4px solid #10B981", borderRadius: "0 8px 8px 0", margin: "25px 0" }}>
                 <p style={{ margin: 0, fontSize: "0.95rem", color: "var(--text-primary)" }}>
-                  <strong>Plattform-Hinweis:</strong> Die Money-App steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
+                  <strong>Plattform-Hinweis:</strong> Die Monetra-App steht als native <strong>Android-App</strong> zum direkten Download bereit. Für <strong>Apple iOS (iPhone/iPad)</strong> sowie alle Desktop-Nutzer wurde eine voll funktionsfähige <strong>Web-App</strong> entwickelt, die nahtlos und ohne Installation direkt im Browser läuft.
                 </p>
               </div>
 
               {/* Button Container */}
               <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", alignItems: "center", justifyContent: "flex-start" }}>
                 
-                {/* Button 1: Money-App Download */}
+                {/* Button 1: Monetra-App Download */}
                 {/* Die div-Hülle entfernt das standardmäßige Padding der btn-Klasse für die äußere Hülle, da ApkDownloadButton die Klasse intern nutzt */}
                 <div className="portfolio-btn-shared btn-filled" style={{ padding: 0, border: "none" }}>
                   <ApkDownloadButton
                     buttonLabel="App herunterladen"
                     apkPath="/downloads/money_app.apk"
                     apkName="money_app.apk"
-                    title="Download der Money-App"
-                    description="Lade dir die native Android-Version der Money-App herunter. Sicherheitshinweis: Da es ein direkter Download ist, bestätige bitte die Installation aus unbekannten Quellen."
+                    title="Download der Monetra-App"
+                    description="Lade dir die native Android-Version der Monetra-App herunter. Sicherheitshinweis: Da es ein direkter Download ist, bestätige bitte die Installation aus unbekannten Quellen."
                   />
                 </div>
 

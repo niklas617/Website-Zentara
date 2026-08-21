@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Portfolio – Eigenentwicklungen von Zentara Solutions",
   description:
-    "Einblick in eigene Projekte: MotoSet (Fahrwerks-App) und Money-Dashboard (KI-gestützte Finanzverwaltung).",
+    "Einblick in eigene Projekte: MotoSet (Fahrwerks-App) und Monetra (KI-gestützte Finanzverwaltung).",
   alternates: { canonical: "/project" },
 };
 

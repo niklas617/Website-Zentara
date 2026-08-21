@@ -109,7 +109,7 @@ A: Nach deiner unverbindlichen Anfrage folgt ein kostenloses Erstgespräch, dana
 
 Referenzprojekte:
 
-Money-Dashboard: Eine sichere Webanwendung zur Verwaltung von persönlichen/geschäftlichen Finanzen. Ersetzt Excel und Papierkram durch eine klare Übersicht.
+Monetra: Eine sichere Webanwendung zur Verwaltung von persönlichen/geschäftlichen Finanzen. Ersetzt Excel und Papierkram durch eine klare Übersicht.
 
 MotoSet: Eine mobile Cloud-App zur Erfassung und Optimierung von Motorrad-Fahrwerks-Setups (für Trackdays). Hinweis: Die App wird als direkter Download (APK) angeboten. Sicherheitswarnungen von Android bei der Installation sind dabei normal und können ignoriert werden ("Installation aus unbekannten Quellen" zulassen).`
 

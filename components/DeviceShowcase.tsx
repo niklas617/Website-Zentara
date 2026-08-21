@@ -63,13 +63,35 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
   const next = () => setCurrent((p) => (p + 1) % images.length);
   const prev = () => setCurrent((p) => (p === 0 ? images.length - 1 : p - 1));
 
+  // --- Swipe-Navigation (Touch): links/rechts wischen wie bei Instagram ---
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - (touchStartY.current ?? 0);
+    // Nur eindeutig horizontale Wischer auslösen (vertikales Scrollen bleibt unberührt).
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next();
+      else prev();
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   // Duo: Laptop als Haupt-Slider, davor überlappend ein Handy.
   if (device === "duo") {
     const pics = phoneImages ?? [];
     const phoneSrc = pics.length ? pics[current % pics.length] : null;
 
     return (
-      <div className="device-slider device-slider--duo">
+      <div className="device-slider device-slider--duo" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <button className="slider-btn prev-btn" onClick={prev} type="button" aria-label="Vorheriges Bild">
           &#10094;
         </button>
@@ -149,7 +171,7 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
   }
 
   return (
-    <div className={`device-slider device-slider--${device}`}>
+    <div className={`device-slider device-slider--${device}`} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       <button className="slider-btn prev-btn" onClick={prev} type="button" aria-label="Vorheriges Bild">
         &#10094;
       </button>

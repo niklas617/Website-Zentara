@@ -95,11 +95,11 @@ export default function NavBar() {
                 <li>
                   {pathname === "/" ? (
                     <a href="project#portfolio" onClick={close}>
-                      Money-Dashboard
+                      Monetra
                     </a>
                   ) : (
                     <Link href="/project#portfolio" onClick={close}>
-                      Money-Dashboard
+                      Monetra
                     </Link>
                   )}
                 </li>
