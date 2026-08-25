@@ -10,6 +10,7 @@ const RealEstateChatbot = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showNudge, setShowNudge] = useState(false); // Proaktiver Hinweis (Sprechblase + Badge)
 
   // === 2. VERBESSERTE AUTO-SCROLL LOGIK ===
   const chatContainerRef = useRef(null);
@@ -31,9 +32,31 @@ const RealEstateChatbot = () => {
     }
   }, [messages, isLoading, isOpen]);
 
-  // === 3. CHAT ÖFFNEN / SCHLIESSEN ===
+  // === 3. PROAKTIVER NUDGE (Sprechblase nach einigen Sekunden auf der Seite) ===
+  const NUDGE_DELAY_MS = 12000; // nach 12 Sekunden aufploppen
+
+  useEffect(() => {
+    // Nur einmal pro Browser-Session anstupsen (nicht auf jeder Unterseite neu).
+    try {
+      if (sessionStorage.getItem('zentaraChatNudgeSeen')) return;
+    } catch (e) { /* sessionStorage evtl. blockiert – dann trotzdem nudgen */ }
+
+    const timer = setTimeout(() => {
+      setShowNudge(true);
+      try { sessionStorage.setItem('zentaraChatNudgeSeen', '1'); } catch (e) {}
+    }, NUDGE_DELAY_MS);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const dismissNudge = () => setShowNudge(false);
+
+  // === 4. CHAT ÖFFNEN / SCHLIESSEN ===
   const toggleChat = () => {
-    setIsOpen(!isOpen);
+    // Beim Öffnen (bzw. jeder Interaktion) verschwindet der Nudge dauerhaft.
+    setShowNudge(false);
+    try { sessionStorage.setItem('zentaraChatNudgeSeen', '1'); } catch (e) {}
+    setIsOpen((prev) => !prev);
   };
 
   // === 4. NACHRICHT SENDEN ===
@@ -88,9 +111,33 @@ const RealEstateChatbot = () => {
   return (
     <div className="chatbot-container">
       
+      {/* Proaktiver Nudge: Sprechblase, ploppt nach einigen Sekunden auf und
+          verschwindet, sobald der Chat geöffnet (oder weggeklickt) wird. */}
+      {showNudge && !isOpen && (
+        <div
+          className="chatbot-nudge"
+          role="button"
+          tabIndex={0}
+          onClick={toggleChat}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleChat(); } }}
+          aria-label="Chat mit dem KI-Assistenten öffnen"
+        >
+          <button
+            type="button"
+            className="chatbot-nudge-close"
+            onClick={(e) => { e.stopPropagation(); dismissNudge(); }}
+            aria-label="Hinweis schließen"
+          >
+            ✕
+          </button>
+          <span className="chatbot-nudge-text">Fragen? Ich helfe dir gerne weiter! 👋</span>
+        </div>
+      )}
+
       {/* Der runde Button am Bildschirmrand */}
       <button className="chatbot-toggle-icon" onClick={toggleChat} title="Chatbot öffnen/schließen">
         {isOpen ? '✕' : '🗨️'}
+        {showNudge && !isOpen && <span className="chatbot-nudge-badge" aria-hidden="true">!</span>}
       </button>
 
       {/* Das Chat-Fenster (wird nur gerendert, wenn isOpen "true" ist) */}

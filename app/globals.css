@@ -1115,6 +1115,7 @@ label {
 }
 
 .chatbot-toggle-icon {
+  position: relative;
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -1136,6 +1137,114 @@ label {
   transform: scale(1.08);
   box-shadow: 0 8px 30px rgba(16, 185, 129, 0.62);
   opacity: 1;
+}
+
+/* --- Proaktiver Chatbot-Nudge (Sprechblase + Badge) --- */
+.chatbot-nudge {
+  position: relative;
+  max-width: 240px;
+  margin-bottom: 14px;
+  padding: 13px 34px 13px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border-accent);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  animation: chatbotNudgeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chatbot-nudge:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--mint);
+}
+
+/* Sprechblasen-Zipfel unten rechts, zeigt Richtung Button */
+.chatbot-nudge::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  transform: rotate(45deg);
+}
+
+.chatbot-nudge-close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.chatbot-nudge-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.chatbot-nudge-text {
+  display: block;
+}
+
+/* "!"-Badge oben rechts am runden Button */
+.chatbot-nudge-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  border-radius: 11px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 22px;
+  text-align: center;
+  box-shadow: 0 0 0 2px var(--bg-base);
+  animation: chatbotBadgePulse 1.8s ease-out infinite;
+}
+
+@keyframes chatbotNudgeIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes chatbotBadgePulse {
+  0% { box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 0 rgba(239, 68, 68, 0.55); }
+  70% { box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 9px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-nudge { animation: none; }
+  .chatbot-nudge-badge { animation: none; }
 }
 
 .chatbot-wrapper.floating {
