@@ -99,7 +99,7 @@ export default function ProjectPage() {
 
                 {/* Button 2: Link zum Live-Projekt */}
                 <Link 
-                  href="https://dashboard.zentara-solutions.de/" 
+                  href="https://monetra.zentara-solutions.de/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="portfolio-btn-shared btn-outlined"
