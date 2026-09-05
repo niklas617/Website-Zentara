@@ -33,8 +33,20 @@ const projectImagesDownload = [
   "/assets/images/motoset-07.jpg",
 ];
 
-// Hochkant-Screenshots der mobilen Monetra-App (z. B. 1080x2340)
-const moneyMobileImages: string[] = [];
+// Hochkant-Screenshots der mobilen Monetra-App (Statusleiste weggecroppt)
+const moneyMobileImages: string[] = [
+  "/assets/images/monetra-01.jpg",
+  "/assets/images/monetra-02.jpg",
+  "/assets/images/monetra-03.jpg",
+  "/assets/images/monetra-04.jpg",
+  "/assets/images/monetra-05.jpg",
+  "/assets/images/monetra-06.jpg",
+  "/assets/images/monetra-07.jpg",
+  "/assets/images/monetra-08.jpg",
+  "/assets/images/monetra-09.jpg",
+  "/assets/images/monetra-10.jpg",
+  "/assets/images/monetra-11.jpg",
+];
 
 export default function ProjectPage() {
   return (

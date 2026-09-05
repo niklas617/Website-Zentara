@@ -60,8 +60,14 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
   // Zweite, leicht stärkere Parallax für das Handy im Duo-Layout → dezente Tiefe.
   const phone = useParallax(0.1);
 
-  const next = () => setCurrent((p) => (p + 1) % images.length);
-  const prev = () => setCurrent((p) => (p === 0 ? images.length - 1 : p - 1));
+  // Im Duo-Layout kann das Handy mehr Screenshots haben als der Laptop – der
+  // Slider läuft dann über die größere Anzahl, das Laptop-Bild wiederholt sich.
+  const slideCount =
+    device === "duo"
+      ? Math.max(images.length, phoneImages?.length ?? 0)
+      : images.length;
+  const next = () => setCurrent((p) => (p + 1) % slideCount);
+  const prev = () => setCurrent((p) => (p === 0 ? slideCount - 1 : p - 1));
 
   // --- Swipe-Navigation (Touch): links/rechts wischen wie bei Instagram ---
   const touchStartX = useRef<number | null>(null);
@@ -105,7 +111,7 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
             <div className="laptop-frame">
               <div className="device-screen device-screen--laptop">
                 <Image
-                  src={images[current]}
+                  src={images[current % images.length]}
                   alt={alt}
                   fill
                   sizes="(max-width: 600px) 92vw, 520px"
@@ -155,13 +161,13 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
         </button>
 
         <div className="slider-dots" role="tablist" aria-label="Bildauswahl">
-          {images.map((_, i) => (
+          {Array.from({ length: slideCount }).map((_, i) => (
             <button
               key={i}
               type="button"
               className={`dot ${i === current ? "active" : ""}`}
               onClick={() => setCurrent(i)}
-              aria-label={`Bild ${i + 1} von ${images.length} anzeigen`}
+              aria-label={`Bild ${i + 1} von ${slideCount} anzeigen`}
               aria-current={i === current}
             />
           ))}
