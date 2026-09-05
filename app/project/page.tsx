@@ -12,14 +12,20 @@ import HeroBackdrop from "../../components/HeroBackdrop";
 import HeroReveal from "../../components/HeroReveal";
 
 
-// Portfolio-Screenshots
+// Laptop-Screenshots der Monetra-Web-App (Browserleiste & Taskleiste weggecroppt).
+// Paarweise passend zu moneyMobileImages: gleicher Bereich pro Slide (Web-Screen
+// wiederholt sich, wo das Handy zusätzliche Detail-Ansichten hat).
 const projectImages = [
-  "/assets/images/LogIn.png",
-  "/assets/images/Balkendiagramm.png",
-  "/assets/images/Kuchendiagramm.png",
-  "/assets/images/Buchungen.png",
-  "/assets/images/Buchungenliste.png",
-  "/assets/images/Kategorien.png",
+  "/assets/images/monetra-web-01.jpg", // Login
+  "/assets/images/monetra-web-02.jpg", // Übersicht / Dashboard
+  "/assets/images/monetra-web-03.jpg", // Portfolio
+  "/assets/images/monetra-web-04.jpg", // Portfolio – Trade-Logbuch
+  "/assets/images/monetra-web-04.jpg", // Portfolio – Historie
+  "/assets/images/monetra-web-05.jpg", // Konten
+  "/assets/images/monetra-web-06.jpg", // Konten – Analytics
+  "/assets/images/monetra-web-06.jpg", // Konten – Verlauf
+  "/assets/images/monetra-web-05.jpg", // Konten – Optionen
+  "/assets/images/monetra-web-07.jpg", // Sparziele & Budgets
 ];
 
 const projectImagesDownload = [
@@ -33,19 +39,20 @@ const projectImagesDownload = [
   "/assets/images/motoset-07.jpg",
 ];
 
-// Hochkant-Screenshots der mobilen Monetra-App (Statusleiste weggecroppt)
+// Hochkant-Screenshots der mobilen Monetra-App (Statusleiste weggecroppt).
+// Reihenfolge passend zu den Laptop-Screens (jeweils gleicher Bereich = ein Paar).
+// monetra-08 ist ein Duplikat von monetra-04 und daher bewusst nicht enthalten.
 const moneyMobileImages: string[] = [
-  "/assets/images/monetra-01.jpg",
-  "/assets/images/monetra-02.jpg",
-  "/assets/images/monetra-03.jpg",
-  "/assets/images/monetra-04.jpg",
-  "/assets/images/monetra-05.jpg",
-  "/assets/images/monetra-06.jpg",
-  "/assets/images/monetra-07.jpg",
-  "/assets/images/monetra-08.jpg",
-  "/assets/images/monetra-09.jpg",
-  "/assets/images/monetra-10.jpg",
-  "/assets/images/monetra-11.jpg",
+  "/assets/images/monetra-11.jpg", // Login
+  "/assets/images/monetra-09.jpg", // Übersicht / Dashboard
+  "/assets/images/monetra-01.jpg", // Portfolio
+  "/assets/images/monetra-02.jpg", // Portfolio – Allocation & Positionen
+  "/assets/images/monetra-03.jpg", // Portfolio – Historie
+  "/assets/images/monetra-04.jpg", // Konten
+  "/assets/images/monetra-05.jpg", // Konten – Analytics
+  "/assets/images/monetra-06.jpg", // Konten – Verlauf
+  "/assets/images/monetra-07.jpg", // Konten – Optionen
+  "/assets/images/monetra-10.jpg", // Menü / Werkzeuge
 ];
 
 export default function ProjectPage() {

@@ -117,7 +117,9 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
                   sizes="(max-width: 600px) 92vw, 520px"
                   quality={90}
                   className="device-img"
-                  style={{ objectPosition: "top" }}
+                  /* left top: hält die Monetra-Sidebar sichtbar (Web-Screens sind
+                     breiter als der 16:10-Laptop) */
+                  style={{ objectPosition: "left top" }}
                 />
               </div>
             </div>
