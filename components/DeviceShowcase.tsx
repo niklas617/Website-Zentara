@@ -114,7 +114,9 @@ export default function DeviceShowcase({ device, images, phoneImages, alt }: Pro
                   src={images[current % images.length]}
                   alt={alt}
                   fill
-                  sizes="(max-width: 600px) 92vw, 520px"
+                  /* Bewusst großzügig, damit next/image eine hochauflösende
+                     Variante liefert (scharf auf Retina/HiDPI). Laptop ist ~700px. */
+                  sizes="(max-width: 800px) 92vw, 1024px"
                   quality={90}
                   className="device-img"
                   /* left top: hält die Monetra-Sidebar sichtbar (Web-Screens sind
