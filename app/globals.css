@@ -2093,8 +2093,8 @@ label {
 
 /* Laptop */
 .laptop-frame {
-  width: 460px;
-  max-width: 85vw;
+  width: 700px;
+  max-width: 88vw;
   margin: 0 auto;
   background: #111;
   border-radius: 14px 14px 0 0;
@@ -2109,8 +2109,8 @@ label {
 
 .laptop-base {
   position: relative;
-  width: 500px;
-  max-width: 90vw;
+  width: 740px;
+  max-width: 94vw;
   height: 14px;
   margin: 0 auto;
   background: linear-gradient(#1c1c1c, #0a0a0a);
@@ -2130,12 +2130,12 @@ label {
 
 /* --- Duo-Showcase: Laptop mit davor überlappendem Handy -------- */
 .device-slider--duo {
-  padding-bottom: 60px;
+  padding-bottom: 84px;
 }
 
 .device-duo {
   position: relative;
-  width: min(600px, 100%);
+  width: min(840px, 100%);
   margin: 0 auto;
 }
 
@@ -2146,8 +2146,8 @@ label {
 .device-duo-phone {
   position: absolute;
   right: 2%;
-  bottom: -28px;
-  width: clamp(108px, 24%, 148px);
+  bottom: -32px;
+  width: clamp(155px, 26%, 215px);
   z-index: 4;
   will-change: transform;
 }
