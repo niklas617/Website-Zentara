@@ -3,7 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaBolt, FaSearch, FaBullseye, FaMapMarkerAlt } from "react-icons/fa";
 
 import AppDownload from "../components/AppDownload";
 import RealEstateChatbot from "../components/RealEstateChatbot";
@@ -449,29 +449,55 @@ export default function HomePage() {
       </section>
 
       {/* 13 — ÜBER MICH */}
-      <section id="about" className="section">
+      <section id="about" className="section about-section">
         <h2>Über mich</h2>
-        <div style={{ marginBottom: "20px" }}>
-          <Image
-            className="aboutImage"
-            src="/assets/images/ich.png"
-            alt="Niklas Smit"
-            width={200}
-            height={300}
-            style={{ borderRadius: "10px", objectFit: "cover" }}
-          />
+
+        <div className="about-grid">
+          {/* Foto links – gerahmt mit Mint-Beam + Glow */}
+          <Reveal className="about-media">
+            <div className="about-photo-frame">
+              <div className="about-photo">
+                <Image
+                  src="/assets/images/about-me.jpg"
+                  alt="Niklas Smit"
+                  fill
+                  sizes="(max-width: 860px) 90vw, 380px"
+                  quality={90}
+                  className="about-photo-img"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Text rechts – Hierarchie: Lead groß, Fließtext gedämpft */}
+          <Reveal className="about-text" delay={140}>
+            <p className="about-lead">
+              Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert.
+            </p>
+            <p className="about-body">
+              Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen.
+            </p>
+            <p className="about-body">
+              Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
+            </p>
+
+            {/* Visuelle Anker: Kernkompetenzen aus dem Lead als Tags */}
+            <ul className="about-tags" aria-label="Kernkompetenzen">
+              <li className="about-tag"><FaBolt aria-hidden="true" /> Pragmatisch</li>
+              <li className="about-tag"><FaSearch aria-hidden="true" /> Analytisch</li>
+              <li className="about-tag"><FaBullseye aria-hidden="true" /> Lösungsorientiert</li>
+            </ul>
+
+            {/* Lokaler SEO-Bezug als abgesetzte Standort-Badge */}
+            <p className="about-location">
+              <FaMapMarkerAlt className="about-location-pin" aria-hidden="true" />
+              <span>
+                Webentwicklung &amp; individuelle Software für Handwerksbetriebe und KMU in{" "}
+                <strong>Lingen</strong> – persönlich betreut, deutschlandweit umsetzbar.
+              </span>
+            </p>
+          </Reveal>
         </div>
-        <p style={{ maxWidth: 700, margin: "0 auto" }}>
-          Ich bin Niklas Smit. Ich arbeite pragmatisch, analytisch und lösungsorientiert. <br /> <br />
-          Herausforderungen gehe ich direkt an, hinterfrage bestehende Ansätze und suche nach effizienten, technisch sauberen Lösungen. <br /> <br />
-          Dabei lege ich Wert auf klare Ergebnisse, kontinuierliche Verbesserung und eine strukturierte Umsetzung.
-        </p>
-        {/* Lokaler SEO-Bezug (Platzhalter – Region eintragen) */}
-        <p style={{ maxWidth: 700, margin: "20px auto 0", color: "var(--text-muted)", fontSize: "0.95rem" }}>
-          Webentwicklung &amp; individuelle Software für Handwerksbetriebe und KMU in{" "}
-          <strong>Lingen</strong> – persönlich betreut,
-          deutschlandweit umsetzbar.
-        </p>
       </section>
 
       {/* 14 — ABSCHLUSS-CTA (gleicher Text wie im Hero) */}

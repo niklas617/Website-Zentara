@@ -4238,3 +4238,159 @@ label {
   .browser-dots i { width: 10px; height: 10px; }
   .browser-url { font-size: 0.76rem; padding: 6px 12px; }
 }
+
+/* ============================================================
+   ÜBER MICH (Redesign) – asymmetrisches 2-Spalten-Layout,
+   minimalistisch gerahmtes Foto (statisch, dezenter Mint-Akzent),
+   Typo-Hierarchie, Kompetenz-Tags, Standort-Badge, dezente Reveals.
+   Nutzt ausschließlich bestehende Marken-Variablen (--mint …).
+   ============================================================ */
+.about-section {
+  /* verhindert horizontales Überlaufen durch gerichtete Reveals */
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  max-width: 1080px;
+  margin: 12px auto 0;
+  text-align: left;
+}
+
+/* --- Foto: minimalistischer, statischer Rahmen mit dezentem Mint-Akzent --- */
+.about-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+}
+.about-photo {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0b0f16;
+  box-shadow:
+    0 0 0 1px var(--border-accent),
+    0 18px 44px -20px rgba(16, 185, 129, 0.30),
+    var(--shadow-card);
+}
+.about-photo-img {
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+/* --- Text-Spalte: Typo-Hierarchie --- */
+.about-lead {
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0 0 22px;
+  max-width: 44ch;
+}
+.about-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+  max-width: 56ch;
+}
+
+/* --- Kompetenz-Tags (Look deiner .badge-eigenentwicklung) --- */
+.about-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 28px 0 0;
+}
+.about-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: rgba(63, 217, 174, 0.12);
+  color: #3FD9AE;
+  border: 1px solid #1e6b53;
+  /* Ausgangszustand für gestaffelten Reveal */
+  opacity: 0;
+  transform: translateY(10px);
+}
+.about-tag svg {
+  width: 0.95em;
+  height: 0.95em;
+  flex-shrink: 0;
+}
+.about-text.reveal--visible .about-tag {
+  animation: aboutTagIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.about-text.reveal--visible .about-tag:nth-child(1) { animation-delay: 0.38s; }
+.about-text.reveal--visible .about-tag:nth-child(2) { animation-delay: 0.50s; }
+.about-text.reveal--visible .about-tag:nth-child(3) { animation-delay: 0.62s; }
+@keyframes aboutTagIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Standort-Badge (letzter Absatz, optisch abgesetzt) --- */
+.about-location {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 30px 0 0;
+  padding: 13px 18px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--mint);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 54ch;
+}
+.about-location-pin {
+  color: var(--mint-light);
+  width: 1.05em;
+  height: 1.05em;
+  margin-top: 0.18em;
+  flex-shrink: 0;
+}
+.about-location strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --- Gerichtete, versetzte Reveals (übersteuern Basis-.reveal) --- */
+.about-media.reveal { transform: translateX(-46px) scale(0.98); }
+.about-media.reveal--visible { transform: none; }
+.about-text.reveal { transform: translateX(46px); }
+.about-text.reveal--visible { transform: none; }
+
+/* --- Mobile: gestapelt, Foto oben, mehr Luft --- */
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 560px;
+  }
+  .about-media { justify-self: center; width: 100%; }
+  .about-photo-frame { max-width: 320px; }
+  /* gerichtete Reveals auf Mobile vertikal */
+  .about-media.reveal { transform: translateY(26px) scale(0.98); }
+  .about-text.reveal { transform: translateY(26px); }
+}
+
+/* --- Reduced Motion: alles ruhig & sofort sichtbar --- */
+@media (prefers-reduced-motion: reduce) {
+  .about-tag { opacity: 1; transform: none; animation: none; }
+}
