@@ -10,16 +10,15 @@ export default function GewinnspielTeilnahmebedingungen() {
           <h1>Teilnahmebedingungen Gewinnspiel „Kostenlose Website“</h1>
 
           <h2>Veranstalter</h2>
-          {/* ===================================================================
-              TODO (Niklas): VERANSTALTER-ANSCHRIFT EINTRAGEN!
-              Ersetze die folgende Platzhalter-Zeile durch deine vollständige Anschrift:
-              Vollständiger Name (mit Nachname), Zentara Solutions, Straße + Hausnummer,
-              PLZ + Ort.
-              Hinweis: Im Impressum steht bereits: Niklas Smit, Am Waldfriedhof 9,
-              49832 Thuine – falls du dieselbe Anschrift verwenden möchtest.
-              =================================================================== */}
+          {/* Anschrift übernommen aus dem Impressum. */}
           <p>
-            Niklas [Nachname], Zentara Solutions, [Straße Hausnummer], [PLZ Ort]
+            Niklas Smit
+            <br />
+            Zentara Solutions
+            <br />
+            Am Waldfriedhof 9
+            <br />
+            49832 Thuine
           </p>
 
           <h2>Teilnahmezeitraum</h2>
