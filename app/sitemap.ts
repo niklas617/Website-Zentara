@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { path: "/impressum", priority: 0.3, changeFrequency: "yearly" },
     { path: "/datenschutz", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/gewinnspiel-teilnahmebedingungen", priority: 0.3, changeFrequency: "yearly" },
   ];
 
   return routes.map((r) => ({

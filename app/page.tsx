@@ -193,6 +193,18 @@ export default function HomePage() {
 
       {/* 8 — HANDWERKS-DIGITAL-AUDIT (Leadmagnet) */}
       <section id="website-audit" className="section" style={{ background: "rgba(16, 185, 129, 0.03)" }}>
+        {/* Gewinnspiel-Hinweis: Audit ausfüllen = automatische Teilnahme */}
+        <div className="gewinnspiel-banner" role="note">
+          <span className="gewinnspiel-badge">🎁 Gewinnspiel</span>
+          <p className="gewinnspiel-text">
+            Jetzt teilnehmen und eine Website im Wert von <strong>799&nbsp;€</strong> gewinnen
+            <span className="gewinnspiel-deadline"> – Teilnahmeschluss 31.10.2026</span>
+          </p>
+          <Link href="/gewinnspiel-teilnahmebedingungen" className="gewinnspiel-terms-link">
+            Teilnahmebedingungen
+          </Link>
+        </div>
+
         <h2 className="section-title">Mach das <span className="highlight">Handwerks-Digital-Audit</span></h2>
         <p className="section-lead">
           Beantworte 11 kurze Fragen und finde in wenigen Minuten heraus, wo dein Betrieb digital Zeit,
@@ -559,6 +571,7 @@ export default function HomePage() {
             <ul className="footer-links">
               <li><Link href="/impressum">Impressum</Link></li>
               <li><Link href="/datenschutz">Datenschutzerklärung</Link></li>
+              <li><Link href="/gewinnspiel-teilnahmebedingungen">Gewinnspiel-Teilnahmebedingungen</Link></li>
             </ul>
           </div>
 

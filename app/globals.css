@@ -4394,3 +4394,74 @@ label {
 @media (prefers-reduced-motion: reduce) {
   .about-tag { opacity: 1; transform: none; animation: none; }
 }
+
+/* ============================================================
+   GEWINNSPIEL – Hinweis-Banner am AuditQuiz + Teilnahmebedingungen-Seite
+   Nutzt ausschließlich bestehende Marken-Töne (--mint … / #3FD9AE aus
+   der bestehenden .badge-eigenentwicklung).
+   ============================================================ */
+.gewinnspiel-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  max-width: 640px;
+  margin: 0 auto 26px;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.10);
+  text-align: center;
+}
+.gewinnspiel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #3FD9AE;
+  background: rgba(63, 217, 174, 0.12);
+  border: 1px solid #1e6b53;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.gewinnspiel-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+.gewinnspiel-text strong {
+  color: var(--mint-light);
+  font-weight: 800;
+}
+.gewinnspiel-deadline {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.gewinnspiel-terms-link {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+.gewinnspiel-terms-link:hover {
+  color: var(--mint-light);
+}
+
+/* Mintgrün-Akzent für die Überschriften der Teilnahmebedingungen-Seite */
+.legal-container--accent h2 {
+  color: var(--mint-light);
+}
+
+@media (max-width: 560px) {
+  .gewinnspiel-banner { padding: 12px 16px; }
+  .gewinnspiel-deadline { display: block; white-space: normal; }
+}
