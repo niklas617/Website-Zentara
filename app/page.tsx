@@ -4,10 +4,11 @@ import "./motoset.css";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Anton, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 
-const display = Anton({ weight: "400", subsets: ["latin"], variable: "--font-display", display: "swap" });
-const body = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-body", display: "swap" });
+// Selbst-gehostete Fonts (DSGVO-konform, kein Build-Zeit-Fetch zu Google).
+const display = localFont({ src: "./fonts/anton-400.woff2", weight: "400", variable: "--font-display", display: "swap" });
+const body = localFont({ src: "./fonts/space-grotesk.woff2", weight: "400 700", variable: "--font-body", display: "swap" });
 
 const SCREENS = [
   "/assets/images/motoset-00.jpg",
