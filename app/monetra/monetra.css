@@ -1,0 +1,167 @@
+/* =====================================================================
+   MONETRA — versteckter interner Bereich (Gate + Showcase)
+   Nutzt die bestehenden Marken-Tokens (--mint …) aus globals.css.
+   ===================================================================== */
+
+/* ---------- Passwort-Gate ---------- */
+.mon-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(16, 185, 129, 0.10), transparent 70%),
+    var(--bg-base, #0F172A);
+}
+.mon-gate-card {
+  width: min(420px, 100%);
+  text-align: center;
+  background: var(--bg-card, rgba(30, 41, 59, 0.72));
+  border: 1px solid var(--border-subtle, rgba(16, 185, 129, 0.14));
+  border-radius: 22px;
+  padding: 40px 34px;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(16px);
+}
+.mon-gate-lock {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  border-radius: 16px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--border-accent, rgba(16, 185, 129, 0.4));
+}
+.mon-gate-card h1 {
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+  color: var(--text-primary, #F8FAFC);
+}
+.mon-gate-card p {
+  color: var(--text-secondary, #94A3B8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+.mon-gate-warn {
+  color: #fbbf24 !important;
+  font-size: 0.82rem !important;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.mon-gate-warn code { font-family: ui-monospace, monospace; font-size: 0.9em; }
+.mon-gate form { display: flex; flex-direction: column; gap: 12px; }
+.mon-gate input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--input-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border-muted, rgba(255, 255, 255, 0.06));
+  color: var(--text-primary, #F8FAFC);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.mon-gate input:focus { border-color: var(--mint, #10B981); }
+.mon-gate button {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0F172A;
+  background: var(--grad-brand, linear-gradient(135deg, #10B981, #34D399));
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.mon-gate button:hover:not(:disabled) { transform: translateY(-2px); }
+.mon-gate button:disabled { opacity: 0.55; cursor: not-allowed; }
+.mon-gate-err { color: #ef4444 !important; font-weight: 600; margin: 4px 0 0 !important; font-size: 0.9rem !important; }
+.mon-gate-back {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--text-muted, #64748B);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.mon-gate-back:hover { color: var(--mint-light, #34D399); }
+
+/* ---------- Monetra-Showcase (nach Login) ---------- */
+.mon-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 90px) clamp(20px, 5vw, 48px) 60px;
+}
+.mon-head { text-align: center; max-width: 720px; margin: 0 auto clamp(30px, 5vw, 50px); }
+.mon-eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--mint-light, #34D399);
+  margin-bottom: 14px;
+}
+.mon-head h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  color: var(--text-primary, #F8FAFC);
+}
+.mon-head h1 span {
+  background: var(--grad-brand, linear-gradient(135deg, #10B981, #34D399));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mon-head p { color: var(--text-secondary, #94A3B8); font-size: 1.1rem; line-height: 1.6; margin: 0; }
+
+.mon-stage { margin: 0 auto; }
+.mon-mobile { margin-top: clamp(40px, 6vw, 64px); }
+.mon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--mint-light, #34D399);
+  background: rgba(16, 185, 129, 0.10);
+  border: 1px solid var(--border-subtle, rgba(16, 185, 129, 0.14));
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.mon-copy { max-width: 760px; margin: clamp(40px, 6vw, 60px) auto 0; }
+.mon-copy p { color: var(--text-secondary, #94A3B8); line-height: 1.75; font-size: 1.05rem; margin: 0 0 26px; }
+.mon-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.mon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid var(--mint, #10B981);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.mon-btn--primary { background: var(--grad-brand, linear-gradient(135deg, #10B981, #34D399)); color: #0F172A; }
+.mon-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(16, 185, 129, 0.4); }
+.mon-btn--ghost { color: var(--mint, #10B981); background: transparent; }
+.mon-btn--ghost:hover { background: rgba(16, 185, 129, 0.1); transform: translateY(-2px); }
+
+.mon-foot { max-width: 760px; margin: 50px auto 0; }
+.mon-foot a { color: var(--text-muted, #64748B); text-decoration: none; font-size: 0.9rem; }
+.mon-foot a:hover { color: var(--mint-light, #34D399); }
