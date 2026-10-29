@@ -539,9 +539,48 @@
   .ms-nav-cta { display: none; }
 }
 
+/* ---------- 3D-Ebene (three.js) ---------- */
+.ms-3d-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: auto;
+}
+/* Hero-Inhalt liegt über der 3D-Ebene; leere Flächen lassen das Ziehen durch,
+   interaktive Elemente bleiben klickbar. */
+.ms-hero-inner { pointer-events: none; }
+.ms-hero-inner a,
+.ms-hero-inner button { pointer-events: auto; }
+
+.ms-3d-hint {
+  position: absolute;
+  left: clamp(20px, 5vw, 56px);
+  bottom: 26px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ms-muted);
+  pointer-events: none;
+}
+.ms-3d-hint-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ms-cyan);
+  box-shadow: 0 0 10px var(--ms-cyan);
+  animation: ms-pulse 1.8s ease-in-out infinite;
+}
+@media (max-width: 760px) {
+  .ms-3d-hint { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ms-grid::before, .ms-aurora, .ms-title .l2, .ms-marquee-track,
-  .ms-eyebrow::before, .ms-scrollcue i::before { animation: none !important; }
+  .ms-eyebrow::before, .ms-scrollcue i::before, .ms-3d-hint-dot { animation: none !important; }
   .ms-reveal { opacity: 1; transform: none; transition: none; }
   .ms-cursor { display: none; }
 }

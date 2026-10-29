@@ -4,7 +4,11 @@ import "./motoset.css";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import localFont from "next/font/local";
+
+// Echte 3D-Szene (three.js) – nur clientseitig laden.
+const MotoSet3D = dynamic(() => import("../components/MotoSet3D"), { ssr: false });
 
 // Selbst-gehostete Fonts (DSGVO-konform, kein Build-Zeit-Fetch zu Google).
 const display = localFont({ src: "./fonts/anton-400.woff2", weight: "400", variable: "--font-display", display: "swap" });
@@ -96,7 +100,7 @@ export default function MotoSetOnepager() {
 
         {/* HERO */}
         <header className="ms-hero">
-          <div className="ms-grid" aria-hidden="true" />
+          <MotoSet3D />
           <div className="ms-aurora a1" aria-hidden="true" />
           <div ref={a2Ref} className="ms-aurora a2" aria-hidden="true" />
           <div ref={a3Ref} className="ms-aurora a3" aria-hidden="true" />
@@ -136,6 +140,9 @@ export default function MotoSetOnepager() {
             </div>
           </div>
 
+          <div className="ms-3d-hint" aria-hidden="true">
+            <span className="ms-3d-hint-dot" />3D · ziehen zum Drehen
+          </div>
           <div className="ms-scrollcue" aria-hidden="true"><i />Scroll</div>
         </header>
 

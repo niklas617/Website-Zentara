@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 // Falls deine finale Domain abweicht, hier (und in sitemap.ts / robots.ts) anpassen.
 const SITE_URL = "https://zentara-solutions.de";
@@ -92,7 +91,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         {children}
-        <ScrollToTop />
       </body>
     </html>
   );
