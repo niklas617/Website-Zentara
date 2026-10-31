@@ -57,10 +57,6 @@ export default function Datenschutz() {
 
                     <p style={{ marginTop: "28px" }}>In Anlehnung an eine Vorlage von <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>.</p>
 
-                    <div className="legal-disclaimer">
-                        Hinweis: Diese Datenschutzerkl&auml;rung wurde an den aktuellen Funktionsumfang der Seite angepasst und stellt keine Rechtsberatung dar. Bitte pr&uuml;fe sie vor dem endg&uuml;ltigen Livegang noch einmal (z.&nbsp;B. mit dem Generator von e-recht24) oder lass sie rechtlich gegenpr&uuml;fen.
-                    </div>
-
                     <div style={{ marginTop: "32px" }}>
                         <Link href="/" className="project-link-btn">Zurück zur Startseite</Link>
                     </div>
