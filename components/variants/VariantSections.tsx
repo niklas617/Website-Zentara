@@ -3,8 +3,10 @@ import Link from "next/link";
 import { MS_FEATURES, MS_SCREENS, MS_MARQUEE, MS_LINKS } from "../../lib/motoset-content";
 
 /** Geteilte Inhalts-Sektionen unterhalb des Hero. Das Aussehen kommt pro
- *  Variante über die Theme-Klasse am Seiten-Root (z. B. .v-chrome) + variants.css. */
-export default function VariantSections() {
+ *  Variante über die Theme-Klasse am Seiten-Root (z. B. .v-chrome) + variants.css.
+ *  `home` = öffentliche Startseite (Footer ohne Dev-Links, mit verstecktem
+ *  Monetra-Zugang). */
+export default function VariantSections({ home = false }: { home?: boolean }) {
   return (
     <>
       {/* Marquee */}
@@ -84,10 +86,11 @@ export default function VariantSections() {
         <div className="vs-wrap vs-footer-inner">
           <span className="vs-copy">© {new Date().getFullYear()} Zentara Solutions · Niklas Smit</span>
           <div className="vs-footer-links">
-            <Link href="/designs">← Alle Designs</Link>
-            <Link href="/">Live-Version</Link>
+            {!home && <Link href="/designs">← Alle Designs</Link>}
             <Link href="/impressum">Impressum</Link>
             <Link href="/datenschutz">Datenschutz</Link>
+            {/* Dezenter, versteckter Zugang zur passwortgeschützten Monetra-Seite */}
+            <Link href="/monetra" className="vs-lock" aria-label="Interner Bereich" title="Interner Bereich">🔒</Link>
           </div>
         </div>
       </footer>

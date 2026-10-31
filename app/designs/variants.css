@@ -77,6 +77,8 @@
 .vs-footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .vs-footer-links a { color: var(--vmuted); text-decoration: none; font-size: .86rem; } .vs-footer-links a:hover { color: var(--vink); }
 .vs-copy { color: color-mix(in srgb, var(--vink) 45%, transparent); font-size: .82rem; }
+.vs-lock { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; border: 1px solid transparent; text-decoration: none; transition: color .2s, border-color .2s, background .2s; }
+.vs-lock:hover { border-color: color-mix(in srgb, var(--vaccent) 35%, transparent); background: color-mix(in srgb, var(--vaccent) 8%, transparent); }
 
 /* =========================== THEMES =========================== */
 /* 1 — BLUEPRINT */
