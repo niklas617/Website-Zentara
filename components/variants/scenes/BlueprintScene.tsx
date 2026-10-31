@@ -18,7 +18,8 @@ export default function BlueprintScene() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
     // Näher dran = größer (bildschirmfüllend); auf Desktop nach rechts versetzt.
-    camera.position.set(0, 0.2, wide ? 7.6 : 8.4);
+    camera.position.set(0, 0.2, wide ? 7.9 : 8.7);
+    camera.lookAt(0, 0.8, 0); // Blickpunkt höher → Federbein sitzt tiefer im Bild
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
     renderer.setSize(w, h); renderer.setClearColor(0x000000, 0);
@@ -117,7 +118,7 @@ export default function BlueprintScene() {
       if (!drag) { rotY += 0.004 + vel; vel *= 0.95; }
       pivot.rotation.y = rotY; pivot.rotation.x += (rotX - pivot.rotation.x) * 0.06;
       camera.position.x += (px * 1.1 - camera.position.x) * 0.04;
-      camera.position.y += (0.2 - py * 0.7 - camera.position.y) * 0.04; camera.lookAt(0, 0, 0);
+      camera.position.y += (0.2 - py * 0.7 - camera.position.y) * 0.04; camera.lookAt(0, 0.8, 0);
       renderer.render(scene, camera);
     };
     reduce ? renderer.render(scene, camera) : loop();
