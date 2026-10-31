@@ -13,19 +13,12 @@ export default function Impressum() {
 
                     <h2>Angaben gemäß § 5 DDG</h2>
                     <p>Niklas Smit<br />
-                        Zentara Solutions<br />
                         Am Waldfriedhof 9<br />
                         49832 Thuine</p>
 
                     <h2>Kontakt</h2>
                     <p>Telefon: 017621742783<br />
                         E-Mail: zentara.network@gmail.com</p>
-
-                    <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
-                    <p>Berufsbezeichnung:<br />
-                        Webentwickler / Softwareentwickler</p>
-                    <p>Verliehen in:<br />
-                        Deutschland</p>
 
                     <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
                     <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>

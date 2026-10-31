@@ -84,7 +84,7 @@ export default function VariantSections({ home = false }: { home?: boolean }) {
       {/* Footer */}
       <footer className="vs-footer">
         <div className="vs-wrap vs-footer-inner">
-          <span className="vs-copy">© {new Date().getFullYear()} Zentara Solutions · Niklas Smit</span>
+          <span className="vs-copy">© {new Date().getFullYear()} MotoSet · Niklas Smit</span>
           <div className="vs-footer-links">
             {!home && <Link href="/designs">← Alle Designs</Link>}
             <Link href="/impressum">Impressum</Link>

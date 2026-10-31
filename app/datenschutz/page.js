@@ -28,7 +28,6 @@ export default function Datenschutz() {
                     <h3>Hinweis zur verantwortlichen Stelle</h3>
                     <p>Die verantwortliche Stelle f&uuml;r die Datenverarbeitung auf dieser Website ist:</p>
                     <p>Niklas Smit<br />
-                        Zentara Solutions<br />
                         Am Waldfriedhof 9<br />
                         49832 Thuine</p>
                     <p>Telefon: 017621742783<br />

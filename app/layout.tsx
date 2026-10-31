@@ -4,15 +4,15 @@ import "./globals.css";
 // Falls deine finale Domain abweicht, hier (und in sitemap.ts / robots.ts) anpassen.
 const SITE_URL = "https://zentara-solutions.de";
 
-const META_TITLE = "MotoSet – Fahrwerks-Setups immer dabei | Zentara Solutions";
+const META_TITLE = "MotoSet – Fahrwerks-Setups immer dabei";
 const META_DESCRIPTION =
-  "MotoSet – die App für dein Motorrad-Fahrwerk: Setups pro Bike speichern, versionieren und offline am Trackday abrufen. Eine Eigenentwicklung von Zentara Solutions.";
+  "MotoSet – die App für dein Motorrad-Fahrwerk: Setups pro Bike speichern, versionieren und offline am Trackday abrufen. Jetzt als Android-App und Web-App.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: META_TITLE,
-    template: "%s | Zentara Solutions",
+    template: "%s | MotoSet",
   },
   description: META_DESCRIPTION,
   applicationName: "MotoSet",
@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     "Suspension Setup",
     "Trackday App",
     "Fahrwerk Einstellungen speichern",
-    "Zentara Solutions",
   ],
   alternates: { canonical: "/" },
   icons: {
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: SITE_URL,
-    siteName: "MotoSet · Zentara Solutions",
+    siteName: "MotoSet",
     title: META_TITLE,
     description: META_DESCRIPTION,
     images: [
@@ -71,7 +70,7 @@ const jsonLd = {
     "MotoSet speichert Motorrad-Fahrwerks-Setups pro Bike – versioniert, blitzschnell abrufbar und offline am Trackday.",
   url: SITE_URL,
   author: { "@type": "Person", name: "Niklas Smit" },
-  publisher: { "@type": "Organization", name: "Zentara Solutions" },
+  publisher: { "@type": "Person", name: "Niklas Smit" },
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
 };
 
